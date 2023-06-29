@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="./css/styles.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
+    <header>
+      <include src="./partials/header.html"></include>
+    </header>
+    <main>
+      <include src="./partials/menu.html"></include>
+      <include src="./partials/categories.html"></include>
+      <include src="./partials/support.html"></include>
+      <include src="./partials/books.html"></include>
+      <include src="./partials/modal.html"></include>
+      <include src="./partials/shopping-list.html"></include>
+      <include src="./partials/book-card.html"></include>
+    </main>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
     <include src="./partials/example.html"></include>
   </body>
