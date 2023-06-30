@@ -100,25 +100,24 @@ li {
   margin-bottom: 16px;
 }
 
-.swiper-slide.charity-item {
-  height: 32px;
+.swiper-slide {
   font-size: 18px;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
 .charity-link {
-  display: block;
+  display: flex;
   width: 100%;
   height: 100%;
+  justify-content: left;
 }
 
 .charity-img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+  /* width: 100%; */
+  height: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -150,6 +149,7 @@ li {
 .swiper-button-up-icon {
   fill: #4f2ee8;
 }
+
 .swiper-button-up.is-hidden {
   display: none;
 }
