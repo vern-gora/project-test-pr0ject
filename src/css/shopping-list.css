@@ -1,0 +1,139 @@
+/* Общие стили для всех размеров */
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f6f6f6;
+}
+
+.book-title-wrap {
+  display: flex;
+}
+
+.shopping-title {
+  display: block;
+  margin-left: 20px;
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #111111;
+}
+
+.list-title {
+  color: #4f2ee8;
+}
+
+.shopping-text-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shopping-text {
+  width: 244px;
+  height: 36px;
+  margin-top: 120px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #00000099;
+}
+
+.shopping-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+  margin-bottom: 302px;
+}
+
+.shopping-img {
+  width: 265px;
+  height: 198px;
+}
+
+/* Дополнительные стили для размера от 320px до 374px */
+@media (min-width: 320px) and (max-width: 374px) {
+}
+
+/* Дополнительные стили для размера от 375px до 767px */
+@media screen and (min-width: 375px) {
+  /* Дополнительные стили для размера от 375px до 767px */
+}
+
+/* Дополнительные стили для размера от 768px до 1439px */
+@media screen and (min-width: 768px) {
+  .shopping-title {
+    margin-left: 32px;
+    font-size: 48px;
+    line-height: 52px;
+  }
+
+  .shopping-text {
+    width: 349px;
+    height: 48px;
+    margin-top: 140px;
+    font-size: 18px;
+
+    line-height: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .shopping-img-wrap {
+    margin-top: 20px;
+    margin-bottom: 394px;
+  }
+
+  .shopping-img {
+    width: 322px;
+    height: 241px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .shopping-title {
+    margin-left: 0;
+  }
+
+  .shopping-text {
+    margin-left: 315px;
+  }
+
+  .shopping-img-wrap {
+    margin-bottom: 157px;
+    margin-left: 315px;
+  }
+
+  .support-ukraine-wrap {
+  }
+  .shopping-list-wrap {
+  }
+
+  .support-ukraine {
+    width: 356px;
+    height: 490px;
+    margin-top: 40px;
+    margin-left: 24px;
+    border-radius: 16px;
+    background: radial-gradient(
+      183.6% 183.01% at 59.76% -23.42%,
+      #4f2ee8 18.03%,
+      #ffffff 100%
+    );
+  }
+}
