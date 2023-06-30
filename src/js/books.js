@@ -64,6 +64,8 @@ async function searchCategory(selectedCategory) {
         title: currentBookEl.title,
         author: currentBookEl.author,
         id: currentBookEl._id,
+        description: currentBookEl.description,
+        links: currentBookEl.buy_links,
       };
     });
     console.log(selectedCategoryEl);
