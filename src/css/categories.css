@@ -1,0 +1,99 @@
+.container {
+  width: 335px;
+  height: 226px;
+  display: flex;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.categories-2 {
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.categories-title {
+  color: #4f2ee8;
+  font-size: 16px;
+  font-family: DMSans-400;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+  text-transform: uppercase;
+}
+
+.categories-list {
+  padding: 0px;
+}
+
+.categories-el {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 16px;
+  font-family: DMSans-400;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+  list-style: none;
+}
+
+.categories-el:hover {
+  color: #4f2ee8;
+  font-size: 18px;
+  font-family: DMSans-700;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+}
+
+/* Дополнительные стили для размера от 320px до 374px */
+@media (min-width: 320px) and (max-width: 374px) {
+}
+
+/* Дополнительные стили для размера от 768px до 1439px */
+@media screen and (min-width: 768px) {
+  .container {
+    width: 309px;
+    height: 472px;
+    display: flex;
+    margin-left: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .categories-list {
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    width: 328px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .categories-el {
+    color: rgba(17, 17, 17, 0.6);
+    font-size: 18px;
+    font-family: DMSans-400;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+  }
+}
