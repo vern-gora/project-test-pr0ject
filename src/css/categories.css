@@ -29,7 +29,7 @@ body {
 .categories-title {
   color: rgba(17, 17, 17, 0.6);
   font-size: 18px;
-  font-family: DM Sans-400;
+  font-family: DMSans-400;
   font-style: normal;
   line-height: 24px;
   letter-spacing: -0.36px;
@@ -63,7 +63,7 @@ body {
 .categories-el:hover {
   color: #4f2ee8;
   font-size: 18px;
-  font-family: DM Sans-700;
+  font-family: DMSans-700;
   font-style: normal;
   line-height: 24px;
   letter-spacing: -0.36px;
@@ -116,7 +116,7 @@ body {
   .categories-el {
     color: rgba(17, 17, 17, 0.6);
     font-size: 18px;
-    font-family: DM Sans-400;
+    font-family: DMSans-400;
     font-style: normal;
     line-height: 24px;
     letter-spacing: -0.36px;
@@ -133,7 +133,7 @@ body {
   .categories-el:hover {
     color: #4f2ee8;
     font-size: 18px;
-    font-family: DM Sans-700;
+    font-family: DMSans-700;
     font-style: normal;
     line-height: 24px;
     letter-spacing: -0.36px;
