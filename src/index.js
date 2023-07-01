@@ -14,3 +14,14 @@ import './js/shopping-list.js';
 import './js/book-card.js';
 import './js/firebase/firebase-api.js';
 import './js/firebase/firebase-config.js';
+
+isUserSignIn();
+
+
+async function isUserSignIn() {
+  const userId = localStorage.getItem('userId');
+  if (!userId) {
+    onClickSignOut();
+  } else {
+  }
+}
