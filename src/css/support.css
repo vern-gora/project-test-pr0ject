@@ -1,15 +1,15 @@
 .section {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-.sidebar {
+.charity-container {
   width: 375px;
   padding-inline: 20px;
   margin: 0 auto;
 }
 
-.charity-container {
+.charity-box {
   width: 100%;
   border-radius: 16px;
   background: radial-gradient(
@@ -43,6 +43,7 @@
 .swiper-slide::before {
   counter-increment: section;
   content: '0' counter(section) ' ';
+
   color: #fff;
   font-size: 14px;
   font-family: DM Sans;
@@ -53,7 +54,6 @@
 }
 
 .swiper {
-  width: 255px;
   height: 188px;
   overflow: hidden;
   margin-bottom: 48px;
@@ -122,15 +122,17 @@
   display: none;
 }
 
-@media screen and (min-width: 1440px) {
-  .sidebar {
-    width: 396px;
-  }
+.swiper-button-next svg {
+  width: 20px;
+  height: 20px;
 }
 
 @media screen and (max-width: 375px) {
-  .sidebar {
+  .charity-container {
     width: 100%;
+  }
+  .charity-title {
+    font-size: 25px;
   }
 }
 
@@ -141,15 +143,33 @@
     height: 38px;
   }
 
+  .charity-box {
+    padding-bottom: 14px;
+  }
+
+  .swiper-wrapper {
+    margin-bottom: 32px;
+  }
+
+  .swiper {
+    height: 292;
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .charity-container {
-    padding-bottom: 24px;
+    width: 396px;
   }
   .swiper-wrapper {
     margin-bottom: 40px;
   }
 
+  .charity-box {
+    padding-bottom: 24px;
+  }
+
   .swiper {
-    height: 292;
     margin-bottom: 78px;
   }
 }

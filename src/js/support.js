@@ -1,34 +1,3 @@
-// // / ----------- Version with rendering html in js ------------
-
-// // import charityArray from './charity-array';
-// // import Swiper, { Navigation, Pagination } from 'swiper';
-// // import Swiper and modules styles
-
-// // const charityContainer = document.querySelector('.charity-list');
-
-// // function createTemplate(array) {
-// //   return array
-// //     .map(org => {
-// //       return `
-// //   <li class="charity-item">
-// //   <a href="${org.url}" rel="nofollow noreferrer noopener" target="_blank">
-// //     <img src="${org.img}" alt="${org.title}" />
-// //   </a>
-// //   </li>
-// //   `;
-// //     })
-// //     .join('');
-// // }
-
-// // let template = createTemplate(charityArray);
-// // charityContainer.insertAdjacentHTML('beforeend', template);
-
-// //   ---------- Version with replacing atrributes ----------
-
-import Swiper, { Navigation, Pagination } from 'swiper';
-
-Swiper.use([Navigation, Pagination]);
-
 const charityArray = [
   {
     title: 'Save the Children',
@@ -77,15 +46,99 @@ const charityArray = [
   },
 ];
 
-const charityLinks = Array.from(document.querySelectorAll('.charity-link'));
+import image1 from '../img/support-png/1@1x.png';
+import image1x2 from '../img/support-png/1@2x.png';
+import image2 from '../img/support-png/2@1x.png';
+import image2x2 from '../img/support-png/2@2x.png';
+import image3 from '../img/support-png/3@1x.png';
+import image3x2 from '../img/support-png/3@2x.png';
+import image4 from '../img/support-png/4@1x.png';
+import image4x2 from '../img/support-png/4@2x.png';
+import image5 from '../img/support-png/5@1x.png';
+import image5x2 from '../img/support-png/5@2x.png';
+import image6 from '../img/support-png/6@1x.png';
+import image6x2 from '../img/support-png/6@2x.png';
+import image7 from '../img/support-png/7@1x.png';
+import image7x2 from '../img/support-png/7@2x.png';
+import image8 from '../img/support-png/8@1x.png';
+import image8x2 from '../img/support-png/8@2x.png';
+import image9 from '../img/support-png/9@1x.png';
+import image9x2 from '../img/support-png/9@2x.png';
 
-let i = 0;
+const imageArray = [
+  {
+    image1,
+    image1x2,
+  },
+  {
+    image2,
+    image2x2,
+  },
+  {
+    image3,
+    image3x2,
+  },
+  {
+    image4,
+    image4x2,
+  },
+  {
+    image5,
+    image5x2,
+  },
+  {
+    image6,
+    image6x2,
+  },
+  {
+    image7,
+    image7x2,
+  },
+  {
+    image8,
+    image8x2,
+  },
+  {
+    image9,
+    image9x2,
+  },
+];
 
-charityLinks.map(org => {
-  org.href = charityArray[i].url;
-  org.querySelector('img').alt = charityArray[i].title;
-  i += 1;
-});
+import Swiper, { Navigation, Pagination } from 'swiper';
+
+Swiper.use([Navigation, Pagination]);
+
+const charityContainer = document.querySelector('.swiper-wrapper');
+
+function createTemplate(objectArray, imageArray) {
+  return objectArray
+    .map((org, index) => {
+      const images = imageArray[index];
+
+      const image1x = images[`image${index + 1}`];
+      const image2x = images[`image${index + 1}x2`];
+
+      return `<li class="swiper-slide">
+        <a
+          class="charity-link"
+          rel="nofollow noreferrer noopener"
+          target="_blank"
+          href="${org.url}"
+        >
+          <img
+            src="${image1x}"
+            srcset="${image2x} 2x"
+            class="charity-img"
+            alt="${org.title}"
+          />
+        </a>
+      </li>`;
+    })
+    .join('');
+}
+
+let template = createTemplate(charityArray, imageArray);
+charityContainer.insertAdjacentHTML('beforeend', template);
 
 // --------------Swiper ------------
 
@@ -96,7 +149,6 @@ const swiperOptions = {
 
   navigation: {
     nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
   },
 
   observer: true,
