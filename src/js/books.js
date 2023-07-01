@@ -106,7 +106,7 @@ function renderBooks(array) {
       books
         .map(
           ({ author, book_image, title, _id }) =>
-            `<li class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
+            `<li class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></li>`
         )
         .join('') +
       `</ul></li>`
@@ -117,22 +117,23 @@ function renderBooks(array) {
 }
 
 function addToStorage() {
-  const bookcards = document.querySelectorAll('.book-card');
+  const buttons = document.querySelectorAll('.book-card .see-morebtn');
 
-  bookcards.forEach(bookcard => {
-    const author = bookcard.dataset.author;
-    const title = bookcard.dataset.title;
-    const image = bookcard.dataset.bookimage;
-    const id = bookcard.dataset.id;
+  buttons.forEach(button => {
+    button.addEventListener('click', e => {
+      const bookcard = e.currentTarget.parentElement;
+      const author = bookcard.dataset.author;
+      const title = bookcard.dataset.title;
+      const image = bookcard.dataset.bookimage;
+      const id = bookcard.dataset.id;
 
-    const bookData = {
-      author,
-      title,
-      image,
-      id,
-    };
+      const bookData = {
+        author,
+        title,
+        image,
+        id,
+      };
 
-    bookcard.addEventListener('click', () => {
       localStorage.setItem('bookinfo', JSON.stringify(bookData));
     });
   });
