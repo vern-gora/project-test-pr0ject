@@ -12,5 +12,5 @@ import './js/books.js';
 import './js/modal.js';
 import './js/shopping-list.js';
 import './js/book-card.js';
-import './js/firebase/firebase-api.js'
+import './js/firebase/firebase-api.js';
 import './js/firebase/firebase-config.js';
