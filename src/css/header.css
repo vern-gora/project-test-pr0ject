@@ -107,6 +107,7 @@ body {
     background-image:url(../img/mob-img/menu@1x.png),linear-gradient(#4F2EE8,#FFFFFF); ;
     background-repeat: repeat-x;
     background-position: bottom;
+    overflow: hidden;
   }
   .mob-menu-wrap {
     display: flex;
