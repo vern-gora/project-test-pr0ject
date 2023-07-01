@@ -1,12 +1,16 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 335px;
   height: 226px;
   display: flex;
-}
-
-body {
-  margin: 0;
-  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
 }
 
 .categories-2 {
@@ -19,21 +23,26 @@ body {
   gap: 24px;
   padding: 10px;
   overflow-y: auto;
+  position: relative;
 }
 
 .categories-title {
-  color: #4f2ee8;
-  font-size: 16px;
-  font-family: DMSans-400;
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 18px;
+  font-family: DM Sans-400;
   font-style: normal;
-  font-weight: 700;
-  line-height: 18px;
-  letter-spacing: -0.32px;
-  text-transform: uppercase;
+  line-height: 24px;
+  letter-spacing: -0.36px;
 }
 
 .categories-list {
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  overflow: auto;
 }
 
 .categories-el {
@@ -45,24 +54,38 @@ body {
   line-height: 18px;
   letter-spacing: -0.32px;
   list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .categories-el:hover {
   color: #4f2ee8;
   font-size: 18px;
-  font-family: DMSans-700;
+  font-family: DM Sans-700;
   font-style: normal;
-  font-weight: 700;
   line-height: 24px;
   letter-spacing: -0.36px;
   text-transform: uppercase;
 }
 
-/* Дополнительные стили для размера от 320px до 374px */
-@media (min-width: 320px) and (max-width: 374px) {
+@media (max-width: 375px) {
+  .categories-el {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 16px;
+    margin-bottom: 24px; /* Расстояние между элементами li на 375px */
+  }
+
+  .categories-el:hover {
+    font-size: 16px;
+    max-width: calc(100% - 16px); /* Уменьшаем максимальную ширину на 16px */
+  }
 }
 
-/* Дополнительные стили для размера от 768px до 1439px */
 @media screen and (min-width: 768px) {
   .container {
     width: 309px;
@@ -75,6 +98,9 @@ body {
   }
   .categories-list {
     padding-top: 40px;
+  }
+  .categories-el {
+    margin-bottom: 32px; /* Расстояние между элементами li на 768px */
   }
 }
 
@@ -90,10 +116,27 @@ body {
   .categories-el {
     color: rgba(17, 17, 17, 0.6);
     font-size: 18px;
-    font-family: DMSans-400;
+    font-family: DM Sans-400;
     font-style: normal;
-    font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.36px;
+    margin-bottom: 32px; /* Расстояние между элементами li на 1440px */
+  }
+
+  .categories-list {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .categories-el:hover {
+    color: #4f2ee8;
+    font-size: 18px;
+    font-family: DM Sans-700;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    text-transform: uppercase;
   }
 }
