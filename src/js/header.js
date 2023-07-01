@@ -1,9 +1,13 @@
 export const menuOpenBtn = document.querySelector("button[data-menu-open]");
 export const menuCloseBtn = document.querySelector("button[data-menu-close]");
 export const mobMenuEl = document.querySelector(".mob-menu");
-const lightLogoEl = document.querySelector("#logo-light");
-const darkLogoEl = document.querySelector("#logo-dark");
+export const lightLogoEl = document.querySelector("#logo-light");
+export const darkLogoEl = document.querySelector("#logo-dark");
 
+if(localStorage.getItem("theme")  ===  "dark"){
+    lightLogoEl.classList.add("visually-hidden");
+    darkLogoEl.classList.remove("visually-hidden");
+}
 menuOpenBtn.addEventListener("click", ()=>{
     mobMenuEl.classList.toggle("visually-hidden");
     menuCloseBtn.classList.toggle("visually-hidden");
