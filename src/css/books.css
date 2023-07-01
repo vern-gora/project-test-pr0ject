@@ -51,4 +51,7 @@ h2 {
   .book-card:nth-child(-n + 5) {
     display: block;
   }
+  .book-list {
+    max-width: 996px;
+  }
 }

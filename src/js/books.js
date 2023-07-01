@@ -100,6 +100,7 @@ searchTopBooks(bestSellersUrl).then(data => {
 });
 
 function renderBooks(array) {
+  localStorage.setItem('book - data', JSON.stringify(array));
   const markup = array.map(
     ({ list_name, books }) =>
       `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
