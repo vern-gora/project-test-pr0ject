@@ -100,18 +100,40 @@ searchTopBooks(bestSellersUrl).then(data => {
 });
 
 function renderBooks(array) {
-  localStorage.setItem('book - data', JSON.stringify(array));
   const markup = array.map(
     ({ list_name, books }) =>
       `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
       books
         .map(
-          ({ author, book_image, title }) =>
-            `<li class="book-card"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
+          ({ author, book_image, title, _id }) =>
+            `<li class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
         )
         .join('') +
       `</ul></li>`
   );
 
   bookList.insertAdjacentHTML('beforeend', markup);
+  addToStorage();
+}
+
+function addToStorage() {
+  const bookcards = document.querySelectorAll('.book-card');
+
+  bookcards.forEach(bookcard => {
+    const author = bookcard.dataset.author;
+    const title = bookcard.dataset.title;
+    const image = bookcard.dataset.bookimage;
+    const id = bookcard.dataset.id;
+
+    const bookData = {
+      author,
+      title,
+      image,
+      id,
+    };
+
+    bookcard.addEventListener('click', () => {
+      localStorage.setItem('bookinfo', JSON.stringify(bookData));
+    });
+  });
 }
