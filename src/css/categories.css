@@ -54,7 +54,7 @@ body {
   line-height: 18px;
   letter-spacing: -0.32px;
   list-style: none;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
@@ -70,19 +70,19 @@ body {
   text-transform: uppercase;
 }
 
-@media (max-width: 375px) {
+@media (min-width: 375px) and (max-width: 767px){
   .categories-el {
-    white-space: nowrap;
+    white-space: normal; 
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     font-size: 16px;
-    margin-bottom: 24px; /* Расстояние между элементами li на 375px */
+    margin-bottom: 24px; 
   }
 
   .categories-el:hover {
     font-size: 16px;
-    max-width: calc(100% - 16px); /* Уменьшаем максимальную ширину на 16px */
+    max-width: calc(100% - 16px);
   }
 }
 
@@ -100,7 +100,7 @@ body {
     padding-top: 40px;
   }
   .categories-el {
-    margin-bottom: 32px; /* Расстояние между элементами li на 768px */
+    margin-bottom: 32px;
   }
 }
 
@@ -120,7 +120,7 @@ body {
     font-style: normal;
     line-height: 24px;
     letter-spacing: -0.36px;
-    margin-bottom: 32px; /* Расстояние между элементами li на 1440px */
+    margin-bottom: 32px; 
   }
 
   .categories-list {
