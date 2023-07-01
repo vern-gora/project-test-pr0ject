@@ -1,0 +1,142 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 335px;
+  height: 226px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.categories-2 {
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 10px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.categories-title {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 18px;
+  font-family: DMSans-400;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+}
+
+.categories-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  overflow: auto;
+}
+
+.categories-el {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 16px;
+  font-family: DMSans-400;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+  list-style: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.categories-el:hover {
+  color: #4f2ee8;
+  font-size: 18px;
+  font-family: DMSans-700;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 375px) {
+  .categories-el {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 16px;
+    margin-bottom: 24px; /* Расстояние между элементами li на 375px */
+  }
+
+  .categories-el:hover {
+    font-size: 16px;
+    max-width: calc(100% - 16px); /* Уменьшаем максимальную ширину на 16px */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 309px;
+    height: 472px;
+    display: flex;
+    margin-left: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .categories-list {
+    padding-top: 40px;
+  }
+  .categories-el {
+    margin-bottom: 32px; /* Расстояние между элементами li на 768px */
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    display: flex;
+    width: 328px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .categories-el {
+    color: rgba(17, 17, 17, 0.6);
+    font-size: 18px;
+    font-family: DMSans-400;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    margin-bottom: 32px; /* Расстояние между элементами li на 1440px */
+  }
+
+  .categories-list {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .categories-el:hover {
+    color: #4f2ee8;
+    font-size: 18px;
+    font-family: DMSans-700;
+    font-style: normal;
+    line-height: 24px;
+    letter-spacing: -0.36px;
+    text-transform: uppercase;
+  }
+}
