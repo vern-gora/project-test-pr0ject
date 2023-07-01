@@ -24,8 +24,8 @@ body {
     font-weight: 600;
   }
   .logo svg{
-    width: 24px;
-    height: 24px;
+    width: 109px;
+    height: 28px;
   }
   .header-title {
     font-family: "DMSans-400", sans-serif;
@@ -104,8 +104,8 @@ body {
     position: fixed;
     z-index: 1;
     overflow-y: auto;
-    background-image:url(../img/mob-img/menu@1x.jpg),linear-gradient(#4F2EE8,#FFFFFF); ;
-    background-repeat: no-repeat;
+    background-image:url(../img/mob-img/menu@1x.png),linear-gradient(#4F2EE8,#FFFFFF); ;
+    background-repeat: repeat-x;
     background-position: bottom;
   }
   .mob-menu-wrap {
@@ -156,6 +156,10 @@ stroke: #FFFFFF;
     text-decoration: none;
     color: #ffffff;
     font-family: "DMSans-500", sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
   }
   .mob-menu-shopping-list-link svg{
     stroke: #FFFFFF;
@@ -204,6 +208,9 @@ stroke: #FFFFFF;
       height: 72px;
     }
     .mob-menu-open {
+      display: none;
+    }
+    .mob-menu-close{
       display: none;
     }
     .mob-menu{
