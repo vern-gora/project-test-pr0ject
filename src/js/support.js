@@ -56,7 +56,7 @@ const swiperOptions = {
       slidesPerView: 4,
     },
 
-    780: {
+    768: {
       slidesPerView: 6,
     },
 
@@ -69,6 +69,10 @@ const swiperOptions = {
 const swiper = new Swiper('.swiper', swiperOptions);
 
 const upBtn = document.querySelector('.swiper-button-up');
+
+window.addEventListener('resize', function () {
+  swiper.update();
+});
 
 upBtn.addEventListener('click', () => {
   swiper.slideTo(0, 800);
@@ -92,8 +96,8 @@ function getNumberOfClicksForSwiper() {
 
   if (windowWidth >= 1440) {
     currentSlidesPerView = swiperOptions.breakpoints[1440].slidesPerView;
-  } else if (windowWidth >= 780) {
-    currentSlidesPerView = swiperOptions.breakpoints[780].slidesPerView;
+  } else if (windowWidth >= 768) {
+    currentSlidesPerView = swiperOptions.breakpoints[768].slidesPerView;
   } else {
     currentSlidesPerView = swiperOptions.breakpoints[320].slidesPerView;
   }
