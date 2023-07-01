@@ -117,7 +117,7 @@
 }
 
 .swiper-button-next-icon {
-  transform: rotate(180deg) translateY(-101%) translateX(-105%);
+  transform: rotate(180deg) translateY(-105%) translateX(-105%);
 }
 
 .swiper-button-up.is-hidden {
