@@ -4,30 +4,30 @@ const bestSellersUrl = 'https://books-backend.p.goit.global/books/top-books';
 const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 const testCategory = 'Series Books';
 const bookId = '643282b1e85766588626a083';
+const bookList = document.querySelector('.book-list');
 
 async function searchTopBooks(bookUrl) {
   try {
     const response = await axios.get(`${bookUrl}`);
     const books = response.data;
 
-    const bookData = books.map(book => {
-      const currentBook = book.books[0];
-      return {
-        image: currentBook.book_image,
-        title: currentBook.title,
-        author: currentBook.author,
-        id: currentBook._id,
-      };
-    });
-    console.log(bookData);
-
-    return bookData;
+    // const bookData = books.map(book => {
+    //   const currentBook = book.books[0];
+    //   return {
+    //     image: currentBook.book_image,
+    //     title: currentBook.title,
+    //     author: currentBook.author,
+    //     id: currentBook._id,
+    //   };
+    // });
+    // console.log(bookData);
+    console.log(books);
+    return books;
   } catch (error) {
     console.log(error);
     throw new Error('Failed to find books');
   }
 }
-searchTopBooks(bestSellersUrl);
 
 async function searchAllCategory() {
   try {
@@ -93,3 +93,26 @@ async function searchById(id) {
   }
 }
 searchById(bookId);
+
+searchTopBooks(bestSellersUrl).then(data => {
+  console.log(data);
+  renderBooks(data);
+});
+
+function renderBooks(array) {
+  const markup = array
+    .map(
+      ({ list_name, books }) =>
+        `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
+        books
+          .map(
+            ({ author, book_image, title }) =>
+              `<li class="book-card"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
+          )
+          .join('') +
+        `</ul></li>`
+    )
+    .join('');
+
+  bookList.insertAdjacentHTML('beforeend', markup);
+}
