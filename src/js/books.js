@@ -100,17 +100,19 @@ searchTopBooks(bestSellersUrl).then(data => {
 });
 
 function renderBooks(array) {
-  const markup = array.map(
-    ({ list_name, books }) =>
-      `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
-      books
-        .map(
-          ({ author, book_image, title }) =>
-            `<li class="book-card"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
-        )
-        .join('') +
-      `</ul></li>`
-  );
+  const markup = array
+    .map(
+      ({ list_name, books }) =>
+        `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
+        books
+          .map(
+            ({ author, book_image, title }) =>
+              `<li class="book-card"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3></li>`
+          )
+          .join('') +
+        `</ul></li>`
+    )
+    .join('');
 
   bookList.insertAdjacentHTML('beforeend', markup);
 }
