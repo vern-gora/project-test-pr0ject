@@ -21,7 +21,6 @@ body {
     align-items: center;
     gap: 8px;
     margin-right: auto;
-    font-family: "DM Sans", sans-serif;
     font-weight: 600;
   }
   .logo svg{
@@ -29,7 +28,7 @@ body {
     height: 24px;
   }
   .header-title {
-    font-weight: 600;
+    font-family: "DMSans-400", sans-serif;
   }
   .header-wrap {
     display: flex;
@@ -70,6 +69,18 @@ body {
     background-color: transparent;
     stroke: #111111;
   }
+  .mob-menu-close{
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+    stroke: #111111;
+  }
+ 
   .sign-up-btn {
     display: none;
   }
@@ -78,7 +89,7 @@ body {
   }
   .username {
     text-align: center;
-    font-weight: 700;
+    font-family: "DMSans-700", sans-serif;
     font-size: 22px;
     line-height: 28.64px;
     width: 87px;
@@ -113,6 +124,7 @@ margin-top: 20px;
   .mob-menu-sign-up-btn {
     width: 87px;
     height: 29px;
+    margin-left: 20px;
     padding: 0;
     background-color: transparent;
     border: none;
@@ -123,8 +135,6 @@ margin-top: 20px;
     color: #FFFFFF;
   }
  .user-photo{
-width: 37px;
-height: 37px;
 stroke: #FFFFFF;
   }
   .mob-menu-nav {
@@ -140,10 +150,12 @@ stroke: #FFFFFF;
   .mob-menu-home-link {
     text-decoration: none;
     color: #ffffff;
+    font-family: "DMSans-500", sans-serif;
   }
   .mob-menu-shopping-list-link {
     text-decoration: none;
     color: #ffffff;
+    font-family: "DMSans-500", sans-serif;
   }
   .mob-menu-shopping-list-link svg{
     stroke: #FFFFFF;
@@ -153,13 +165,11 @@ stroke: #FFFFFF;
     height: 48px;
     margin-bottom: 20px;
     margin-left: 20px;
-    padding: 12px, 24px;
     color: #111111;
     background-color: #ffffff;
     border-radius: 18px;
     border: 1.5px solid #111111;
-    font-family: "DM Sans", sans-serif;
-    font-weight: 600;
+    font-family: "DMSans-700", sans-serif;
     display: flex;
     align-items: center;
     gap: 4px;
@@ -168,6 +178,21 @@ stroke: #FFFFFF;
     width: 20px;
     height: 20px;
   }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+  
   @media screen and (min-width: 375px) {
     .header-container {
       width: 100%;
@@ -199,7 +224,7 @@ stroke: #FFFFFF;
     .header-home-link {
       text-decoration: none;
       color: #111111;
-      font-weight: 600;
+      font-family: "DMSans-500", sans-serif;
       font-size: 14px;
       line-height: 18px;
     }
@@ -210,8 +235,7 @@ stroke: #FFFFFF;
       flex-direction: row;
       align-items: center;
       gap: 4px;
-      font-family: "DM Sans", sans-serif;
-      font-weight: 600;
+      font-family: "DMSans-500", sans-serif;
       font-size: 14px;
       line-height: 18px;
     }
@@ -229,14 +253,6 @@ stroke: #FFFFFF;
       color: #ffffff;
       border: none;
       border-radius: 36px;
-    }
-    .sign-up-btn::before {
-      content: "";
-      width: 37px;
-      height: 37px;
-      background-color: #eac645;
-      border-radius: 50%;
-      margin-right: 9px;
     }
     .sign-up-btn svg {
       margin-left: 4px;

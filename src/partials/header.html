@@ -16,23 +16,30 @@
 <div class="header-wrap">
     <div class="theme-switcher">
     </div>
-    <button class="mob-menu-open">
+    <button class="mob-menu-open" data-menu-open>
         <svg>
             <use href="./img/symbol-defs.svg#icon-burger"></use>
         </svg>
         </div>
     </button>
-    <button type="button" class="sign-up-btn"><span class="username">User</span>
-      <svg width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.791504 0.75H14.2082L8.17738 7.56742C7.99766 7.77051 7.75395 7.8846 7.49984 7.8846C7.24572 7.8846 7.00201 7.77051 6.8223 7.56742L0.791504 0.75Z" fill="white"/>
-        </svg>                
+    <button class="mob-menu-close visually-hidden" data-menu-close>
+      <svg width="28px" height="28px"  class="mob-menu-close-icon">
+          <use href="./img/symbol-defs.svg#icon-x-close"></use>
+      </svg></button>
+    <button type="button" class="sign-up-btn">
+      <svg class="user-photo" width="37px"
+      height="37px">
+        <use href="./img/symbol-defs.svg#icon-user"></use>
+    </svg>       
+      <span class="username">User</span>
     </button>
 </div>
-<div class="mob-menu">
+<div class="mob-menu visually-hidden">
     <div class="mob-menu-wrap">
         <div class="user-profile">
           <button class="mob-menu-sign-up-btn">
-        <svg class="user-photo">
+        <svg class="user-photo" width="37px"
+        height="37px">
             <use href="./img/symbol-defs.svg#icon-user"></use>
         </svg>
   <span class="username">User</span></button>
@@ -46,5 +53,5 @@
   <svg>
     <use href="./img/symbol-defs.svg#icon-arrow-narrow-right"></use>
   </svg>
-</button>   
+</button>
 </div>
