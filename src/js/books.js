@@ -21,7 +21,6 @@ async function searchTopBooks(bookUrl) {
     //   };
     // });
     // console.log(bookData);
-    console.log(books);
     return books;
   } catch (error) {
     console.log(error);
@@ -40,7 +39,6 @@ async function searchAllCategory() {
         name: currentCategory.list_name,
       };
     });
-    console.log(categoryData);
 
     return categories;
   } catch (error) {
@@ -68,7 +66,6 @@ async function searchCategory(selectedCategory) {
         links: currentBookEl.buy_links,
       };
     });
-    console.log(selectedCategoryEl);
 
     return selectedCategoryEl;
   } catch (error) {
@@ -107,7 +104,7 @@ function renderBooks(array) {
         books
           .map(
             ({ author, book_image, title, _id }) =>
-              `<li class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></li>`
+              `<a class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></a>`
           )
           .join('') +
         `</ul></li>`
@@ -119,11 +116,11 @@ function renderBooks(array) {
 }
 
 function addToStorage() {
-  const buttons = document.querySelectorAll('.book-card .see-morebtn');
+  const books = document.querySelectorAll('.book-card');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', e => {
-      const bookcard = e.currentTarget.parentElement;
+  books.forEach(book => {
+    book.addEventListener('click', e => {
+      const bookcard = e.currentTarget;
       const author = bookcard.dataset.author;
       const title = bookcard.dataset.title;
       const image = bookcard.dataset.bookimage;
