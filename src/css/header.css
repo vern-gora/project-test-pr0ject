@@ -104,10 +104,11 @@ body {
     position: fixed;
     z-index: 1;
     overflow-y: auto;
-    background-image:url(../img/mob-img/menu@1x.png),linear-gradient(#4F2EE8,#FFFFFF); ;
+    background-image:linear-gradient(#4F2EE8,#FFFFFF); ;
     background-repeat: repeat-x;
     background-position: bottom;
     overflow: hidden;
+    
   }
   .mob-menu-wrap {
     display: flex;
@@ -183,7 +184,11 @@ stroke: #FFFFFF;
     width: 20px;
     height: 20px;
   }
-
+  .mob-menu-img{
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+  }
   .visually-hidden {
     position: absolute;
     width: 1px;
