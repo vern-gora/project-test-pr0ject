@@ -1,282 +1,287 @@
 body {
-    margin: 0 auto;
-  }
+  margin: 0 auto;
+}
+.header-container {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid var(--deep-black);
+  padding: 18px 20px 18px 20px;
+  border-radius: 0px 0px 8px 8px;
+  margin: 0 auto;
+  z-index: 3;
+  background-color:var(--white);
+  position: absolute;
+  z-index: 3;
+  top: 0;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  width: 109px;
+  height: 28px;
+  align-items: center;
+  gap: 8px;
+  margin-right: auto;
+  font-weight: 600;
+  background: var(--icon-logo);
+}
+.header-title {
+  font-family: 'DMSans-400', sans-serif;
+}
+.header-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.theme-switcher {
+  position: relative;
+  width: 39px;
+  height: 22px;
+  margin-right: 14px;
+  background-image: linear-gradient(to bottom, #4f2ee8, #dcdcdc);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 1px 0px 1px 1px;
+}
+.theme-switcher::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 1px 2px 4px 0px #0000001a;
+  box-shadow: 0px 2px 2px 0px #0000001a;
+  box-shadow: 1px 1px 2px 0px #0000001a;
+  transform: translateX(var(--switch-circle-pos));
+}
+.mob-menu-open {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  stroke: var(--deep-black);
+}
+.mob-menu-close {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  stroke: var(--deep-black);
+}
+.sign-up-btn {
+  display: none;
+}
+.header-nav {
+  display: none;
+}
+.username {
+  text-align: center;
+  font-family: 'DMSans-700', sans-serif;
+  font-size: 22px;
+  line-height: 28.64px;
+  width: 87px;
+  height: 29px;
+}
+.mob-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  overflow-y: auto;
+  background-image: linear-gradient(#4F2EE8, #fff);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  position: absolute;
+  top: 24px;
+}
+.mob-menu-wrap {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.user-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 133px;
+  height: 37px;
+  margin-top: 24px;
+}
+.mob-menu-sign-up-btn {
+  width: 87px;
+  height: 29px;
+  margin-left: 20px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+}
+.user-photo {
+  stroke: #fff;
+}
+.mob-menu-nav {
+  margin: 0 auto;
+  margin-top: 126px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+.mob-menu-nav-item {
+  list-style: none;
+}
+.mob-menu-home-link {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'DMSans-500', sans-serif;
+}
+.mob-menu-shopping-list-link {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'DMSans-500', sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+.mob-menu-shopping-list-link svg {
+  stroke: #fff;
+}
+.mob-menu-log-out-btn {
+  width: 118px;
+  height: 48px;
+  margin-bottom: 24px;
+  margin-left: 20px;
+  color: #111;
+  background-color: #fff;
+  border-radius: 18px;
+  border: 1.5px solid #111111;
+  font-family: 'DMSans-700', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.mob-menu-log-out-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.mob-menu-img {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 375px) {
   .header-container {
     width: 100%;
-    height: 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 2px solid #111111;
-    padding: 18px 20px 18px 20px;
-    border-radius: 0px 0px 8px 8px;
-    margin: 0 auto;
-    z-index: 3;
   }
-  .logo {
-    display: flex;
-    flex-direction: row;
-    width: 109px;
-    height: 28px;
-    align-items: center;
-    gap: 8px;
-    margin-right: auto;
-    font-weight: 600;
+  .mob-menu-img {
+    display: none;
   }
-  .logo svg{
-    width: 109px;
-    height: 28px;
-  }
-  .header-title {
-    font-family: "DMSans-400", sans-serif;
-  }
-  .header-wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  .theme-switcher {
-    position: relative;
-    width: 39px;
-    height: 22px;
-    margin-right: 14px;
-    background-image: linear-gradient(to bottom, #4f2ee8, #dcdcdc);
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 1px 0px 1px 1px;
-  }
-  .theme-switcher::before {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: #ffffff;
-    box-shadow: 1px 2px 4px 0px #0000001a;
-    box-shadow: 0px 2px 2px 0px #0000001a;
-    box-shadow: 1px 1px 2px 0px #0000001a;
+}
+@media screen and (min-width: 768px) {
+  .header-container {
+    width: 768px;
+    height: 72px;
   }
   .mob-menu-open {
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    stroke: #111111;
-  }
-  .mob-menu-close{
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    stroke: #111111;
-  }
- 
-  .sign-up-btn {
     display: none;
   }
-  .header-nav {
+  .mob-menu-close {
     display: none;
-  }
-  .username {
-    text-align: center;
-    font-family: "DMSans-700", sans-serif;
-    font-size: 22px;
-    line-height: 28.64px;
-    width: 87px;
-    height: 29px;
   }
   .mob-menu {
-    width: 100%;
-    height:100%;
+    display: none;
+  }
+  .logo {
+    margin-right: 40px;
+    margin-left: 32px;
+  }
+  .header-nav {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: fixed;
-    z-index: 1;
-    overflow-y: auto;
-    background-image:linear-gradient(#4F2EE8,#FFFFFF); ;
-    background-repeat: repeat-x;
-    background-position: bottom;
-    overflow: hidden;
-    
-  }
-  .mob-menu-wrap {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-  }
-  .user-profile{
-display: flex;
-flex-direction: row;
-align-items: center;
-width: 133px;
-height: 37px;
-margin-top: 20px;
-  }
-  .mob-menu-sign-up-btn {
-    width: 87px;
-    height: 29px;
-    margin-left: 20px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #FFFFFF;
-  }
- .user-photo{
-stroke: #FFFFFF;
-  }
-  .mob-menu-nav {
-    margin: 0 auto;
-    margin-top: 126px;
-    display: flex;
-    flex-direction: column;
-    row-gap: 24px;
-  }
-  .mob-menu-nav-item {
+    flex-direction: row;
     list-style: none;
+    align-items: center;
+    margin-right: auto;
+    gap: 16px;
   }
-  .mob-menu-home-link {
+  .header-home-link {
     text-decoration: none;
-    color: #ffffff;
-    font-family: "DMSans-500", sans-serif;
+    color: var(--deep-black);
+    font-family: 'DMSans-500', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
   }
-  .mob-menu-shopping-list-link {
+  .header-shopping-list-link {
     text-decoration: none;
-    color: #ffffff;
-    font-family: "DMSans-500", sans-serif;
+    color: var(--deep-black);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 4px;
+    font-family: 'DMSans-500', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
   }
-  .mob-menu-shopping-list-link svg{
-    stroke: #FFFFFF;
+  .theme-switcher {
+    margin-right: 24px;
   }
-  .mob-menu-log-out-btn {
-    width: 118px;
-    height: 48px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    color: #111111;
-    background-color: #ffffff;
-    border-radius: 18px;
-    border: 1.5px solid #111111;
-    font-family: "DMSans-700", sans-serif;
+  .sign-up-btn {
     display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    margin-right: 32px;
+    width: 184px;
+    height: 45px;
+    background-color: #4F2EE8;
+    color: #fff;
+    border: none;
+    border-radius: 36px;
   }
-  .mob-menu-log-out-btn svg{
-    width: 20px;
-    height: 20px;
+  .sign-up-btn svg {
+    margin-left: 4px;
   }
-  .mob-menu-img{
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
+}
+@media screen and (min-width: 1440px) {
+  .header-container {
+    width: 1440px;
   }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  .logo {
+    margin-right: 76px;
   }
-
-  
-  @media screen and (min-width: 375px) {
-    .header-container {
-      width: 100%;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    .header-container {
-      width: 768px;
-      height: 72px;
-    }
-    .mob-menu-open {
-      display: none;
-    }
-    .mob-menu-close{
-      display: none;
-    }
-    .mob-menu{
-      display: none;
-    }
-    .logo {
-      margin-right: 40px;
-      margin-left: 32px;
-    }
-    .header-nav {
-      display: flex;
-      flex-direction: row;
-      list-style: none;
-      align-items: center;
-      margin-right: auto;
-      gap: 16px;
-    }
-    .header-home-link {
-      text-decoration: none;
-      color: #111111;
-      font-family: "DMSans-500", sans-serif;
-      font-size: 14px;
-      line-height: 18px;
-    }
-    .header-shopping-list-link {
-      text-decoration: none;
-      color: #111111;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 4px;
-      font-family: "DMSans-500", sans-serif;
-      font-size: 14px;
-      line-height: 18px;
-    }
-    .theme-switcher {
-      margin-right: 24px;
-    }
-    .sign-up-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 32px;
-      width: 184px;
-      height: 45px;
-      background-color: #4f2ee8;
-      color: #ffffff;
-      border: none;
-      border-radius: 36px;
-    }
-    .sign-up-btn svg {
-      margin-left: 4px;
-    }
-  }
-  @media screen and (min-width: 1440px) {
-    .header-container {
-      width: 1440px;
-    }
-    .logo {
-      margin-right: 76px;
-    }
-  }
-  
+}
