@@ -17,3 +17,13 @@ import './js/book-card.js';
 import './js/button-scroll.js';
 import './js/firebase/firebase-api.js';
 import './js/firebase/firebase-config.js';
+
+isUserSignIn();
+
+// async function isUserSignIn() {
+//   const userId = localStorage.getItem('userId');
+//   if (!userId) {
+//     onClickSignOut();
+//   } else {
+//   }
+// }
