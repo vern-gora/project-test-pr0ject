@@ -20,7 +20,7 @@ body {
 
 .shopping-title {
   display: block;
-  margin-left: 20px;
+  margin-left: 0;
   margin-top: 40px;
   font-size: 32px;
   font-weight: 700;
@@ -64,6 +64,125 @@ body {
   width: 265px;
   height: 198px;
 }
+
+/* /////////////////////////////BOOK CARD */
+.book-card {
+  margin-top: 40px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  border: 2px solid rgba(79, 46, 232, 0.4);
+  background: #fff;
+  position: relative;
+}
+
+.book-card:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.book-image {
+  width: 100px;
+  height: 142px;
+  margin: 0 14px;
+}
+
+.book-details {
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.book-category {
+  margin-top: 4px;
+  color: #b4afaf;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.book-description {
+  display: flex;
+  width: 193px;
+  height: 68px;
+  flex-direction: column;
+  margin-top: 8px;
+  overflow: auto;
+  color: #111;
+  text-overflow: ellipsis;
+
+  font-style: normal;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.author-wrap {
+  display: flex;
+}
+
+.book-author {
+  margin-top: 14px;
+  color: #b4afaf;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.book-buy-link {
+  margin-left: 42px;
+  gap: 8px;
+  display: flex;
+}
+
+.link-img {
+  margin-top: 19px;
+  display: block;
+  height: 11px;
+}
+
+.book-links {
+  margin-top: 42px;
+}
+
+.book-cart-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  background: #4f2ee8;
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+/* ///////////////////////////////////////BOOK CARD */
 
 /* Дополнительные стили для размера от 320px до 374px */
 @media (min-width: 320px) and (max-width: 374px) {
