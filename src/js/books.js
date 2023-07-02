@@ -119,19 +119,41 @@ function renderBooks(array) {
   const markup = array
     .map(
       ({ list_name, books }) =>
-        `<li class="bestseller-list"><h2 class="category-heading">${list_name}</h2><ul class="category-block">` +
-        books
-          .map(
-            ({ author, book_image, title, _id }) =>
-              `<a class="book-card" data-id="${_id}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></a>`
-          )
-          .join('') +
-        `</ul></li>`
+        `<li class="bestseller-list">
+        <h2 class="category-heading">${list_name}</h2>
+        <ul class="category-block">
+          ${books
+            .map(
+              ({ author, book_image, title, _id }) =>
+                `<li class="book-card" data-id="${_id}">
+                <img src="${book_image}" alt="${title}" class="book-image">
+                <h2 class="book-title">${title}</h2>
+                <h3 class="book-author">${author}</h3>
+              </li>`
+            )
+            .join('')}
+          <button class="see-more" data-category="${list_name}">See more</button>
+        </ul>
+      </li>`
     )
     .join('');
 
   bookList.insertAdjacentHTML('beforeend', markup);
   addToStorage();
+
+  const buttons = document.querySelectorAll('.see-more');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', e => {
+      // e.preventDefault();
+      const categoryButton = e.currentTarget;
+      const categorySelected = categoryButton.dataset.category;
+      console.log(categorySelected);
+      searchCategory(categorySelected).then(data =>
+        renderCategories(data, bookList)
+      );
+    });
+  });
 }
 
 function addToStorage() {
@@ -152,4 +174,20 @@ function addToStorage() {
       }
     });
   });
+}
+
+function renderCategories(array, container) {
+  console.log(array);
+  const markup = array
+    .map(
+      ({ author, image, title, id }) =>
+        `<li class="card" data-id="${id}">
+                <img src="${image}" alt="${title}" class="book-image">
+                <h2 class="book-title">${title}</h2>
+                <h3 class="book-author">${author}</h3>
+              </li>`
+    )
+    .join('');
+
+  container.innerHTML = markup;
 }

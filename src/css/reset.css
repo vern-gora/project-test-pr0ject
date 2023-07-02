@@ -33,6 +33,7 @@ img {
 
 body {
   font-family: 'DMSans-400', sans-serif;
+  background-color: var(--white);
 }
 
 .visually-hidden {
