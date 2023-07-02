@@ -6,6 +6,13 @@ const menuCloseBtn = document.querySelector('button[data-menu-close]');
 const mobMenuEl = document.querySelector('.mob-menu');
 const lightLogoEl = document.querySelector('#logo-light');
 const darkLogoEl = document.querySelector('#logo-dark');
+const lightBagIcon = document.querySelector('#icon-bag');
+const darkBagIcon = document.querySelector('#icon-bag-black');
+const shoppingListLink = document.querySelector('.header-nav-item-shopping-list');
+const mobShoppingListLink = document.querySelector(".mob-menu-nav-item-shopping-list")
+const isActiveIcon = document.querySelector("#is-active-icon");
+const mobLightIcon = document.querySelector("#mob-icon-light");
+const isActiveMobIcon = document.querySelector("#is-active-mob-icon");
 
 const headerSignUpBtn = document.querySelector('.sign-up-btn');
 const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
@@ -29,7 +36,7 @@ function updateProfileImage(profileImage) {
     const profileImageImgElements = [
       ...document.getElementsByClassName('user-photo-img'),
     ];
-    
+
     if (profileImage) {
       profileImageImgElements.forEach(el => {
         el.src = profileImage;
@@ -89,6 +96,22 @@ onInit();
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('visually-hidden');
   darkLogoEl.classList.remove('visually-hidden');
+  lightBagIcon.classList.remove('visually-hidden');
+  darkBagIcon.classList.add('visually-hidden');
+} else {
+  lightBagIcon.classList.add('visually-hidden');
+  darkBagIcon.classList.remove('visually-hidden');
+}
+if (shoppingListLink.classList.contains('is-active')) {
+  isActiveIcon.classList.remove("visually-hidden");
+  lightBagIcon.classList.add("null");
+  darkBagIcon.classList.add("null");
+}
+
+
+if (mobShoppingListLink.classList.contains('is-active')) {
+  isActiveMobIcon.classList.remove("visually-hidden");
+  mobLightIcon.classList.add("visually-hidden");
 }
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
@@ -112,7 +135,11 @@ const switchTheme = () => {
   rootEl.setAttribute('data-theme', newTheme);
   lightLogoEl.classList.toggle('visually-hidden');
   darkLogoEl.classList.toggle('visually-hidden');
+  lightBagIcon.classList.toggle('visually-hidden');
+  darkBagIcon.classList.toggle('visually-hidden');
   localStorage.setItem('theme', newTheme);
 };
 
-document.querySelector('.theme-switcher').addEventListener('click', switchTheme);
+document
+  .querySelector('.theme-switcher')
+  .addEventListener('click', switchTheme);

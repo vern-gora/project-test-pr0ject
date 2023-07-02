@@ -93,11 +93,11 @@
   display: none;
 }
 .username {
-  text-align: center;
+  justify-content: center;
   font-family: 'DMSans-700', sans-serif;
   font-size: 22px;
   line-height: 28.64px;
-  width: 87px;
+  width: 120px;
   height: 29px;
 }
 .mob-menu {
@@ -186,11 +186,6 @@
   gap: 4px;
   font-size: 14px;
   line-height: 18px;
-  stroke: #fff;
-}
-.mob-menu-shopping-list-link:is(:hover, :focus) {
-  color: #111111;
-  stroke: #111111;
 }
 .mob-menu-log-out-btn {
   width: 118px;
@@ -241,7 +236,9 @@
 }
 .is-active a {
   color: #111111;
-  stroke: #111111;
+}
+.null {
+  display: none;
 }
 @media screen and (min-width: 375px) {
   .mob-menu-wrap {
@@ -297,8 +294,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    stroke: #111111;
-    stroke-width: 7%;
   }
 
   .header-home-link {
