@@ -82,6 +82,7 @@ searchAllCategory();
 //     throw new Error('There is no such category');
 //   }
 // }
+
 searchCategory(testCategory);
 
 // async function searchById(id) {
@@ -122,7 +123,7 @@ function renderBooks(array) {
         books
           .map(
             ({ author, book_image, title, _id }) =>
-              `<li class="book-card" data-author="${author}" data-bookimage="${book_image}" data-id="${_id}" data-title="${title}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></li>`
+              `<a class="book-card" data-id="${_id}"><img src="${book_image}" alt="${title}" class="book-image"><h2  class="book-title">${title}</h2><h3  class="book-author">${author}</h3> <button class="see-morebtn">See more</button></a>`
           )
           .join('') +
         `</ul></li>`
@@ -134,24 +135,21 @@ function renderBooks(array) {
 }
 
 function addToStorage() {
-  const buttons = document.querySelectorAll('.book-card .see-morebtn');
+  const books = document.querySelectorAll('.book-card');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', e => {
-      const bookcard = e.currentTarget.parentElement;
-      const author = bookcard.dataset.author;
-      const title = bookcard.dataset.title;
-      const image = bookcard.dataset.bookimage;
+  books.forEach(book => {
+    book.addEventListener('click', e => {
+      const bookcard = e.currentTarget;
+
       const id = bookcard.dataset.id;
 
       const bookData = {
-        author,
-        title,
-        image,
         id,
       };
 
-      localStorage.setItem('bookinfo', JSON.stringify(bookData));
+      if (e.target.tagName !== 'BUTTON') {
+        localStorage.setItem('bookinfo', JSON.stringify(bookData));
+      }
     });
   });
 }
