@@ -20,10 +20,10 @@ import './js/firebase/firebase-config.js';
 
 isUserSignIn();
 
-// async function isUserSignIn() {
-//   const userId = localStorage.getItem('userId');
-//   if (!userId) {
-//     onClickSignOut();
-//   } else {
-//   }
-// }
+async function isUserSignIn() {
+  const userId = localStorage.getItem('userId');
+  if (!userId) {
+    onClickSignOut();
+  } else {
+  }
+}

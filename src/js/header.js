@@ -3,6 +3,8 @@ export const menuCloseBtn = document.querySelector('button[data-menu-close]');
 export const mobMenuEl = document.querySelector('.mob-menu');
 export const lightLogoEl = document.querySelector('#logo-light');
 export const darkLogoEl = document.querySelector('#logo-dark');
+
+
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('visually-hidden');
   darkLogoEl.classList.remove('visually-hidden');
