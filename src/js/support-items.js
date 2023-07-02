@@ -1,4 +1,4 @@
-export default charityArray = [
+const charityArray = [
   {
     title: 'Save the Children',
     url: 'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
@@ -45,3 +45,5 @@ export default charityArray = [
     img: null,
   },
 ];
+
+export default charityArray;
