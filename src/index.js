@@ -15,6 +15,7 @@ import './js/modal.js';
 import './js/shopping-list.js';
 import './js/book-card.js';
 import './js/button-scroll.js';
+import './js/footer.js';
 import './js/firebase/firebase-api.js';
 import './js/firebase/firebase-config.js';
 
