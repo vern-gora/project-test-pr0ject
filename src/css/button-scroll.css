@@ -1,0 +1,29 @@
+.go-top {
+    position: fixed;
+    right: 25px;
+    bottom: 145px;
+    cursor: pointer;
+    display: none;
+    /* transform: rotate(180deg); */
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--main-accent-color);
+    /* border: 5px solid #4F2EE8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  
+    z-index: 1000;
+  }
+  
+  .go-top-icon {
+    width: 54px;
+    height: 54px;
+    fill: var(--main-bg-color);
+  }
+  
+  .go-top-show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
