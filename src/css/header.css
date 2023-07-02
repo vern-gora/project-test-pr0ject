@@ -105,7 +105,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   overflow-y: auto;
   background-image: linear-gradient(#4f2ee8, #fff);
   background-repeat: repeat-x;
@@ -165,23 +165,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-.mob-menu-nav-item-home:is(:hover, :focus), .mob-menu-nav-item-shopping-list:is(:hover, :focus)
-{
-background-color: #EAC645;
-border-radius: 36px;
-color: #111111;
-stroke: #111111;
-font-weight: 700;
-}
 .mob-menu-home-link {
   text-decoration: none;
   color: #fff;
   font-family: 'DMSans-500', sans-serif;
   font-size: 14px;
   line-height: 18px;
-}
-.mob-menu-home-link:is(:hover, :focus) {
-  color: #111111;
 }
 .mob-menu-shopping-list-link {
   display: inline-block;
@@ -198,7 +187,7 @@ font-weight: 700;
 }
 .mob-menu-shopping-list-link:is(:hover, :focus) {
   color: #111111;
-  stroke:#111111;
+  stroke: #111111;
 }
 .mob-menu-log-out-btn {
   width: 118px;
@@ -242,6 +231,15 @@ font-weight: 700;
 .no-scroll {
   overflow: hidden;
 }
+.is-active {
+  background-color: #eac645;
+  border-radius: 36px;
+  font-weight: 700;
+}
+.is-active a {
+  color: #111111;
+  stroke: #111111;
+}
 @media screen and (min-width: 375px) {
   .header-container {
     width: 100%;
@@ -278,14 +276,14 @@ font-weight: 700;
     margin-right: auto;
     gap: 16px;
   }
-  .header-nav-item-home{
+  .header-nav-item-home {
     width: 72px;
     height: 34px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .header-nav-item-shopping-list{
+  .header-nav-item-shopping-list {
     width: 156px;
     height: 34px;
     display: flex;
@@ -294,13 +292,7 @@ font-weight: 700;
     stroke: #111111;
     stroke-width: 7%;
   }
-  .header-nav-item-home:is(:hover, :focus),  .header-nav-item-shopping-list:is(:hover, :focus){
-    background-color: #EAC645;
-    border-radius: 36px;
-    color: #111111;
-    stroke: #111111;
-    font-weight: 700;
-  }
+
   .header-home-link {
     text-decoration: none;
     color: var(--deep-black);
