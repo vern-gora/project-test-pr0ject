@@ -60,6 +60,4 @@ const switchTheme = () => {
   localStorage.setItem('theme', newTheme);
 };
 
-document
-  .querySelector('.theme-switcher')
-  .addEventListener('click', switchTheme);
+document.querySelector('.theme-switcher').addEventListener('click', switchTheme);
