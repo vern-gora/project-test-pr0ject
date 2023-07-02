@@ -191,3 +191,5 @@ function renderCategories(array, container) {
 
   container.innerHTML = markup;
 }
+
+console.log('dadada');
