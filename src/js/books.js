@@ -145,10 +145,13 @@ function renderBooks(array) {
 
   buttons.forEach(button => {
     button.addEventListener('click', e => {
-      e.preventDefault();
+      // e.preventDefault();
       const categoryButton = e.currentTarget;
       const categorySelected = categoryButton.dataset.category;
       console.log(categorySelected);
+      searchCategory(categorySelected).then(data =>
+        renderCategories(data, bookList)
+      );
     });
   });
 }
@@ -171,4 +174,20 @@ function addToStorage() {
       }
     });
   });
+}
+
+function renderCategories(array, container) {
+  console.log(array);
+  const markup = array
+    .map(
+      ({ author, image, title, id }) =>
+        `<li class="card" data-id="${id}">
+                <img src="${image}" alt="${title}" class="book-image">
+                <h2 class="book-title">${title}</h2>
+                <h3 class="book-author">${author}</h3>
+              </li>`
+    )
+    .join('');
+
+  container.innerHTML = markup;
 }
