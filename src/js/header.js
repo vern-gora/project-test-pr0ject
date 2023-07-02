@@ -9,7 +9,10 @@ const darkLogoEl = document.querySelector('#logo-dark');
 const lightBagIcon = document.querySelector('#icon-bag');
 const darkBagIcon = document.querySelector('#icon-bag-black');
 const shoppingListLink = document.querySelector('.header-nav-item-shopping-list');
+const mobShoppingListLink = document.querySelector(".mob-menu-nav-item-shopping-list")
 const isActiveIcon = document.querySelector("#is-active-icon");
+const mobLightIcon = document.querySelector("#mob-icon-light");
+const isActiveMobIcon = document.querySelector("#is-active-mob-icon");
 
 const headerSignUpBtn = document.querySelector('.sign-up-btn');
 const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
@@ -103,6 +106,12 @@ if (shoppingListLink.classList.contains('is-active')) {
   isActiveIcon.classList.remove("visually-hidden");
   lightBagIcon.classList.add("null");
   darkBagIcon.classList.add("null");
+}
+
+
+if (mobShoppingListLink.classList.contains('is-active')) {
+  isActiveMobIcon.classList.remove("visually-hidden");
+  mobLightIcon.classList.add("visually-hidden");
 }
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
