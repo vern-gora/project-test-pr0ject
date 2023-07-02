@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://vern-gora.github.io/project-test-pr0ject",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html  --no-hmr",
     "build": "parcel build src/*.html --public-url /project-test-pr0ject/"
   },
   "repository": {
