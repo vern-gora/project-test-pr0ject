@@ -1,3 +1,3 @@
-export function getName(fullName) {
-  return fullName.split(' ')[0];
-}
+//export function getName(fullName) {
+//  return fullName.split(' ')[0];
+//}
