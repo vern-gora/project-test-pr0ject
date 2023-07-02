@@ -14,6 +14,10 @@ body {
   background: #f6f6f6;
 }
 
+.book-card-wrapper {
+  display: none;
+}
+
 .book-title-wrap {
   display: flex;
 }
@@ -68,6 +72,7 @@ body {
 /* /////////////////////////////BOOK CARD */
 .book-card {
   margin-top: 40px;
+  width: 335px;
   height: 170px;
   display: flex;
   align-items: center;
@@ -145,6 +150,7 @@ body {
 }
 
 .book-buy-link {
+  margin-top: 14px;
   margin-left: 42px;
   gap: 8px;
   display: flex;
@@ -154,6 +160,21 @@ body {
   margin-top: 19px;
   display: block;
   height: 11px;
+}
+
+.link-img-amazon {
+  width: 32px;
+  height: 11px;
+}
+
+.link-img-2 {
+  width: 16px;
+  height: 16px;
+}
+
+.link-img-3 {
+  width: 16px;
+  height: 16px;
 }
 
 .book-links {
@@ -220,6 +241,66 @@ body {
     width: 322px;
     height: 241px;
   }
+
+  .book-card {
+    width: 704px;
+    height: 213px;
+  }
+
+  .book-image {
+    width: 116px;
+    height: 165px;
+    margin: 0 24px;
+  }
+
+  .book-details {
+  }
+
+  .book-title {
+    margin-top: 5px;
+  }
+
+  .book-description {
+    width: 508px;
+    height: 53px;
+
+    margin-top: 14px;
+  }
+
+  .book-author {
+    margin-top: 48px;
+  }
+
+  .book-buy-link {
+    margin-top: 32px;
+    margin-left: 292px;
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+  }
+
+  .link-img-amazon {
+    width: 48px;
+    height: 15px;
+  }
+
+  .link-img-2 {
+    width: 28px;
+    height: 27px;
+  }
+
+  .link-img-3 {
+    width: 32px;
+    height: 30px;
+  }
+
+  .book-cart-button {
+    width: 34px;
+    height: 34px;
+    top: 24px;
+    right: 24px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -246,6 +327,25 @@ body {
     display: block;
   }
   .shopping-list-wrap {
+  }
+
+  /* //////BOOK/////// */
+
+  .book-card {
+    width: 996px;
+    height: 213px;
+  }
+
+  .book-title {
+    margin-top: 3px;
+  }
+
+  .book-description {
+    width: 808px;
+  }
+
+  .book-buy-link {
+    margin-left: 594px;
   }
 
   /* SUPPORT UKRAINE */
