@@ -1,79 +1,80 @@
-//firebase-api//
-
 import { initializeApp } from 'firebase/app';
 import {
   GoogleAuthProvider,
   getAuth,
-  signInWithRedirect,
-  getRedirectResult,
   signInWithPopup,
-  signOut,
+  signOut as firebaseSignOut,
 } from 'firebase/auth';
+import { getDatabase, ref, set, get } from 'firebase/database';
+
 import { firebaseConfig } from './firebase-config';
-import { mobMenuEl } from '../header';
-import { getDatabase, ref, set } from 'firebase/database';
 
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider(app);
 const auth = getAuth(app);
-// const logOut = document.querySelector('.mob-menu-log-out-btn');
 
-mobMenuEl.addEventListener('click', e => {
-  signInWithPopup(auth, provider)
-    .then(result => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
-      localStorage.setItem('userId', auth.currentUser.uid);
-    })
-    .catch(error => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.customData.email;
-      const credential = GoogleAuthProvider.credentialFromError(error);
+async function signIn() {
+  try {
+    if (localStorage.userId) {
+      return;
+    }
+    const result = await signInWithPopup(auth, provider);
+
+    const user = result.user;
+    const displayName = user.displayName;
+    const photoUrl = user.photoURL;
+    localStorage.setItem('userId', auth.currentUser.uid);
+
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + user.uid);
+    set(userRef, {
+      displayName,
+      photoUrl,
     });
-});
 
-// logOut.addEventListener('click', onClickSignOut);
-// function onClickSignOut() {
-//   signOut(auth)
-//     .then(() => {
-//       localStorage.removeItem('userId');
-//     })
-//     .catch(error => {
-//       // An error happened.
-//     });
-// }
+    localStorage.setItem('userId', user.uid);
+    getUserData();
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// function writeUserData(userId, qname, email, imageUrl) {
-//   const db = getDatabase();
-//   set(ref(db, 'users/' + userId), {
-//     username: qname,
-//     email: email,
-//     profile_picture: imageUrl,
-//   });
-// }
+async function signOut() {
+  try {
+    await firebaseSignOut(auth);
+    delete localStorage.userId;
+    delete localStorage.user;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// writeUserData('qwe', 'ASDASD@ddd.aa', 'dasd', 'dasd');
+async function getUserData() {
+  try {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+      throw new Error('User ID not found in localStorage');
+    }
 
-// REDIRECT
-// signInWithRedirect(auth, provider);
-//   getRedirectResult(auth)
-//     .then(result => {
-//       const credential = GoogleAuthProvider.credentialFromResult(result);
-//       const token = credential.accessToken;
-//       const user = result.user;
-//     })
-//     .catch(error => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       const email = error.customData.email;
-//       const credential = GoogleAuthProvider.credentialFromError(error);
-//     });
-export {
-  authWithPopup,
-  onClickSignOut,
-  pushData,
-  getFromFirebase,
-  removeFromFirebase,
-};
+    const user = localStorage.getItem('user');
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    const db = getDatabase();
+    const userRef = ref(db, `users/${userId}`);
+    const snapshot = await get(userRef);
+
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+      localStorage.user = JSON.stringify(userData);
+      return userData;
+    } else {
+      throw new Error('User data not found');
+    }
+  } catch (error) {
+    console.log('Error getting user data:', error);
+  }
+}
+
+export { signIn, signOut, getUserData };
