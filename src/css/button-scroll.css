@@ -1,22 +1,29 @@
-#scrollButton {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 99;
-    font-size: 14px;
-    border: none;
-    outline: none;
-    background-color: #555;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 10px;
-    opacity: 0.5;
-    transition: opacity 0.3s;
-  }
-  
-  #scrollButton:hover {
-    opacity: 1;
-  }
-  
+.go-top {
+  position: fixed;
+  right: 25px;
+  bottom: 145px;
+  cursor: pointer;
+  display: none;
+  /* transform: rotate(180deg); */
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--main-accent-color);
+  /* border: 5px solid #4F2EE8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+
+  z-index: 1000;
+}
+
+.go-top-icon {
+  width: 54px;
+  height: 54px;
+  fill: var(--main-bg-color);
+}
+
+.go-top-show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
