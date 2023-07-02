@@ -40,7 +40,7 @@ body {
   width: 39px;
   height: 22px;
   margin-right: 14px;
-  background-image: linear-gradient(to bottom, #4f2ee8, #dcdcdc);
+  background-image: var(--theme-switcher-gradient);
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -110,7 +110,8 @@ body {
   background-repeat: repeat-x;
   background-position: bottom;
   position: absolute;
-  top: 24px;
+  top: 0px;
+  overflow: hidden;
 }
 .mob-menu-wrap {
   display: flex;
@@ -123,7 +124,7 @@ body {
   align-items: center;
   width: 133px;
   height: 37px;
-  margin-top: 24px;
+  margin-top: 48px;
 }
 .mob-menu-sign-up-btn {
   width: 87px;
@@ -240,8 +241,13 @@ body {
   stroke: #111111;
 }
 @media screen and (min-width: 375px) {
-  .header-container {
+  .mob-menu-wrap {
     width: 375px;
+    margin: 0 auto;
+  }
+  .mob-menu-log-out-wrap {
+    width: 375px;
+    margin: 0 auto;
   }
   .mob-menu-img {
     display: none;
