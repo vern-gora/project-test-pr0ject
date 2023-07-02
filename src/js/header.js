@@ -3,6 +3,10 @@ export const menuCloseBtn = document.querySelector('button[data-menu-close]');
 export const mobMenuEl = document.querySelector('.mob-menu');
 export const lightLogoEl = document.querySelector('#logo-light');
 export const darkLogoEl = document.querySelector('#logo-dark');
+export const headerSignUpBtn = document.querySelector(".sign-up-btn");
+export const mobMenuSignUpBtn = document.querySelector(".mob-menu-sign-up-btn");
+export const mobMenuLogOutBtn = document.querySelector(".mob-menu-log-out-btn");
+
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('visually-hidden');
   darkLogoEl.classList.remove('visually-hidden');
