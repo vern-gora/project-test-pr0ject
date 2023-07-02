@@ -4,7 +4,7 @@
   text-align: center;
   color: var(--footer-text-color);
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: DMSans-400;
 }
 
 .container-one {
@@ -40,6 +40,7 @@
 .footer-links a {
   color: var(--footer-link-color);
   text-decoration: none;
+  font-family: DMSans-400;
 }
 
 .footer-links a:hover {
@@ -48,6 +49,7 @@
 
 .copyright-text {
   margin-top: 20px;
+  font-family: DMSans-500;
 }
 
 
@@ -76,6 +78,7 @@
 .helpua{
   color: var(--footer-h6-color);
   font-size: 20px;
+  font-family: DMSans-500;
 }
 :root {
   --footer-bg-color: #271c49;
