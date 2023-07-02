@@ -1,6 +1,3 @@
-body {
-  margin: 0 auto;
-}
 .header-container {
   width: 100%;
   height: 24px;
@@ -117,7 +114,6 @@ body {
   background-position: bottom;
   position: absolute;
   top: 0px;
-  overflow: hidden;
 }
 .mob-menu-wrap {
   display: flex;
@@ -144,6 +140,7 @@ body {
   align-items: center;
   cursor: pointer;
   color: #fff;
+  z-index: 999;
 }
 .user-photo {
   stroke: #fff;
