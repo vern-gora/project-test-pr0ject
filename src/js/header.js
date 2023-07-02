@@ -3,34 +3,6 @@ export const menuCloseBtn = document.querySelector('button[data-menu-close]');
 export const mobMenuEl = document.querySelector('.mob-menu');
 export const lightLogoEl = document.querySelector('#logo-light');
 export const darkLogoEl = document.querySelector('#logo-dark');
-const headerHome = document.querySelector('.header-nav-item-home');
-const headerShopingList = document.querySelector('.header-nav-item-shopping-list');
-const mobHome = document.querySelector('.mob-menu-nav-item-home');
-const mobShopingList = document.querySelector('.mob-menu-nav-item-shopping-list');
-if (headerHome) {
-  headerHome.addEventListener('click', () => {
-    headerHome.classList.add('is-active');
-    headerShopingList.classList.remove('is-active');
-  });
-}
-if (headerShopingList) {
-  headerShopingList.addEventListener('click', () => {
-    headerHome.classList.remove('is-active');
-    headerShopingList.classList.add('is-active');
-  });
-}
-if (mobHome) {
-  mobHome.addEventListener('click', () => {
-    mobHome.classList.add('is-active');
-    mobShopingList.classList.remove('is-active');
-  });
-}
-if (mobShopingList) {
-  mobShopingList.addEventListener('click', () => {
-    mobHome.classList.remove('is-active');
-    mobShopingList.classList.add('is-active');
-  });
-}
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('visually-hidden');
   darkLogoEl.classList.remove('visually-hidden');
