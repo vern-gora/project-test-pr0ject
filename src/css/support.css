@@ -89,6 +89,7 @@
 .charity-img {
   max-height: 100%;
   filter: brightness(0) invert(1);
+  max-width: fit-content;
 }
 
 .swiper-button-next,
