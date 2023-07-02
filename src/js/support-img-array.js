@@ -17,7 +17,7 @@ import image8x2 from '../img/support-png/8@2x.png';
 import image9 from '../img/support-png/9@1x.png';
 import image9x2 from '../img/support-png/9@2x.png';
 
-export default imageArray = [
+const imageArray = [
   {
     image1,
     image1x2,
@@ -55,3 +55,5 @@ export default imageArray = [
     image9x2,
   },
 ];
+
+export default imageArray;
