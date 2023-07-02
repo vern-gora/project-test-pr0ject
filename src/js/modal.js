@@ -7,6 +7,7 @@ const imageEl = document.querySelector(".main-img");
 const titleEl = document.querySelector(".modal-title");
 const authorEl = document.querySelector(".modal-author");
 const descriptionEl = document.querySelector(".modal-description");
+const addToListBtn = document.querySelector(".modal-btn");
 
 
 modalOpenBtn.forEach(btn => 
@@ -26,6 +27,25 @@ modalOpenBtn.forEach(btn =>
     }
 ));
 
+
+addToListBtn.addEventListener("click", () => { 
+    const image = imageEl.src;
+    const title = titleEl.textContent;
+    const author = authorEl.textContent;
+    const description = descriptionEl.textContent;
+
+    const addToListData = {
+        image,
+        title,
+        author,
+        description,
+    }
+
+    localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
+})
+
+          
+
 modalCloseBtn.addEventListener("click", () => {
     modalEl.classList.add("is-hidden");
     document.body.classList.remove('no-scroll');
@@ -34,8 +54,6 @@ modalCloseBtn.addEventListener("click", () => {
     authorEl.textContent = "";
     titleEl.textContent = "";
     descriptionEl.textContent = "";
-   
-
 });
 
 
