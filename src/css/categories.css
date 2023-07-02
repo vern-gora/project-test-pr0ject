@@ -21,7 +21,6 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  padding: 10px;
   overflow-y: auto;
   position: relative;
 }
@@ -33,6 +32,7 @@ body {
   font-style: normal;
   line-height: 24px;
   letter-spacing: -0.36px;
+  margin-left: 20px;
 }
 
 .categories-list {
@@ -43,9 +43,12 @@ body {
   padding-top: 8px;
   padding-bottom: 10px;
   overflow: auto;
+  margin-top: 48px;
 }
 
-.categories-el {
+.categories-el,
+.categories-btn,
+.categories-list li {
   color: rgba(17, 17, 17, 0.6);
   font-size: 16px;
   font-family: DMSans-400;
@@ -58,9 +61,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: color 0.3s, font-size 0.3s;
 }
 
-.categories-el:hover {
+.categories-el:hover,
+.categories-btn:hover,
+.categories-list li:hover {
   color: #4f2ee8;
   font-size: 18px;
   font-family: DMSans-700;
@@ -70,17 +82,25 @@ body {
   text-transform: uppercase;
 }
 
-@media (min-width: 375px) and (max-width: 767px){
+.categories-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
   .categories-el {
-    white-space: normal; 
+    white-space: normal;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
     font-size: 16px;
-    margin-bottom: 24px; 
+    margin-bottom: 24px;
   }
 
-  .categories-el:hover {
+  .categories-el:hover,
+  .categories-list li:hover {
     font-size: 16px;
     max-width: calc(100% - 16px);
   }
@@ -96,8 +116,9 @@ body {
     align-items: flex-start;
     gap: 32px;
   }
-  .categories-list {
-    padding-top: 40px;
+  
+  .categories-title{
+    margin-left: 35px;
   }
   .categories-el {
     margin-bottom: 32px;
@@ -120,7 +141,7 @@ body {
     font-style: normal;
     line-height: 24px;
     letter-spacing: -0.36px;
-    margin-bottom: 32px; 
+    margin-bottom: 32px;
   }
 
   .categories-list {
@@ -130,7 +151,8 @@ body {
     overflow: auto;
   }
 
-  .categories-el:hover {
+  .categories-el:hover,
+  .categories-list li:hover {
     color: #4f2ee8;
     font-size: 18px;
     font-family: DMSans-700;
