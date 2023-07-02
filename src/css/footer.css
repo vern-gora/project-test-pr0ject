@@ -50,7 +50,7 @@
   margin-top: 20px;
 }
 
-/* Responsive Footer */
+
 @media (max-width: 420px) {
   .site-footer {
     padding: 20px 0;
@@ -72,7 +72,7 @@
   }
 }
 
-/* Darker Colors */
+
 .helpua{
   color: var(--footer-h6-color);
   font-size: 20px;
