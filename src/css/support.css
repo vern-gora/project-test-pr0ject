@@ -1,16 +1,11 @@
-.support-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.charity-container {
-  width: 375px;
-  padding-inline: 20px;
+/* .charity-container {
+  width: 335px;
   margin: 0 auto;
-}
+} */
 
 .charity-box {
-  width: 100%;
+  width: 335px;
+  margin: 0 auto;
   border-radius: 16px;
   background: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
@@ -126,11 +121,12 @@
 }
 
 @media screen and (max-width: 375px) {
-  .charity-container {
-    width: 100%;
-  }
   .charity-title {
     font-size: 25px;
+  }
+
+  .charity-box {
+    width: 100%;
   }
 }
 
@@ -143,6 +139,7 @@
 
   .charity-box {
     padding-bottom: 14px;
+    margin: 0;
   }
 
   .swiper-wrapper {
@@ -150,21 +147,19 @@
   }
 
   .swiper {
-    height: 292;
+    height: 292px;
     margin-bottom: 70px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .charity-container {
-    width: 396px;
-  }
-  .swiper-wrapper {
-    margin-bottom: 40px;
+  .charity-box {
+    width: 356px;
+    padding-bottom: 24px;
   }
 
-  .charity-box {
-    padding-bottom: 24px;
+  .swiper-wrapper {
+    margin-bottom: 40px;
   }
 
   .swiper {

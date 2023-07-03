@@ -4,19 +4,20 @@ body {
   padding: 0;
 }
 
-.container {
+.categories-container {
   width: 335px;
   height: 226px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: hidden;
+  padding: 0;
 }
 
 .categories-2 {
-  margin-top: 40px;
-  margin-right: auto;
-  margin-left: auto;
+  /* margin-top: 40px; */
+  /* margin-right: auto;
+  margin-left: auto; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -110,11 +111,11 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .container {
+  .categories-container {
     width: 309px;
     height: 472px;
     display: flex;
-    margin-left: 32px;
+    /* margin-left: 32px; */
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
@@ -129,7 +130,7 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-  .container {
+  .categories-container {
     display: flex;
     width: 328px;
     flex-direction: column;
