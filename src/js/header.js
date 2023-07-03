@@ -1,5 +1,5 @@
-//import { signIn, signOut, getUserData } from './firebase/firebase-api';
-//import { getName } from './helpers/get-name';
+import { signIn, signOut, getUserData } from './firebase/firebase-api';
+import { getName } from './helpers/get-name';
 
 const menuOpenBtn = document.querySelector('button[data-menu-open]');
 const menuCloseBtn = document.querySelector('button[data-menu-close]');
@@ -22,80 +22,80 @@ const headerSignUpBtn = document.querySelector('.sign-up-btn');
 const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
 const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
 
-//function updateUsername(username) {
-//  try {
-//    const userNameElements = [...document.getElementsByClassName('username')];
-//    userNameElements.forEach(el => (el.innerHTML = username));
-//  } catch (error) {
-//    console.error(error);
-//  }
-//}
+function updateUsername(username) {
+ try {
+   const userNameElements = [...document.getElementsByClassName('username')];
+   userNameElements.forEach(el => (el.innerHTML = username));
+ } catch (error) {
+   console.error(error);
+ }
+}
 
-//function updateProfileImage(profileImage) {
-//  try {
-//     const profileSvgElements = [
-//       ...document.getElementsByClassName('user-photo'),
-//     ];
+function updateProfileImage(profileImage) {
+ try {
+    const profileSvgElements = [
+      ...document.getElementsByClassName('user-photo'),
+    ];
 
-//     const profileImageImgElements = [
-//       ...document.getElementsByClassName('user-photo-img'),
-//     ];
+    const profileImageImgElements = [
+      ...document.getElementsByClassName('user-photo-img'),
+    ];
 
-//     if (profileImage) {
-//       profileImageImgElements.forEach(el => {
-//         el.src = profileImage;
-//         el.style.display = 'block';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//     } else {
-//       profileImageImgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'block';
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+    if (profileImage) {
+      profileImageImgElements.forEach(el => {
+        el.src = profileImage;
+        el.style.display = 'block';
+      });
+      profileSvgElements.forEach(el => {
+        el.style.display = 'none';
+      });
+    } else {
+      profileImageImgElements.forEach(el => {
+        el.style.display = 'none';
+      });
+      profileSvgElements.forEach(el => {
+        el.style.display = 'block';
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// async function signOutHandler() {
-//   try {
-//     await signOut();
-//     updateUsername(`Sign in`);
-//     updateProfileImage();
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+async function signOutHandler() {
+  try {
+    await signOut();
+    updateUsername(`Sign in`);
+    updateProfileImage();
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// async function signInHandler() {
-//   try {
-//     await signIn();
-//     const user = await getUserData();
-//     if (user) {
-//       updateUsername(getName(user.displayName));
-//       updateProfileImage(user.photoUrl);
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+async function signInHandler() {
+  try {
+    await signIn();
+    const user = await getUserData();
+    if (user) {
+      updateUsername(getName(user.displayName));
+      updateProfileImage(user.photoUrl);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// async function onInit() {
-//   const user = await getUserData();
-//   if (user) {
-//     updateUsername(getName(user.displayName));
-//     updateProfileImage(user.photoUrl);
-//   }
-//   headerSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuLogOutBtn.addEventListener('click', signOutHandler);
-// }
-// onInit();
+async function onInit() {
+  const user = await getUserData();
+  if (user) {
+    updateUsername(getName(user.displayName));
+    updateProfileImage(user.photoUrl);
+  }
+  headerSignUpBtn.addEventListener('click', signInHandler);
+  mobMenuSignUpBtn.addEventListener('click', signInHandler);
+  mobMenuLogOutBtn.addEventListener('click', signOutHandler);
+}
+onInit();
 
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('visually-hidden');
