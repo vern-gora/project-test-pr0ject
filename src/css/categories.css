@@ -65,7 +65,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 8px;
-  
+
   cursor: pointer;
   transition: color 0.3s, font-size 0.3s;
 }
@@ -116,8 +116,8 @@ body {
     align-items: flex-start;
     gap: 32px;
   }
-  
-  .categories-title{
+
+  .categories-title {
     margin-left: 20px;
   }
   .categories-el {
