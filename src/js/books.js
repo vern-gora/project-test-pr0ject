@@ -11,6 +11,7 @@ import {
 const testCategory = 'Series Books';
 const bookId = '643282b1e85766588626a083';
 const bookList = document.querySelector('.book-list');
+const loader = document.querySelector('.loader');
 
 // async function searchTopBooks(bookUrl) {
 //   try {
@@ -140,7 +141,7 @@ function renderBooks(array) {
 
   bookList.insertAdjacentHTML('beforeend', markup);
   addToStorage();
-
+  loader.style.display = 'none';
   const buttons = document.querySelectorAll('.see-more');
 
   buttons.forEach(button => {
