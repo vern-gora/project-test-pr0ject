@@ -107,6 +107,8 @@ searchById(bookId);
 //   renderBooks(data);
 // });
 
+//
+
 searchTopBooks()
   .then(data => {
     console.log(data);
@@ -120,16 +122,16 @@ function renderBooks(array) {
   const markup = array
     .map(
       ({ list_name, books }) =>
-        `<li class="bestseller-list">
-        <h2 class="category-heading">${list_name}</h2>
-        <ul class="category-block">
+        `<li class="home-bestseller-list">
+        <h2 class="home-category-heading">${list_name}</h2>
+        <ul class="home-category-block">
           ${books
             .map(
               ({ author, book_image, title, _id }) =>
-                `<li class="book-card" data-id="${_id}">
-                <img src="${book_image}" alt="${title}" class="book-image">
-                <h2 class="book-title">${title}</h2>
-                <h3 class="book-author">${author}</h3>
+                `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+                <img src="${book_image}" alt="${title}" class="home-book-image">
+                <h2 class="home-book-title">${title}</h2>
+                <h3 class="home-book-author">${author}</h3>
               </li>`
             )
             .join('')}
@@ -141,7 +143,7 @@ function renderBooks(array) {
 
   bookList.insertAdjacentHTML('beforeend', markup);
   addToStorage();
-  loader.style.display = 'none';
+
   const buttons = document.querySelectorAll('.see-more');
 
   buttons.forEach(button => {
@@ -157,15 +159,32 @@ function renderBooks(array) {
   });
 }
 
+function renderCategories(array, container) {
+  console.log(array);
+  const markup =
+    '<div class="test">' +
+    array
+      .map(
+        ({ author, image, title, id }) =>
+          `<li class="home-card" data-id="${id}"  data-action="open-modal">
+                <img src="${image}" alt="${title}" class="home-book-image">
+                <h2 class="home-book-title">${title}</h2>
+                <h3 class="home-book-author">${author}</h3>
+              </li>`
+      )
+      .join('');
+  +'</div>';
+
+  container.innerHTML = markup;
+  addToStorage();
+}
 function addToStorage() {
-  const books = document.querySelectorAll('.book-card');
+  const books = document.querySelectorAll('[data-action="open-modal"]');
 
   books.forEach(book => {
     book.addEventListener('click', e => {
       const bookcard = e.currentTarget;
-
       const id = bookcard.dataset.id;
-
       const bookData = {
         id,
       };
@@ -175,20 +194,4 @@ function addToStorage() {
       }
     });
   });
-}
-
-function renderCategories(array, container) {
-  console.log(array);
-  const markup = array
-    .map(
-      ({ author, image, title, id }) =>
-        `<li class="card" data-id="${id}">
-                <img src="${image}" alt="${title}" class="book-image">
-                <h2 class="book-title">${title}</h2>
-                <h3 class="book-author">${author}</h3>
-              </li>`
-    )
-    .join('');
-
-  container.innerHTML = markup;
 }
