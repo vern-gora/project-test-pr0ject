@@ -6,6 +6,7 @@
 */
 import './js/header.js';
 import './js/menu.js';
+import './js/api.js';
 import './js/categories.js';
 import './js/support.js';
 import './js/support-items.js';
