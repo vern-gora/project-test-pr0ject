@@ -1,3 +1,7 @@
+@import url('./reset.css');
+@import url('./base.css');
+@import url('./header.css');
+
 /* Общие стили для всех размеров */
 .support-ukraine-wrap {
   display: none;
