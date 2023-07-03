@@ -1,59 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/css/shopping-list.css">
-    <title>Shopping List</title>
-</head>
-
-<body>
-    <header>
-        <include src="./partials/header.html"></include>
-    </header>
-    <div class="container">
-        <div class="support-ukraine-wrap">
-            <div class="charity-box">
-                <div class="charity-header">
-                    <h2 class="charity-title">Support Ukraine</h2>
-                    <svg class="charity-icon" width="20" height="32">
-                        <use href="./img/symbol-defs.svg#icon-support-ukraine"></use>
+<div class="container">
+    <!-- <div class="support-ukraine-wrap">
+        <div class="charity-box">
+            <div class="charity-header">
+                <h2 class="charity-title">Support Ukraine</h2>
+                <svg class="charity-icon" width="20" height="32">
+                    <use href="./img/symbol-defs.svg#icon-support-ukraine"></use>
+                    <use href="/src/img/symbol-defs.svg#icon-support-ukraine"></use>
+                </svg>
+            </div>
+            <div class="swiper">
+                <ul class="swiper-wrapper"></ul>
+                <button class="swiper-button-next">
+                    <svg width="22" height="22">
+                        <use class="swiper-button-next-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
                     </svg>
-                </div>
-                <div class="swiper">
-                    <ul class="swiper-wrapper"></ul>
-                    <button class="swiper-button-next">
-                        <svg width="22" height="22">
-                            <use class="swiper-button-next-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
-                        </svg>
-                    </button>
-                    <button class="swiper-button-up is-hidden">
-                        <svg width="22" height="22">
-                            <use class="swiper-button-up-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
-                        </svg>
-                    </button>
-                </div>
+                </button>
+                <button class="swiper-button-up is-hidden">
+                    <svg width="22" height="22">
+                        <use class="swiper-button-up-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div class="shopping-list-wrap">
-            <h1 class="shopping-title">Shopping<span class="list-title"> List</span></h1>
-            <div class="empty-wrapper">
-                <div class="shopping-text-wrap">
-                    <p class="shopping-text">This page is empty, add some books and proceed to order.</p>
-                </div>
-                <div class="shopping-img-wrap">
-                    <img class="shopping-img" src="/src/img/mob-img/shopping-list@1x.png"
-                        srcset="/src/img/mob-img/shopping-list@1x.png 1x, /src/img/mob-img/shopping-list@2x.png 2x"
-                        alt="books">
-                </div>
+    </div> -->
+    <div class="shopping-list-wrap">
+        <h1 class="shopping-title">Shopping<span class="list-title"> List</span></h1>
+        <div class="empty-wrapper">
+            <div class="shopping-text-wrap">
+                <p class="shopping-text">This page is empty, add some books and proceed to order.</p>
             </div>
+            <div class="shopping-img-wrap">
+                <!-- <img class="shopping-img" src="../img/mob-img/shopping-list@1x.png"
+                        srcset="../img/mob-img/shopping-list@1x.png 1x, ../img/mob-img/shopping-list@2x.png 2x"
+                        alt="books"> -->
+                <img src="../img/mob-img/shopping-list@1x.jpg" alt="">
+            </div>
+        </div>
 
-            <div class="book-card-wrapper"></div>
+        <div class="book-card-wrapper"></div>
 
-            <!-- //////////////BOOK CARD -->
+        <!-- //////////////BOOK CARD -->
 
-            <!-- <div class="book-card">
+        <!-- <div class="book-card">
                 <div>
                     <img class="book-image" src="/src/img/mob-img/book_shopping_list.png" alt="">
                 </div>
@@ -90,11 +78,7 @@
                 </div>
             </div> -->
 
-            <!-- /////////////////BOOK CARD -->
+        <!-- /////////////////BOOK CARD -->
 
-        </div>
     </div>
-    <script type="module" src="/src/js/shopping-list.js"></script>
-</body>
-
-</html>
+</div>
