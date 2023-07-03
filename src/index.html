@@ -31,11 +31,15 @@
     </header>
     <main>
       <include src="./partials/menu.html"></include>
-      <div>
-        <include src="./partials/categories.html"></include>
-        <include src="./partials/support.html"></include>
-      </div>
-      <include src="./partials/books.html"></include>
+      <section class="main-section">
+        <div class="section-container">
+          <aside class="sidebar">
+            <include src="./partials/categories.html"></include>
+            <include src="./partials/support.html"></include>
+          </aside>
+          <include src="./partials/books.html"></include>
+        </div>
+      </section>
       <include src="./partials/modal.html"></include>
       <!-- <include src="./partials/shopping-list.html"></include> -->
       <include src="./partials/book-card.html"></include>
