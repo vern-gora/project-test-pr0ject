@@ -80,3 +80,27 @@ h2 {
 .books-design {
   color: var(--purple);
 }
+/* =============================================== */
+
+/* ===================================== */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  border-color: rgba(16, 16, 16, 0.15) rgba(65, 63, 63, 0.419)
+    rgba(255, 255, 255, 0.649) rgba(16, 9, 9, 0.5);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
