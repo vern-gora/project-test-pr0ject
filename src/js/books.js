@@ -125,10 +125,10 @@ function renderBooks(array) {
           ${books
             .map(
               ({ author, book_image, title, _id }) =>
-                `<li class="book-card" data-id="${_id}">
+                `<li class="book-card" data-id="${_id}" data-action="open-modal">
                 <img src="${book_image}" alt="${title}" class="book-image">
-                <h2 class="book-title">${title}</h2>
-                <h3 class="book-author">${author}</h3>
+                <h3 class="book-title">${title}</h2>
+                <h4 class="book-author">${author}</h3>
               </li>`
             )
             .join('')}
@@ -156,15 +156,32 @@ function renderBooks(array) {
   });
 }
 
+function renderCategories(array, container) {
+  console.log(array);
+  const markup =
+    '<div class="test">' +
+    array
+      .map(
+        ({ author, image, title, id }) =>
+          `<li class="card bestseller-list" data-id="${id}" data-action="open-modal">
+                <img src="${image}" alt="${title}" class="book-image">
+                <h3 class="book-title">${title}</h2>
+                <h4 class="book-author">${author}</h3>
+              </li>`
+      )
+      .join('') +
+    '</div>';
+
+  container.innerHTML = markup;
+  addToStorage();
+}
 function addToStorage() {
-  const books = document.querySelectorAll('.book-card');
+  const books = document.querySelectorAll('[data-action="open-modal"]');
 
   books.forEach(book => {
     book.addEventListener('click', e => {
       const bookcard = e.currentTarget;
-
       const id = bookcard.dataset.id;
-
       const bookData = {
         id,
       };
@@ -174,20 +191,4 @@ function addToStorage() {
       }
     });
   });
-}
-
-function renderCategories(array, container) {
-  console.log(array);
-  const markup = array
-    .map(
-      ({ author, image, title, id }) =>
-        `<li class="card" data-id="${id}">
-                <img src="${image}" alt="${title}" class="book-image">
-                <h2 class="book-title">${title}</h2>
-                <h3 class="book-author">${author}</h3>
-              </li>`
-    )
-    .join('');
-
-  container.innerHTML = markup;
 }

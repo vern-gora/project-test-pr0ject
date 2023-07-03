@@ -1,14 +1,16 @@
-h2 {
-  margin: 0;
-}
 .book-image {
   border-radius: 8px;
   margin-bottom: 14px;
 }
 
-.book-title {
+.section-heading {
+  font-family: DMSans-700;
   margin-bottom: 40px;
+  display: block;
+  font-size: 32px;
+  line-height: 1.2;
 }
+
 .book-card {
   display: flex;
   flex-direction: column;
@@ -41,19 +43,51 @@ h2 {
     align-items: center;
   }
 }
+.book-title {
+  margin-bottom: 4px;
+  font-family: DMSans-700;
+  font-size: 16px;
+  line-height: 1.1;
+}
+.book-author {
+  margin-bottom: 8px;
+  font-family: DMSans-400;
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.see-more {
+  padding: 14px 28px 14px 28px;
+  border-radius: 40px;
+  border: 2px;
+  font-family: DMSans-700;
+  font-size: 14px;
+  line-height: 1.3;
+  border: 2px solid #4f2ee8;
+}
 
 @media screen and (min-width: 768px) {
   .book-card:nth-child(-n + 3) {
     display: block;
+    width: 30%;
+  }
+  .card {
+    display: block;
+    width: 30%;
   }
   .book-list {
     max-width: 704px;
   }
-  .category-block {
+  .category-block,
+  .test {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     flex-direction: row;
-    align-items: center;
+    gap: 25px;
   }
+
   .book-image {
     width: 218px;
     height: 316px;
@@ -63,13 +97,24 @@ h2 {
 @media screen and (min-width: 1440px) {
   .book-card:nth-child(-n + 5) {
     display: block;
+    width: 18%;
   }
+
+  .card {
+    width: 18%;
+  }
+
+  .category-block,
+  .test {
+    gap: 24px;
+  }
+
   .book-list {
     max-width: 996px;
   }
 }
 .book-list {
-  font-family: DM Sans;
+  font-family: DMSans-400;
   font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
