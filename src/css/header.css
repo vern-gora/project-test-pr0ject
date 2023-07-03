@@ -100,6 +100,9 @@
   width: 120px;
   height: 29px;
 }
+.mob-menu.visually-hidden{
+  transform: translateY(100%);
+}
 .mob-menu {
   width: 100%;
   height: 100%;
@@ -114,6 +117,8 @@
   background-position: bottom;
   position: absolute;
   top: 0px;
+  transform: translateY(0%);
+  transition: transform  250ms linear;
 }
 .mob-menu-wrap {
   display: flex;
