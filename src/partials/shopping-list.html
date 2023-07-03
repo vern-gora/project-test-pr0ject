@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/shopping-list.css">
+    <title>Shopping List</title>
+</head>
+
+<body>
+    <header>
+        <include src="./partials/header.html"></include>
+    </header>
+    <div class="container">
+        <div class="support-ukraine-wrap">
+            <div class="charity-box">
+                <div class="charity-header">
+                    <h2 class="charity-title">Support Ukraine</h2>
+                    <svg class="charity-icon" width="20" height="32">
+                        <use href="./img/symbol-defs.svg#icon-support-ukraine"></use>
+                    </svg>
+                </div>
+                <div class="swiper">
+                    <ul class="swiper-wrapper"></ul>
+                    <button class="swiper-button-next">
+                        <svg width="22" height="22">
+                            <use class="swiper-button-next-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
+                        </svg>
+                    </button>
+                    <button class="swiper-button-up is-hidden">
+                        <svg width="22" height="22">
+                            <use class="swiper-button-up-icon" href="/src/img/symbol-defs.svg#icon-arrow-back"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="shopping-list-wrap">
+            <h1 class="shopping-title">Shopping<span class="list-title"> List</span></h1>
+            <div class="empty-wrapper">
+                <div class="shopping-text-wrap">
+                    <p class="shopping-text">This page is empty, add some books and proceed to order.</p>
+                </div>
+                <div class="shopping-img-wrap">
+                    <img class="shopping-img" src="/src/img/mob-img/shopping-list@1x.png"
+                        srcset="/src/img/mob-img/shopping-list@1x.png 1x, /src/img/mob-img/shopping-list@2x.png 2x"
+                        alt="books">
+                </div>
+            </div>
+
+            <div class="book-card-wrapper"></div>
+
+            <!-- //////////////BOOK CARD -->
+
+            <!-- <div class="book-card">
+                <div>
+                    <img class="book-image" src="/src/img/mob-img/book_shopping_list.png" alt="">
+                </div>
+                <div class="book-details">
+                    <div class="book-title">
+                        I will find you
+                    </div>
+                    <div class="book-category">
+                        Hardcover fiction
+                    </div>
+                    <div class="book-description">
+                        David Burroughs was once a devoted father to his three-year-old son Matthew, living a dream life
+                        just a short drive away from the working-class suburb where he and his wife, Cheryl, first fell
+                        in
+                        love--until one fateful night when David woke suddenly to discover Matthew had been murdered
+                        while
+                        David was asleep just down the hall.
+                    </div>
+                    <div class="author-wrap">
+                        <div class="book-author">
+                            Harlan Coben
+                        </div>
+                        <div class="book-buy-link">
+                            <img class="link-img-amazon" src="/src/img/services-png/image 1@1x.png" alt="Amazon">
+                            <img class="link-img-2" src="/src/img/services-png/image 2@1x.png" alt="book">
+                            <img class="link-img-3" src="/src/img/services-png/image 3@1x.png" alt="book">
+                        </div>
+                    </div>
+                    <button class="book-cart-button">
+                        <svg width="28" height="28">
+                            <use class="book-cart-button-icon" href="/src/img/symbol-defs.svg#icon-trash"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div> -->
+
+            <!-- /////////////////BOOK CARD -->
+
+        </div>
+    </div>
+    <script type="module" src="/src/js/shopping-list.js"></script>
+</body>
+
+</html>
