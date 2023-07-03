@@ -5,8 +5,10 @@
 }
 
 .main-section {
+  max-width: 100%;
   padding-top: 40px;
   padding-bottom: 80px;
+  margin: 0 auto;
 }
 
 .section-container {
@@ -21,7 +23,7 @@
 
 @media screen and (max-width: 375px) {
   .section-container {
-    width: 100%;
+    max-width: 100%;
   }
 }
 
