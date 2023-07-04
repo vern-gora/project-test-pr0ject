@@ -6,6 +6,11 @@ import {
   searchById,
   searchCategory,
 } from './api.js';
+
+import defImg116 from '../img/default-img/def-img-116.jpg';
+import defImg180 from '../img/default-img/def-img-180.jpg';
+import defImg218 from '../img/default-img/def-img-218.jpg';
+import defImg335 from '../img/default-img/def-img-335.jpg';
 // const bestSellersUrl = 'https://books-backend.p.goit.global/books/top-books';
 // const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 const testCategory = 'Series Books';
@@ -126,14 +131,33 @@ function renderBooks(array) {
         <h2 class="home-category-heading">${list_name}</h2>
         <ul class="home-category-block">
           ${books
-            .map(
-              ({ author, book_image, title, _id }) =>
-                `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+            .map(({ author, book_image, title, _id }) => {
+              book_image = '';
+              if (book_image) {
+                return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
                 <img src="${book_image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
-              </li>`
-            )
+              </li>`;
+              }
+
+              return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+                <img srcset="
+                ${defImg116} 116w,
+                ${defImg180} 180w,
+                ${defImg218} 218w,
+                ${defImg335} 335w
+                    "
+                sizes="
+                (max-width: 375px) 116px,
+                (max-width: 768px) 335px,
+                (max-width: 1440px) 218px,
+                180px
+                "  alt="${title}" class="home-book-image">
+                <h2 class="home-book-title">${title}</h2>
+                <h3 class="home-book-author">${author}</h3>
+              </li>`;
+            })
             .join('')}
           <button class="see-more" data-category="${list_name}">See more</button>
         </ul>
@@ -166,14 +190,35 @@ function renderCategories(array, container) {
   const markup =
     '<div class="test">' +
     array
-      .map(
-        ({ author, image, title, id }) =>
-          `<li class="home-card" data-id="${id}"  data-action="open-modal">
-                <img src="${image}" alt="${title}" class="home-book-image">
-                <h2 class="home-book-title">${title}</h2>
-                <h3 class="home-book-author">${author}</h3>
-              </li>`
-      )
+      .map(({ author, image, title, id }) => {
+        image = '';
+        if (image) {
+          return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+            <img src="${image}" alt="${title}" class="home-book-image">
+            <h2 class="home-book-title">${title}</h2>
+            <h3 class="home-book-author">${author}</h3>
+          </li>`;
+        }
+
+        return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+        <img  srcset="
+        ${defImg116} 116w,
+        ${defImg180} 180w,
+        ${defImg218} 218w,
+        ${defImg335} 335w
+            "
+        sizes="
+        (max-width: 375px) 116px,
+        (max-width: 768px) 335px,
+        (max-width: 1440px) 218px,
+        180px
+        "
+        src="${defImg335}"
+        alt="${title}" class="home-book-image">
+        <h2 class="home-book-title">${title}</h2>
+        <h3 class="home-book-author">${author}</h3>
+        </li>`;
+      })
       .join('');
   +'</div>';
 
@@ -185,14 +230,13 @@ function addToStorage() {
 
   books.forEach(book => {
     book.addEventListener('click', e => {
-
       const bookcard = e.currentTarget;
       const id = bookcard.dataset.id;
       const bookData = {
         id,
       };
-      
-       modalEl.classList.remove("is-hidden");
+
+      modalEl.classList.remove('is-hidden');
       if (e.target.tagName !== 'BUTTON') {
         localStorage.setItem('bookinfo', JSON.stringify(bookData));
       }
@@ -200,60 +244,56 @@ function addToStorage() {
   });
 
   const modalOpenBtn = document.querySelectorAll('[data-action="open-modal"]');
-const modalCloseBtn = document.querySelector("[data-modal-cls]");
-const modalEl = document.querySelector("[data-modal-El]");
-const imageEl = document.querySelector(".main-img");
-const titleEl = document.querySelector(".modal-title");
-const authorEl = document.querySelector(".modal-author");
-const descriptionEl = document.querySelector(".modal-description");
-const addToListBtn = document.querySelector(".modal-btn");
-const textSubmitEl = document.querySelector(".modal-submit-text")
+  const modalCloseBtn = document.querySelector('[data-modal-cls]');
+  const modalEl = document.querySelector('[data-modal-El]');
+  const imageEl = document.querySelector('.main-img');
+  const titleEl = document.querySelector('.modal-title');
+  const authorEl = document.querySelector('.modal-author');
+  const descriptionEl = document.querySelector('.modal-description');
+  const addToListBtn = document.querySelector('.modal-btn');
+  const textSubmitEl = document.querySelector('.modal-submit-text');
 
-modalOpenBtn.forEach(btn => 
-    btn.addEventListener("click", () => {
-        const savedBookId = localStorage.getItem("bookinfo");
-        const parsedBookId = JSON.parse(savedBookId);
-        const bookId = parsedBookId.id;
-        searchById(bookId).then(data => { 
-            imageEl.src = data.book_image;
-            authorEl.textContent = data.author;
-            titleEl.textContent = data.title;
-            descriptionEl.textContent = data.description;
-        })
-        modalEl.classList.remove("is-hidden");
-        document.body.classList.add('no-scroll');
-    }
-));
+  modalOpenBtn.forEach(btn =>
+    btn.addEventListener('click', () => {
+      const savedBookId = localStorage.getItem('bookinfo');
+      const parsedBookId = JSON.parse(savedBookId);
+      const bookId = parsedBookId.id;
+      searchById(bookId).then(data => {
+        imageEl.src = data.book_image;
+        authorEl.textContent = data.author;
+        titleEl.textContent = data.title;
+        descriptionEl.textContent = data.description;
+      });
+      modalEl.classList.remove('is-hidden');
+      document.body.classList.add('no-scroll');
+    })
+  );
 
-
-addToListBtn.addEventListener("click", () => { 
+  addToListBtn.addEventListener('click', () => {
     const image = imageEl.src;
     const title = titleEl.textContent;
     const author = authorEl.textContent;
     const description = descriptionEl.textContent;
 
     const addToListData = {
-        image,
-        title,
-        author,
-        description,
-    }
+      image,
+      title,
+      author,
+      description,
+    };
 
     localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
-    textSubmitEl.classList.remove("is-hidden");
-})
+    textSubmitEl.classList.remove('is-hidden');
+  });
 
-          
-
-modalCloseBtn.addEventListener("click", () => {
-    modalEl.classList.add("is-hidden");
+  modalCloseBtn.addEventListener('click', () => {
+    modalEl.classList.add('is-hidden');
     document.body.classList.remove('no-scroll');
-    localStorage.removeItem("bookinfo");
-    imageEl.src = "";
-    authorEl.textContent = "";
-    titleEl.textContent = "";
-    descriptionEl.textContent = "";
-    textSubmitEl.classList.add("is-hidden");
-});
-
+    localStorage.removeItem('bookinfo');
+    imageEl.src = '';
+    authorEl.textContent = '';
+    titleEl.textContent = '';
+    descriptionEl.textContent = '';
+    textSubmitEl.classList.add('is-hidden');
+  });
 }
