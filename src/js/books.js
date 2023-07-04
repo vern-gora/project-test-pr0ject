@@ -6,6 +6,10 @@ import {
   searchById,
   searchCategory,
 } from './api.js';
+
+import imageDefault from '../img/support-png/1@1x.png';
+// import { useModal } from './modal.js';
+
 // const bestSellersUrl = 'https://books-backend.p.goit.global/books/top-books';
 // const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 const testCategory = 'Series Books';
@@ -111,14 +115,68 @@ searchById(bookId);
 
 searchTopBooks()
   .then(data => {
-    console.log(data);
+    console.log('data', data);
     renderBooks(data);
   })
   .catch(error => {
     console.log(error);
   });
 
+// function renderBooks(array) {
+//   loader.style.display = 'block';
+
+//   const markup = array
+//     .map(
+//       ({ list_name, books }) =>
+//         `<li class="home-bestseller-list">
+//         <h2 class="home-category-heading">${list_name}</h2>
+//         <ul class="home-category-block">
+//           ${books
+//             .map(({ author, book_image, title, _id }) => {
+//               const imageGet = book_image;
+//               if (book_image) {
+//                 return `<li class="home-book-card" data-id="${_id}" data-action="open-modal">
+//                 <img src="${book_image}" alt="${title}" class="home-book-image" >
+//                 <h2 class="home-book-title">${title}</h2>
+//                 <h3 class="home-book-author">${author}</h3>
+//                 </li>`;
+//               }
+
+//               return `<li class="home-book-card" data-id="${_id}" data-action="open-modal">
+//               <img src="${imageDefault}" alt="${title}" class="home-book-image" >
+//               <h2 class="home-book-title">${title}</h2>
+//               <h3 class="home-book-author">${author}</h3>
+//               </li>`;
+//             })
+//             .join('')}
+//           <button class="see-more" data-category="${list_name}">See more</button>
+//         </ul>
+//       </li>`
+//     )
+//     .join('');
+
+//   bookList.insertAdjacentHTML('beforeend', markup);
+//   addToStorage();
+
+//   const buttons = document.querySelectorAll('.see-more');
+
+//   buttons.forEach(button => {
+//     button.addEventListener('click', e => {
+//       // e.preventDefault();
+//       const categoryButton = e.currentTarget;
+//       const categorySelected = categoryButton.dataset.category;
+//       console.log(categorySelected);
+//       searchCategory(categorySelected).then(data =>
+//         renderCategories(data, bookList)
+//       );
+//     });
+//   });
+
+//   loader.style.display = 'none';
+// }
+
 function renderBooks(array) {
+  loader.style.display = 'block';
   const markup = array
     .map(
       ({ list_name, books }) =>
@@ -157,27 +215,42 @@ function renderBooks(array) {
       );
     });
   });
+
+  loader.style.display = 'none';
 }
 
 function renderCategories(array, container) {
+  loader.style.display = 'block';
   console.log(array);
+
   const markup =
     '<div class="test">' +
     array
-      .map(
-        ({ author, image, title, id }) =>
-          `<li class="home-card" data-id="${id}"  data-action="open-modal">
+      .map(({ author, image, title, id }) => {
+        const imageGet = image;
+        if (image) {
+          return `<li class="home-card" data-id="${id}"  data-action="open-modal">
                 <img src="${image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
-              </li>`
-      )
+              </li>`;
+        }
+
+        return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+                <img src="${imageDefault}" alt="${title}" class="home-book-image">
+                <h2 class="home-book-title">${title}</h2>
+                <h3 class="home-book-author">${author}</h3>
+              </li>`;
+      })
       .join('');
   +'</div>';
 
   container.innerHTML = markup;
   addToStorage();
+
+  loader.style.display = 'none';
 }
+
 function addToStorage() {
   const books = document.querySelectorAll('[data-action="open-modal"]');
 
