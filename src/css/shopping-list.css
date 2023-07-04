@@ -1,3 +1,7 @@
+.shopping-list-container {
+  width: 100%;
+}
+
 .body-shopping-list {
   background: var(--backdrop-color-sl);
 }
@@ -51,6 +55,11 @@
 }
 
 @media screen and (min-width: 768px) {
+  .shopping-list-container {
+    width: 768px;
+    margin: 0 auto;
+  }
+
   .shopping-title {
     margin-left: 32px;
     font-size: 48px;
@@ -78,11 +87,16 @@
 }
 
 @media screen and (min-width: 1440px) {
+  .shopping-list-container {
+    width: 1440px;
+  }
+
   .visually-hidden {
     position: static;
     height: auto;
     overflow: visible;
     clip-path: none;
+    margin-top: 40px;
   }
 
   .shopping-title {
