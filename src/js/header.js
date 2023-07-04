@@ -25,6 +25,7 @@ const seeLogOutBtn = document.querySelector('.see-log-out');
 
 const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
 const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
+const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
 
 //function updateUsername(username) {
 //  try {
@@ -102,8 +103,8 @@ const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
 // onInit();
 
 if (localStorage.getItem('theme') === 'dark') {
-  lightLogoEl.classList.add('visually-hidden');
-  darkLogoEl.classList.remove('visually-hidden');
+  lightLogoEl.classList.add('is-hidden');
+  darkLogoEl.classList.remove('is-hidden');
   lightBagIcon.classList.remove('visually-hidden');
   darkBagIcon.classList.add('visually-hidden');
 } else {
@@ -122,17 +123,33 @@ if (mobShoppingListLink.classList.contains('is-active')) {
 }
 
 headerSignUpBtn.addEventListener("click", ()=>{
-  headerSignUpBtn.classList.add('visually-hidden');
-  headerUserBtn.classList.remove('visually-hidden');
-  document.querySelector(".sign-log").classList.remove('visually-hidden');
+  headerSignUpBtn.classList.add('is-hidden');
+  headerUserBtn.classList.remove('is-hidden');
+  document.querySelector(".sign-log").classList.remove('is-hidden');
 })
 seeLogOutBtn.addEventListener("click", ()=>{
-  document.querySelector(".sign-log").classList.remove('visually-hidden');
-  headerLogOutBtn.classList.remove('visually-hidden');
+  document.querySelector(".sign-log").classList.remove('is-hidden');
+  headerLogOutBtn.classList.remove('is-hidden');
 })
 headerLogOutBtn.addEventListener("click", ()=>{
-  document.querySelector(".sign-log").classList.add('visually-hidden');
-  headerSignUpBtn.classList.remove('visually-hidden');
+  headerLogOutBtn.classList.add('is-hidden');
+  document.querySelector(".sign-log").classList.add('is-hidden');
+  headerSignUpBtn.classList.remove('is-hidden');
+})
+
+
+mobMenuSignUpBtn.addEventListener("click", ()=>{
+  mobMenuSignUpBtn.classList.add('is-hidden');
+  mobMenuUserOutBtn.classList.remove('is-hidden');
+  mobMenuLogOutBtn.classList.remove('is-hidden');
+})
+mobMenuLogOutBtn.addEventListener("click", ()=>{
+  mobMenuLogOutBtn.classList.add('is-hidden');
+
+})
+mobMenuLogOutBtn.addEventListener("click", ()=>{
+  mobMenuSignUpBtn.classList.remove('is-hidden');
+  mobMenuUserOutBtn.classList.add('is-hidden');
 })
 
 
@@ -156,8 +173,8 @@ const switchTheme = () => {
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
   rootEl.setAttribute('data-theme', newTheme);
-  lightLogoEl.classList.toggle('visually-hidden');
-  darkLogoEl.classList.toggle('visually-hidden');
+  lightLogoEl.classList.toggle('is-hidden');
+  darkLogoEl.classList.toggle('is-hidden');
   lightBagIcon.classList.toggle('visually-hidden');
   darkBagIcon.classList.toggle('visually-hidden');
   localStorage.setItem('theme', newTheme);
