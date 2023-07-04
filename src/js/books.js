@@ -10,7 +10,7 @@ import {
 // const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 const testCategory = 'Series Books';
 const bookId = '643282b1e85766588626a083';
-export const bookList = document.querySelector('.book-list');
+const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
 
 // async function searchTopBooks(bookUrl) {
@@ -159,7 +159,7 @@ function renderBooks(array) {
   });
 }
 
-export function renderCategories(array, container) {
+function renderCategories(array, container) {
   console.log(array);
   const markup =
     '<div class="test">' +
