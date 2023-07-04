@@ -24,6 +24,7 @@ async function searchAllCategory() {
     throw new Error('There is no such category');
   }
 }
+
 async function searchCategory(selectedCategory) {
   try {
     const response = await axios.get(
@@ -42,7 +43,6 @@ async function searchCategory(selectedCategory) {
         links: currentBookEl.buy_links,
       };
     });
-    console.log(selectedCategoryEl);
 
     return selectedCategoryEl;
   } catch (error) {
@@ -50,14 +50,13 @@ async function searchCategory(selectedCategory) {
     throw new Error('There is no such category');
   }
 }
+
 async function searchById(id) {
   try {
     const response = await axios.get(
       `https://books-backend.p.goit.global/books/${id}`
     );
     const booksId = response.data;
-
-    console.log(booksId);
 
     return booksId;
   } catch (error) {
