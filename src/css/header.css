@@ -1,6 +1,6 @@
 .header-container {
-  width: 100%;
-  height: 24px;
+  width: 111%;
+  height: 64px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,6 +29,10 @@
   margin-right: auto;
   font-weight: 600;
   background: var(--icon-logo);
+}
+.logo a {
+  width: 109px;
+  height: 28px;
 }
 .header-title {
   font-family: 'DMSans-400', sans-serif;
@@ -86,7 +90,7 @@
   background-color: transparent;
   stroke: var(--deep-black);
 }
-.sign-up-btn {
+.header-user-profile {
   display: none;
 }
 .header-nav {
@@ -104,8 +108,8 @@
   transform: translateY(100%);
 }
 .mob-menu {
-  width: 100%;
-  height: 100%;
+  width: 111%;
+  height: 111%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -129,26 +133,70 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 133px;
-  height: 37px;
-  margin-top: 48px;
+  width: 184px;
+  height: 48px;
+  margin-top: 88px;
 }
 .mob-menu-sign-up-btn {
-  width: 87px;
-  height: 29px;
+  width: 184px;
+  height: 48px;
   margin-left: 20px;
   padding: 0;
   background-color: transparent;
-  border: none;
+  border: 2px solid #111111;
+  border-radius: 18px;
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
   color: #fff;
-  z-index: 999;
+}
+.username {
+  font-family: 'DMSans-500', sans-serif;
+  width: 50px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-left: 14px;
+  margin-right: 90px;
+}
+.mob-menu-sign-up-btn svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
 }
 .user-photo {
   stroke: #fff;
+}
+.mob-menu-user-btn {
+  width: 184px;
+  height: 45px;
+  padding: 0;
+  margin-left: 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+}
+.mob-menu-user-btn .username {
+  margin-right: 0px;
+  font-size: 22px;
+  line-height: 28px;
+}
+.user-photo-bg {
+  width: 37px;
+  height: 37px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .mob-menu-nav {
   margin: 0 auto;
@@ -195,7 +243,7 @@
 .mob-menu-log-out-btn {
   width: 118px;
   height: 48px;
-  margin-bottom: 24px;
+  margin-bottom: 72px;
   margin-left: 20px;
   color: #111;
   background-color: #fff;
@@ -219,7 +267,7 @@
   z-index: -1;
   bottom: 0;
 }
-.visually-hidden {
+.is-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -246,6 +294,9 @@
   display: none;
 }
 @media screen and (min-width: 375px) {
+  .header-container {
+    width: 375px;
+  }
   .mob-menu-wrap {
     width: 375px;
     margin: 0 auto;
@@ -300,7 +351,6 @@
     align-items: center;
     justify-content: center;
   }
-
   .header-home-link {
     text-decoration: none;
     color: var(--deep-black);
@@ -322,16 +372,80 @@
   .theme-switcher {
     margin-right: 24px;
   }
+  .header-user-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 184px;
+    height: 93px;
+    margin-right: 24px;
+    margin-left: 20px;
+  }
+  .sign-log {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    width: 184px;
+    height: 48px;
+  }
   .sign-up-btn {
+    width: 184px;
+    height: 48px;
+    padding: 0;
+    background-color: #4f2ee8;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
     display: flex;
     align-items: center;
-    margin-right: 32px;
+    cursor: pointer;
+    color: #fff;
+  }
+  .header-user-btn {
     width: 184px;
     height: 45px;
+    padding: 0;
     background-color: #4f2ee8;
-    color: #fff;
     border: none;
-    border-radius: 36px;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+  }
+  .header-user-btn .username {
+    width: 87px;
+    height: 29px;
+    margin-right: 4px;
+    font-size: 22px;
+    line-height: 29px;
+  }
+  .see-log-out {
+    width: 23px;
+    height: 26px;
+    margin-right: 12px;
+  }
+  .see-log-out svg {
+    width: 23px;
+    height: 26px;
+  }
+  .header-log-out-btn {
+    width: 184px;
+    height: 45px;
+    padding: 0;
+    background-color: white;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #111111;
+    position: absolute;
+    top: 100%;
   }
   .sign-up-btn svg {
     margin-left: 4px;

@@ -1,37 +1,6 @@
-import { searchCategory } from './api.js';
-import { renderCategories, bookList } from './books.js';
 const apiUrl = 'https://books-backend.p.goit.global/books/category-list';
 const categoriesList = document.querySelector('.categories-list');
-const bookList = document.querySelector('.book-list');
-
-function searchCategory(selectedCategory) {
-  return fetch(
-    `https://books-backend.p.goit.global/books/category?category=${selectedCategory}`
-  )
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('There is no such category');
-      }
-      return response.json();
-    })
-    .then(categories => {
-      const selectedCategoryEl = categories.map(el => ({
-        image: el.book_image,
-        title: el.title,
-        author: el.author,
-        id: el._id,
-        description: el.description,
-        links: el.buy_links,
-      }));
-
-      console.log(selectedCategoryEl);
-      return selectedCategoryEl;
-    })
-    .catch(error => {
-      console.error(error);
-      throw new Error('There is no such category');
-    });
-}
+const categoriesTitle = document.querySelector('.categories-title');
 
 fetch(apiUrl)
   .then(response => {
@@ -51,11 +20,31 @@ fetch(apiUrl)
         categoriesList.appendChild(categoryItem);
 
         categoryItem.addEventListener('click', event => {
-          const searchedCategory = event.target.textContent;
-          searchCategory(searchedCategory).then(data =>
-            renderCategories(data, bookList)
-          );
+          event.stopPropagation();
         });
       });
+
+      categoriesTitle.addEventListener('click', () => {
+        fetch(apiUrl)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error(
+              'Ошибка при выполнении запроса: ' + response.status
+            );
+          })
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.log('Произошла ошибка:', error.message);
+          });
+      });
+    } else {
+      console.log('Данные не содержат список категорий.');
     }
+  })
+  .catch(error => {
+    console.log('Произошла ошибка:', error.message);
   });
