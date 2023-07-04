@@ -286,6 +286,9 @@ line-height: 28px;
   display: none;
 }
 @media screen and (min-width: 375px) {
+  .header-container{
+    width: 375px;
+  }
   .mob-menu-wrap {
     width: 375px;
     margin: 0 auto;
