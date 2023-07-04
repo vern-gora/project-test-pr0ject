@@ -33,7 +33,7 @@ function searchCategory(selectedCategory) {
     });
 }
 
-fetch(apiUrl)
+fetch(categoriesUrl)
   .then(response => {
     if (response.ok) {
       return response.json();
