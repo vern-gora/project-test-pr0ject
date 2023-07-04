@@ -5,7 +5,7 @@ import {
   searchCategory,
 } from './api.js';
 
-const bookList = document.querySelector('.book-list');
+export const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
 
 searchTopBooks()
@@ -61,7 +61,7 @@ function renderBooks(array) {
   return markup;
 }
 
-function renderCategories(array, container) {
+export function renderCategories(array, container) {
   loader.style.display = 'block';
   console.log(array);
   const markup =

@@ -92,6 +92,31 @@ body {
   z-index: 1;
 }
 
+.categories-el.active:hover {
+  color: #4f2ee8;
+  font-size: 18px;
+  font-family: DMSans-700;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.36px;
+  text-transform: uppercase;
+}
+
+.categories-list li:not(.active):hover {
+  color: rgba(17, 17, 17, 0.6);
+  font-size: 16px;
+  font-family: DMSans-400;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+}
+
+.categories-el.active:hover,
+.categories-list li:not(.active):hover {
+  max-width: 100%;
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
   .categories-el {
     white-space: normal;
