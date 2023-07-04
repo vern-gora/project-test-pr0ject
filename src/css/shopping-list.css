@@ -52,17 +52,26 @@
 }
 
 /* ///BOOK_CARD/// */
-.sl-book-card {
-  margin-top: 40px;
-  margin-left: 14px;
-  margin-bottom: 20px;
+
+.book-card-container {
   width: 100%;
+  padding-inline: 20px;
+}
+
+.sl-book-card {
+  /* margin-top: 40px; */
+  /* margin-left: 14px;
+  margin-bottom: 20px; */
+  width: 100%;
+
   height: 170px;
   display: flex;
   align-items: center;
+  padding: 14px 14px;
+
   border-radius: 16px;
   border: 2px solid rgba(79, 46, 232, 0.4);
-  background: #fff;
+  background-color: var(--bookcard-backdrop-color);
   position: relative;
 }
 
@@ -70,10 +79,23 @@
   margin-bottom: 20px;
 }
 
+/* .sl-book-image-wrap {
+  margin-left: 14px;
+} */
+
+.sl-book-image-wrap {
+  flex-shrink: 0;
+}
+
 .sl-book-image {
-  width: 100px;
+  /* width: 100px; */
+  width: 100%;
   height: 142px;
-  margin: 0 14px;
+}
+
+.sl-book-details {
+  width: 100%;
+  margin-left: 14px;
 }
 
 .sl-book-title {
@@ -82,7 +104,7 @@
   letter-spacing: -0.04em;
   text-align: left;
   text-transform: uppercase;
-  color: #111111;
+  color: var(--deep-black);
 }
 
 .sl-book-category {
@@ -101,7 +123,7 @@
   flex-direction: column;
   margin-top: 8px;
   overflow: auto;
-  color: #111;
+  color: var(--deep-black);
   text-overflow: ellipsis;
   font-style: normal;
 
@@ -114,15 +136,15 @@
 
 .sl-author-wrap {
   display: flex;
+  justify-content: space-between;
   gap: 22px;
 }
 
 .sl-book-author {
   margin-top: 14px;
   color: #b4afaf;
-  font-size: 12px;
+  font-size: 10px;
   font-style: italic;
-  font-weight: 400;
   line-height: 14px;
   letter-spacing: -0.04em;
   text-align: left;
@@ -130,7 +152,6 @@
 
 .sl-book-buy-link {
   margin-top: 14px;
-  margin-right: 14px;
   gap: 8px;
   display: flex;
   align-items: center;
@@ -214,7 +235,62 @@
   }
 
   /* ///BOOK_CARD/// */
+  .book-card-container {
+    padding-inline: 32px;
+  }
 
+  .sl-book-card {
+    height: 213px;
+    padding: 24px 24px;
+  }
+
+  .sl-book-image {
+    height: 165px;
+  }
+
+  .sl-book-details {
+    margin-left: 24px;
+  }
+
+  .sl-book-description {
+    margin-top: 14px;
+    height: 53px;
+  }
+
+  .sl-author-wrap {
+    gap: 32px;
+  }
+
+  .sl-book-author {
+    margin-top: 48px;
+    font-size: 12px;
+  }
+
+  .sl-book-buy-link {
+    margin-top: 32px;
+    gap: 16px;
+  }
+
+  .sl-link-img-amazon {
+    width: 48px;
+    height: 15px;
+  }
+
+  .sl-link-img-2 {
+    width: 28px;
+    height: 27px;
+  }
+
+  .sl-link-img-3 {
+    width: 32px;
+    height: 30px;
+  }
+
+  .sl-book-cart-button {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
   /* ///BOOK_CARD/// */
 }
 

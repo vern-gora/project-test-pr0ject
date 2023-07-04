@@ -146,3 +146,18 @@ const switchTheme = () => {
 document
   .querySelector('.theme-switcher')
   .addEventListener('click', switchTheme);
+
+  const homeShoppingListLink = document.querySelector('.header-nav-item-home');
+
+// Get the current page URL
+const currentPageURL = window.location.href;
+console.log(currentPageURL);
+
+// Check if the current page URL matches the shopping list page
+if (currentPageURL.includes('shopping-list.html')) {
+  shoppingListLink.classList.add('is-active');
+  homeShoppingListLink.classList.remove('is-active');
+} else {
+  homeShoppingListLink.classList.add('is-active');
+  shoppingListLink.classList.remove('is-active');
+}
