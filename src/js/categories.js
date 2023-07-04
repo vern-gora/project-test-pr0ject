@@ -33,6 +33,7 @@ function searchCategory(selectedCategory) {
       throw new Error('There is no such category');
     });
 }
+
 function setActiveCategory(selectedCategoryItem) {
   const activeCategoryItem = document.querySelector('.categories-el.active');
   if (activeCategoryItem) {
