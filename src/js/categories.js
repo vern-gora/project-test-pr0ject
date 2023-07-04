@@ -1,8 +1,8 @@
 import { searchCategory } from './api.js';
 import { renderCategories, bookList } from './books.js';
-const apiUrl = 'https://books-backend.p.goit.global/books/category-list';
-const categoriesList = document.querySelector('.categories-list');
-const bookList = document.querySelector('.book-list');
+let apiUrl = 'https://books-backend.p.goit.global/books/category-list';
+let categoriesList = document.querySelector('.categories-list');
+let bookList = document.querySelector('.book-list');
 
 function searchCategory(selectedCategory) {
   return fetch(
