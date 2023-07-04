@@ -5,16 +5,8 @@ import {
   searchCategory,
 } from './api.js';
 
-const testCategory = 'Series Books';
-const bookId = '643282b1e85766588626a083';
 const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
-
-searchAllCategory();
-
-searchCategory(testCategory);
-
-searchById(bookId);
 
 searchTopBooks()
   .then(data => {

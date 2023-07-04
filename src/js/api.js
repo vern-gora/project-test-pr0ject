@@ -24,6 +24,7 @@ async function searchAllCategory() {
     throw new Error('There is no such category');
   }
 }
+
 async function searchCategory(selectedCategory) {
   try {
     const response = await axios.get(
@@ -49,6 +50,7 @@ async function searchCategory(selectedCategory) {
     throw new Error('There is no such category');
   }
 }
+
 async function searchById(id) {
   try {
     const response = await axios.get(
