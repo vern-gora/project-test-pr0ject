@@ -124,6 +124,7 @@ searchTopBooks()
   });
 
 function renderBooks(array) {
+  loader.style.display = 'block';
   const markup = array
     .map(
       ({ list_name, books }) =>
@@ -164,6 +165,7 @@ function renderBooks(array) {
       </li>`
     )
     .join('');
+  loader.style.display = 'none';
 
   bookList.insertAdjacentHTML('beforeend', markup);
   addToStorage();
@@ -186,6 +188,7 @@ function renderBooks(array) {
 }
 
 function renderCategories(array, container) {
+  loader.style.display = 'block';
   console.log(array);
   const markup =
     '<div class="test">' +
@@ -239,6 +242,7 @@ function addToStorage() {
       modalEl.classList.remove('is-hidden');
       if (e.target.tagName !== 'BUTTON') {
         localStorage.setItem('bookinfo', JSON.stringify(bookData));
+        loader.style.display = 'none';
       }
     });
   });
