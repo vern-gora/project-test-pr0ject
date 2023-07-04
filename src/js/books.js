@@ -5,6 +5,11 @@ import {
   searchCategory,
 } from './api.js';
 
+import defImg116 from '../img/default-img/def-img-116.jpg';
+import defImg180 from '../img/default-img/def-img-180.jpg';
+import defImg218 from '../img/default-img/def-img-218.jpg';
+import defImg335 from '../img/default-img/def-img-335.jpg';
+
 const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
 
@@ -25,14 +30,31 @@ function renderBooks(array) {
         <h2 class="home-category-heading">${list_name}</h2>
         <ul class="home-category-block">
           ${books
-            .map(
-              ({ author, book_image, title, _id }) =>
-                `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
-                <img src="${book_image}" alt="${title}" class="home-book-image">
-                <h2 class="home-book-title">${title}</h2>
-                <h3 class="home-book-author">${author}</h3>
-              </li>`
-            )
+            .map(({ author, book_image, title, _id }) => {
+              if (book_image) {
+                return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+              <img src="${book_image}" alt="${title}" class="home-book-image">
+              <h2 class="home-book-title">${title}</h2>
+              <h3 class="home-book-author">${author}</h3>
+              </li>`;
+              }
+              return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+          <img srcset="
+          ${defImg116} 116w,
+          ${defImg180} 180w,
+          ${defImg218} 218w,
+          ${defImg335} 335w
+              "
+          sizes="
+          (max-width: 375px) 116px,
+          (max-width: 768px) 335px,
+          (max-width: 1440px) 218px,
+          180px
+          "  alt="${title}" class="home-book-image">
+          <h2 class="home-book-title">${title}</h2>
+          <h3 class="home-book-author">${author}</h3>
+        </li>`;
+            })
             .join('')}
           <button class="see-more" data-category="${list_name}">See more</button>
         </ul>
@@ -67,14 +89,34 @@ function renderCategories(array, container) {
   const markup =
     '<div class="test">' +
     array
-      .map(
-        ({ author, image, title, id }) =>
-          `<li class="home-card" data-id="${id}"  data-action="open-modal">
+      .map(({ author, image, title, id }) => {
+        if (image) {
+          return `<li class="home-card" data-id="${id}"  data-action="open-modal">
                 <img src="${image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
-              </li>`
-      )
+              </li>`;
+        }
+
+        return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+            <img  srcset="
+            ${defImg116} 116w,
+            ${defImg180} 180w,
+            ${defImg218} 218w,
+            ${defImg335} 335w
+                "
+            sizes="
+            (max-width: 375px) 116px,
+            (max-width: 768px) 335px,
+            (max-width: 1440px) 218px,
+            180px
+            "
+            src="${defImg335}"
+            alt="${title}" class="home-book-image">
+            <h2 class="home-book-title">${title}</h2>
+            <h3 class="home-book-author">${author}</h3>
+            </li>`;
+      })
       .join('');
   +'</div>';
 
