@@ -181,7 +181,7 @@ function addToStorage() {
       description,
     };
 
-    localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
+    //localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
     textSubmitEl.classList.remove('is-hidden');
   });
 
