@@ -201,22 +201,21 @@ function renderBooks(array) {
                   </li>`;
               }
 
-              console.log('needed');
               return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
                   <img 
                   srcset="
-      ${defImg116} 116w,
-      ${defImg180} 180w,
-      ${defImg218} 218w,
-      ${defImg335} 335w
-    "
-    sizes="
-      (max-width: 375px) 116px,
-      (max-width: 768px) 335px,
-      (max-width: 1440px) 218px,
-      180px
-    "
-    src="${defImg335}"
+                  ${defImg116} 116w,
+                  ${defImg180} 180w,
+                  ${defImg218} 218w,
+                  ${defImg335} 335w
+                "
+                sizes="
+                  (max-width: 375px) 116px,
+                  (max-width: 768px) 335px,
+                  (max-width: 1440px) 218px,
+                  180px
+                "
+                src="${defImg335}"
                 
 
                   alt="${title}" class="home-book-image">
