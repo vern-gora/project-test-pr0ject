@@ -4,6 +4,7 @@ import {
   searchById,
   searchCategory,
 } from './api.js';
+import { addToShoppingListEl } from './shopping-list.js';
 
 import defImg116 from '../img/default-img/def-img-116.jpg';
 import defImg180 from '../img/default-img/def-img-180.jpg';
@@ -84,7 +85,6 @@ function renderBooks(array) {
   return markup;
 }
 
-
 function renderCategories(array, container) {
   loader.style.display = 'block';
   console.log(array);
@@ -152,6 +152,7 @@ function addToStorage() {
       }
     });
   });
+  // ==========================================
 
   const modalOpenBtn = document.querySelectorAll('[data-action="open-modal"]');
   const modalCloseBtn = document.querySelector('[data-modal-cls]');
@@ -180,18 +181,18 @@ function addToStorage() {
   );
 
   addToListBtn.addEventListener('click', () => {
-    const image = imageEl.src;
-    const title = titleEl.textContent;
-    const author = authorEl.textContent;
-    const description = descriptionEl.textContent;
+    addToShoppingListEl();
+    // const image = imageEl.src;
+    // const title = titleEl.textContent;
+    // const author = authorEl.textContent;
+    // const description = descriptionEl.textContent;
 
-    const addToListData = {
-      image,
-      title,
-      author,
-      description,
-    };
-
+    // const addToListData = {
+    //   image,
+    //   title,
+    //   author,
+    //   description,
+    // };
 
     //localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
     textSubmitEl.classList.remove('is-hidden');

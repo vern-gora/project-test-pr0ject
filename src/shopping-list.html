@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
     <script>
-        let localS = localStorage.getItem('theme');
-        if (localS === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+      let localS = localStorage.getItem('theme');
+      if (localS === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     </script>
-    <link rel="shortcut icon" href="./img/favicon/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-        integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="shortcut icon"
+      href="./img/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
     <script type="module" src="./index.js"></script>
-</head>
+  </head>
 
-<body class="body-shopping-list">
+  <body class="body-shopping-list">
     <header>
-        <include src="./partials/header.html"></include>
+      <include src="./partials/header.html"></include>
     </header>
     <main>
-        <div class="shopping-list-container">
+      <ul class="book-card-container"></ul>
+      <!-- <div class="shopping-list-container ">
             <div class="support-sl visually-hidden">
                 <include src="./partials/support.html"></include>
             </div>
@@ -39,13 +47,9 @@
                         alt="books">
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
 
-    <footer>
-
-    </footer>
-
-</body>
-
+    <footer></footer>
+  </body>
 </html>
