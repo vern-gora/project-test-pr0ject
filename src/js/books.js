@@ -5,7 +5,12 @@ import {
   searchCategory,
 } from './api.js';
 
-export const bookList = document.querySelector('.book-list');
+import defImg116 from '../img/default-img/def-img-116.jpg';
+import defImg180 from '../img/default-img/def-img-180.jpg';
+import defImg218 from '../img/default-img/def-img-218.jpg';
+import defImg335 from '../img/default-img/def-img-335.jpg';
+
+const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
 
 searchTopBooks()
@@ -25,14 +30,32 @@ function renderBooks(array) {
         <h2 class="home-category-heading">${list_name}</h2>
         <ul class="home-category-block">
           ${books
-            .map(
-              ({ author, book_image, title, _id }) =>
-                `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
-                <img src="${book_image}" alt="${title}" class="home-book-image">
-                <h2 class="home-book-title">${title}</h2>
-                <h3 class="home-book-author">${author}</h3>
-              </li>`
-            )
+            .map(({ author, book_image, title, _id }) => {
+              if (book_image) {
+                return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+              <img src="${book_image}" alt="${title}" class="home-book-image">
+              <h2 class="home-book-title">${title}</h2>
+              <h3 class="home-book-author">${author}</h3>
+              </li>`;
+              }
+              return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+          <img srcset="
+          ${defImg116} 116w,
+          ${defImg180} 180w,
+          ${defImg218} 218w,
+          ${defImg335} 335w
+              "
+          sizes="
+          (max-width: 375px) 116px,
+          (max-width: 768px) 335px,
+          (max-width: 1440px) 218px,
+          180px
+          "  alt="${title}" class="home-book-image">
+          <h2 class="home-book-title">${title}</h2>
+          <h3 class="home-book-author">${author}</h3>
+        </li>`;
+            })
+
             .join('')}
           <button class="see-more" data-category="${list_name}">See more</button>
         </ul>
@@ -53,7 +76,7 @@ function renderBooks(array) {
       const categorySelected = categoryButton.dataset.category;
       console.log(categorySelected);
       searchCategory(categorySelected).then(data =>
-        renderCategories(data, bookList)
+        renderCategories(data, bookList, categorySelected)
       );
     });
   });
@@ -61,24 +84,54 @@ function renderBooks(array) {
   return markup;
 }
 
-export function renderCategories(array, container) {
+
+function renderCategories(array, container) {
   loader.style.display = 'block';
   console.log(array);
   const markup =
-    '<div class="test">' +
+    `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
     array
-      .map(
-        ({ author, image, title, id }) =>
-          `<li class="home-card" data-id="${id}"  data-action="open-modal">
+
+      .map(({ author, image, title, id }) => {
+        if (image) {
+          return `<li class="home-card" data-id="${id}"  data-action="open-modal">
                 <img src="${image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
-              </li>`
-      )
+              </li>`;
+        }
+
+        return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+            <img  srcset="
+            ${defImg116} 116w,
+            ${defImg180} 180w,
+            ${defImg218} 218w,
+            ${defImg335} 335w
+                "
+            sizes="
+            (max-width: 375px) 116px,
+            (max-width: 768px) 335px,
+            (max-width: 1440px) 218px,
+            180px
+            "
+            src="${defImg335}"
+            alt="${title}" class="home-book-image">
+            <h2 class="home-book-title">${title}</h2>
+            <h3 class="home-book-author">${author}</h3>
+            </li>`;
+      })
       .join('');
   +'</div>';
 
   container.innerHTML = markup;
+
+  const heading = document.getElementById('category-heading');
+  const words = heading.textContent.split(' ');
+  const lastWord = words.pop();
+  const reconstructedHeading =
+    words.join(' ') + ' <span class="books-design">' + lastWord + '</span>';
+  heading.innerHTML = reconstructedHeading;
+
   addToStorage();
 }
 function addToStorage() {
@@ -139,7 +192,8 @@ function addToStorage() {
       description,
     };
 
-    localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
+
+    //localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
     textSubmitEl.classList.remove('is-hidden');
   });
 
