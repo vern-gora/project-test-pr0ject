@@ -1,6 +1,6 @@
 .header-container {
   width: 100%;
-  height: 24px;
+  height: 64px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -86,19 +86,11 @@
   background-color: transparent;
   stroke: var(--deep-black);
 }
-.sign-up-btn {
+.header-user-profile {
   display: none;
 }
 .header-nav {
   display: none;
-}
-.username {
-  justify-content: center;
-  font-family: 'DMSans-700', sans-serif;
-  font-size: 22px;
-  line-height: 28.64px;
-  width: 120px;
-  height: 29px;
 }
 .mob-menu.visually-hidden{
   transform: translateY(100%);
@@ -129,23 +121,39 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 133px;
-  height: 37px;
+  width: 184px;
+  height: 48px;
   margin-top: 48px;
 }
 .mob-menu-sign-up-btn {
-  width: 87px;
-  height: 29px;
+  width: 184px;
+  height: 48px;
   margin-left: 20px;
   padding: 0;
   background-color: transparent;
-  border: none;
+  border: 2px solid #111111;
+  border-radius: 18px;
   position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
   color: #fff;
   z-index: 999;
+}
+.username {
+  font-family: 'DMSans-500', sans-serif;
+  width: 50px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  margin-left: 14px;
+  margin-right: 90px;
+}
+.mob-menu-sign-up-btn svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
 }
 .user-photo {
   stroke: #fff;
@@ -242,7 +250,7 @@
 .is-active a {
   color: #111111;
 }
-.null {
+.null{
   display: none;
 }
 @media screen and (min-width: 375px) {
@@ -300,7 +308,6 @@
     align-items: center;
     justify-content: center;
   }
-
   .header-home-link {
     text-decoration: none;
     color: var(--deep-black);
@@ -322,20 +329,96 @@
   .theme-switcher {
     margin-right: 24px;
   }
-  .sign-up-btn {
+  .header-user-profile{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    margin-right: 32px;
+    justify-content: center;
+    width: 184px;
+    height: 93px;
+    margin-right: 24px;
+    margin-left: 20px;
+  }
+  .sign-log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 184px;
+    height: 93px;
+    margin-top: 48px;
+  }
+  .sign-up-btn {
+  width: 184px;
+  height: 48px;
+  padding: 0;
+  background-color: #4f2ee8;
+  border: 2px solid #111111;
+  border-radius: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
+  z-index: 999;
+  }
+  .header-user-btn{
     width: 184px;
     height: 45px;
+    padding: 0;
     background-color: #4f2ee8;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
     color: #fff;
-    border: none;
-    border-radius: 36px;
+    z-index: 999;
+  }
+  .user-photo-bg{
+    width: 37px;
+    height: 37px;
+    background-color: #fff;
+    border-radius: 50% ;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-user-btn .username{
+    width: 87px;
+    height: 29px;
+    margin-right: 4px;
+    font-size: 22px;
+    line-height: 29px;
+  }
+  .see-log-out{
+  width: 23px;
+  height: 26px;
+  margin-right: 12px;
+  }
+  .see-log-out svg{
+    width: 13px;
+    height: 7px;
+  }
+  .header-log-out-btn{
+    width: 184px;
+    height: 45px;
+    padding: 0;
+    background-color: white;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #111111;
+    z-index: 999;
   }
   .sign-up-btn svg {
     margin-left: 4px;
   }
+  
 }
 @media screen and (min-width: 1440px) {
   .header-container {
@@ -343,3 +426,5 @@
   }
   .logo {
     margin-right: 76px;
+  }
+}

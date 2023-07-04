@@ -19,6 +19,10 @@ const mobLightIcon = document.querySelector('#mob-icon-light');
 const isActiveMobIcon = document.querySelector('#is-active-mob-icon');
 
 const headerSignUpBtn = document.querySelector('.sign-up-btn');
+const headerLogOutBtn = document.querySelector('.header-log-out-btn');
+const headerUserBtn = document.querySelector('.header-user-btn');
+const seeLogOutBtn = document.querySelector('.see-log-out');
+
 const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
 const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
 
@@ -116,6 +120,22 @@ if (mobShoppingListLink.classList.contains('is-active')) {
   isActiveMobIcon.classList.remove('visually-hidden');
   mobLightIcon.classList.add('visually-hidden');
 }
+
+headerSignUpBtn.addEventListener("click", ()=>{
+  headerSignUpBtn.classList.add('visually-hidden');
+  headerUserBtn.classList.remove('visually-hidden');
+  document.querySelector(".sign-log").classList.remove('visually-hidden');
+})
+seeLogOutBtn.addEventListener("click", ()=>{
+  document.querySelector(".sign-log").classList.remove('visually-hidden');
+  headerLogOutBtn.classList.remove('visually-hidden');
+})
+headerLogOutBtn.addEventListener("click", ()=>{
+  document.querySelector(".sign-log").classList.add('visually-hidden');
+  headerSignUpBtn.classList.remove('visually-hidden');
+})
+
+
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
   menuCloseBtn.classList.toggle('visually-hidden');
