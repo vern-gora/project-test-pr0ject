@@ -133,7 +133,6 @@ function renderBooks(array) {
         <ul class="home-category-block">
           ${books
             .map(({ author, book_image, title, _id }) => {
-              book_image = '';
               if (book_image) {
                 return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
                 <img src="${book_image}" alt="${title}" class="home-book-image">
@@ -194,7 +193,6 @@ function renderCategories(array, container) {
     '<div class="test">' +
     array
       .map(({ author, image, title, id }) => {
-        image = '';
         if (image) {
           return `<li class="home-card" data-id="${id}"  data-action="open-modal">
             <img src="${image}" alt="${title}" class="home-book-image">
