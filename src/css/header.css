@@ -100,7 +100,7 @@
   width: 120px;
   height: 29px;
 }
-.mob-menu.visually-hidden{
+.mob-menu.visually-hidden {
   transform: translateY(100%);
 }
 .mob-menu {
@@ -118,7 +118,7 @@
   position: absolute;
   top: 0px;
   transform: translateY(0%);
-  transition: transform  250ms linear;
+  transition: transform 250ms linear;
 }
 .mob-menu-wrap {
   display: flex;
