@@ -55,6 +55,7 @@ function renderBooks(array) {
           <h3 class="home-book-author">${author}</h3>
         </li>`;
             })
+
             .join('')}
           <button class="see-more" data-category="${list_name}">See more</button>
         </ul>
@@ -75,7 +76,7 @@ function renderBooks(array) {
       const categorySelected = categoryButton.dataset.category;
       console.log(categorySelected);
       searchCategory(categorySelected).then(data =>
-        renderCategories(data, bookList)
+        renderCategories(data, bookList, categorySelected)
       );
     });
   });
@@ -83,12 +84,14 @@ function renderBooks(array) {
   return markup;
 }
 
+
 function renderCategories(array, container) {
   loader.style.display = 'block';
   console.log(array);
   const markup =
-    '<div class="test">' +
+    `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
     array
+
       .map(({ author, image, title, id }) => {
         if (image) {
           return `<li class="home-card" data-id="${id}"  data-action="open-modal">
@@ -121,6 +124,14 @@ function renderCategories(array, container) {
   +'</div>';
 
   container.innerHTML = markup;
+
+  const heading = document.getElementById('category-heading');
+  const words = heading.textContent.split(' ');
+  const lastWord = words.pop();
+  const reconstructedHeading =
+    words.join(' ') + ' <span class="books-design">' + lastWord + '</span>';
+  heading.innerHTML = reconstructedHeading;
+
   addToStorage();
 }
 function addToStorage() {
@@ -180,6 +191,7 @@ function addToStorage() {
       author,
       description,
     };
+
 
     //localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
     textSubmitEl.classList.remove('is-hidden');
