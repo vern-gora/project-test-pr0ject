@@ -42,7 +42,6 @@ async function searchCategory(selectedCategory) {
         links: currentBookEl.buy_links,
       };
     });
-    console.log(selectedCategoryEl);
 
     return selectedCategoryEl;
   } catch (error) {
@@ -56,8 +55,6 @@ async function searchById(id) {
       `https://books-backend.p.goit.global/books/${id}`
     );
     const booksId = response.data;
-
-    console.log(booksId);
 
     return booksId;
   } catch (error) {
