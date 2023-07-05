@@ -9,8 +9,12 @@ const darkLogoEl = document.querySelector('#logo-dark');
 const lightBagIcon = document.querySelector('#icon-bag');
 const darkBagIcon = document.querySelector('#icon-bag-black');
 
-const shoppingListLink = document.querySelector('.header-nav-item-shopping-list');
-const mobShoppingListLink = document.querySelector( '.mob-menu-nav-item-shopping-list');
+const shoppingListLink = document.querySelector(
+  '.header-nav-item-shopping-list'
+);
+const mobShoppingListLink = document.querySelector(
+  '.mob-menu-nav-item-shopping-list'
+);
 const isActiveIcon = document.querySelector('#is-active-icon');
 const mobLightIcon = document.querySelector('#mob-icon-light');
 const isActiveMobIcon = document.querySelector('#is-active-mob-icon');
@@ -99,9 +103,9 @@ const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
 // }
 // onInit();
 let localS = localStorage.getItem('theme');
-      if (localS === 'dark') {
-        document.querySelector("body").setAttribute('data-theme', 'dark');
-      }
+if (localS === 'dark') {
+  document.querySelector('body').setAttribute('data-theme', 'dark');
+}
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('is-hidden');
   darkLogoEl.classList.remove('is-hidden');
@@ -112,17 +116,23 @@ if (localStorage.getItem('theme') === 'dark') {
   darkBagIcon.classList.remove('visually-hidden');
 }
 
-if(document.querySelector(".body-shopping-list")){
-  document.querySelector(".header-nav-item-home").classList.remove("is-active");
-  document.querySelector(".header-nav-item-shopping-list").classList.add("is-active");
+if (document.querySelector('.body-shopping-list')) {
+  document.querySelector('.header-nav-item-home').classList.remove('is-active');
+  document
+    .querySelector('.header-nav-item-shopping-list')
+    .classList.add('is-active');
   lightBagIcon.classList.add('null');
   darkBagIcon.classList.add('null');
 
   isActiveIcon.classList.remove('visually-hidden');
-  document.querySelector(".mob-menu-nav-item-home").classList.remove("is-active");
-  mobShoppingListLink.classList.add("is-active");
-  document.querySelector("#mob-icon-light").classList.add('visually-hidden');
-document.querySelector("#is-active-mob-icon").classList.remove('visually-hidden');
+  document
+    .querySelector('.mob-menu-nav-item-home')
+    .classList.remove('is-active');
+  mobShoppingListLink.classList.add('is-active');
+  document.querySelector('#mob-icon-light').classList.add('visually-hidden');
+  document
+    .querySelector('#is-active-mob-icon')
+    .classList.remove('visually-hidden');
 }
 
 headerSignUpBtn.addEventListener('click', () => {
@@ -169,7 +179,7 @@ menuCloseBtn.addEventListener('click', () => {
 });
 
 const switchTheme = () => {
-  const rootEl = document.querySelector("body");
+  const rootEl = document.querySelector('body');
   let dataTheme = rootEl.getAttribute('data-theme'),
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
@@ -189,7 +199,6 @@ const homeShoppingListLink = document.querySelector('.header-nav-item-home');
 
 // Get the current page URL
 const currentPageURL = window.location.href;
-console.log(currentPageURL);
 
 // Check if the current page URL matches the shopping list page
 if (currentPageURL.includes('shopping-list.html')) {

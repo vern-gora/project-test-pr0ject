@@ -21,12 +21,28 @@
 
 ::-webkit-scrollbar {
   width: 8px;
-height: 167px;
+  height: 167px;
 }
 
 ::-webkit-scrollbar-thumb {
-   border-radius: 12px;
-background: #E0E0E0;
+  border-radius: 12px;
+  background: #E0E0E0;
+}
+
+:root {
+  /* COLORS */
+  --deep-black: #111111;
+  --soft-black: #202024;
+  --purple: #4F2EE8;
+  --yellow: #EAC645;
+  --white: #ffffff;
+  --backdrop-color: #11111166;
+  --backdrop-color-sl: #f6f6f6;
+  --shopping-list-text-color: #00000099;
+  --purple-gradient: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+  --switch-circle-pos: 2px;
+  --theme-switcher-gradient: linear-gradient(#4f2ee8, #fff);
+  --text-categories: #11111199;
 }
 
 body[data-theme="light"] {
@@ -35,7 +51,7 @@ body[data-theme="light"] {
   --soft-black: #202024;
   --purple: #4F2EE8;
   --yellow: #EAC645;
-  --white: #ffffff;  
+  --white: #ffffff;
   --backdrop-color: #11111166;
   --backdrop-color-sl: #f6f6f6;
   --bookcard-backdrop-color: #ffffff;
@@ -43,6 +59,7 @@ body[data-theme="light"] {
   --purple-gradient: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
   --switch-circle-pos: 2px;
   --theme-switcher-gradient: linear-gradient(#4f2ee8, #fff);
+  --categories-text: rgba(17, 17, 17, 0.60);
 }
 
 body[data-theme="dark"] {
@@ -51,7 +68,7 @@ body[data-theme="dark"] {
   --soft-black: #202024;
   --purple: #EAC645;
   --yellow: #4F2EE8;
-  --white: #202024;  
+  --white: #202024;
   --backdrop-color: #11111166;
   --backdrop-color-sl: #202024;
   --bookcard-backdrop-color: #111111;
@@ -59,15 +76,15 @@ body[data-theme="dark"] {
   --purple-gradient: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
   --switch-circle-pos: 17px;
   --theme-switcher-gradient: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
-
+  --categories-text: rgba(255, 255, 255, 0.60);
 }
 
-:root{
- /* FONTS */
- --regular: font-weight: 400;
- --medium: font-weight: 500;
- --bold: font-weight: 700;
-   /* ANIMATIONS */
-   --function-duration: 350ms;
-   --function-timing: cubic-bezier(0.4, 0, 0.2, 1);
+:root {
+  /* FONTS */
+  --regular: font-weight: 400;
+  --medium: font-weight: 500;
+  --bold: font-weight: 700;
+  /* ANIMATIONS */
+  --function-duration: 350ms;
+  --function-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
