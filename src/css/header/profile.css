@@ -1,0 +1,17 @@
+.profile-button {
+  max-width: 184px;
+  display: flex;
+  align-items: center;
+  border-radius: 18px;
+}
+.profile-button__img {
+  width: 37px;
+  height: 37px;
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .profile-button {
+    background: #4f2ee8;
+  }
+}
