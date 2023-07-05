@@ -11,7 +11,7 @@ import './js/support-items.js';
 import './js/support-img-array.js';
 import './js/books.js';
 // import './js/categories.js';
-import './js/category.js';
+// import './js/category.js';
 import './js/modal.js';
 import './js/shopping-list.js';
 import './js/book-card.js';
