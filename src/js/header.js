@@ -121,7 +121,6 @@ const homeShoppingListLink = document.querySelector('.header-nav-item-home');
 
 // Get the current page URL
 const currentPageURL = window.location.href;
-console.log(currentPageURL);
 
 // Check if the current page URL matches the shopping list page
 if (currentPageURL.includes('shopping-list.html')) {
