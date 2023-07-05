@@ -101,7 +101,10 @@ const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
 //   mobMenuLogOutBtn.addEventListener('click', signOutHandler);
 // }
 // onInit();
-
+let localS = localStorage.getItem('theme');
+      if (localS === 'dark') {
+        document.querySelector("body").setAttribute('data-theme', 'dark');
+      }
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('is-hidden');
   darkLogoEl.classList.remove('is-hidden');
