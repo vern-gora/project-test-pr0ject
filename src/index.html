@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
-    <script>
+    <!-- <script>
       let localS = localStorage.getItem('theme');
       if (localS === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
-    </script>
+    </script> -->
     <link
       rel="shortcut icon"
       href="./img/favicon/favicon.ico"
@@ -23,31 +23,32 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./index.js"></script>
+    
   </head>
 
-  <body>
+  <body data-theme="light">
     <header>
-      <include src="./partials/header.html"></include>
+      <!-- <include src="./partials/header.html"></include> -->
     </header>
     <main>
-      <include src="./partials/menu.html"></include>
+      <!-- <include src="./partials/menu.html"></include> -->
       <section class="main-section">
         <div class="section-container">
           <aside class="sidebar">
-            <include src="./partials/categories.html"></include>
-            <include src="./partials/support.html"></include>
+            <!-- <include src="./partials/categories.html"></include> -->
+            <!-- <include src="./partials/support.html"></include> -->
           </aside>
-          <include src="./partials/books.html"></include>
+          <!-- <include src="./partials/books.html"></include> -->
         </div>
       </section>
-      <include src="./partials/modal.html"></include>
+      <!-- <include src="./partials/modal.html"></include> -->
       <!-- <include src="./partials/shopping-list.html"></include> -->
-      <include src="./partials/book-card.html"></include>
-      <include src="./partials/button-scroll.html"></include>
+      <!-- <include src="./partials/book-card.html"></include> -->
+      <!-- <include src="./partials/button-scroll.html"></include> -->
     </main>
     <footer>
-      <include src="./partials/footer.html"></include>
+      <!-- <include src="./partials/footer.html"></include> -->
     </footer>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
