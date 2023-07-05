@@ -1,11 +1,12 @@
 .home-book-image-container {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
 .home-book-overlay {
   position: absolute;
-  bottom: 0;
+  bottom: 14px;
   left: 0;
   width: 100%;
   height: 0;
@@ -18,7 +19,7 @@
   align-items: center;
 }
 
-.home-book-image-container:hover .home-book-overlay {
+.home-book-card:hover .home-book-overlay {
   height: 70px;
 }
 
@@ -112,6 +113,7 @@
   font-size: 16px;
   line-height: 1.1;
   color: var(--deep-black);
+  cursor: pointer;
 }
 .home-book-author {
   margin-bottom: 8px;
@@ -122,6 +124,7 @@
   line-height: 1.2;
   letter-spacing: -0.48px;
   color: #b4afaf;
+  cursor: pointer;
 }
 
 .see-more {
