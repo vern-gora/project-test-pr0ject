@@ -1,14 +1,27 @@
 import axios from 'axios';
 
 const bestSellersUrl = 'https://books-backend.p.goit.global/books/top-books';
-// const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
+const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 
 async function searchTopBooks() {
   try {
-    const { data } = await axios.get(bestSellersUrl);
-    return data;
+    const response = await axios.get(bestSellersUrl);
+    const books = response.data;
+    return books;
   } catch (error) {
     console.log(error);
+    throw new Error('Failed to find books');
+  }
+}
+
+async function searchAllCategory() {
+  try {
+    const response = await axios.get(categoriesUrl);
+    const categories = response.data;
+    return categories;
+  } catch (error) {
+    console.log(error);
+    throw new Error('There is no such category');
   }
 }
 
@@ -34,6 +47,7 @@ async function searchCategory(selectedCategory) {
     return selectedCategoryEl;
   } catch (error) {
     console.log(error);
+    throw new Error('There is no such category');
   }
 }
 
@@ -47,6 +61,7 @@ async function searchById(id) {
     return booksId;
   } catch (error) {
     console.log(error);
+    throw new Error('There is no such id');
   }
 }
-export { searchTopBooks, searchCategory, searchById };
+export { searchTopBooks, searchAllCategory, searchCategory, searchById };
