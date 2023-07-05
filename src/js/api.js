@@ -1,13 +1,12 @@
 import axios from 'axios';
 
 const bestSellersUrl = 'https://books-backend.p.goit.global/books/top-books';
-const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
+// const categoriesUrl = 'https://books-backend.p.goit.global/books/category-list';
 
 async function searchTopBooks() {
   try {
-    const response = await axios.get(bestSellersUrl);
-    const books = response.data;
-    return books;
+    const { data } = await axios.get(bestSellersUrl);
+    return data;
   } catch (error) {
     console.log(error);
   }
