@@ -1,5 +1,5 @@
-//import { signIn, signOut, getUserData } from './firebase/firebase-api';
-//import { getName } from './helpers/get-name';
+import { signOutHandler as mobsignOutHandler } from './header/profile-mobile';
+import { signOutHandler } from './header/profile';
 
 const menuOpenBtn = document.querySelector('button[data-menu-open]');
 const menuCloseBtn = document.querySelector('button[data-menu-close]');
@@ -9,99 +9,25 @@ const darkLogoEl = document.querySelector('#logo-dark');
 const lightBagIcon = document.querySelector('#icon-bag');
 const darkBagIcon = document.querySelector('#icon-bag-black');
 
-const shoppingListLink = document.querySelector('.header-nav-item-shopping-list');
-const mobShoppingListLink = document.querySelector( '.mob-menu-nav-item-shopping-list');
+const shoppingListLink = document.querySelector(
+  '.header-nav-item-shopping-list'
+);
+const mobShoppingListLink = document.querySelector(
+  '.mob-menu-nav-item-shopping-list'
+);
 const isActiveIcon = document.querySelector('#is-active-icon');
 const mobLightIcon = document.querySelector('#mob-icon-light');
 const isActiveMobIcon = document.querySelector('#is-active-mob-icon');
 
-const headerSignUpBtn = document.querySelector('.sign-up-btn');
-const headerLogOutBtn = document.querySelector('.header-log-out-btn');
+// const headerSignUpBtn = document.querySelector('.sign-up-btn');
+// const headerLogOutBtn = document.querySelector('.header-log-out-btn');
 const headerUserBtn = document.querySelector('.header-user-btn');
-const seeLogOutBtn = document.querySelector('.see-log-out');
+// const seeLogOutBtn = document.querySelector('.see-log-out');
 
-const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
+// const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
 const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
-const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
+// const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
 
-//function updateUsername(username) {
-//  try {
-//    const userNameElements = [...document.getElementsByClassName('username')];
-//    userNameElements.forEach(el => (el.innerHTML = username));
-//  } catch (error) {
-//    console.error(error);
-//  }
-//}
-
-//function updateProfileImage(profileImage) {
-//  try {
-//     const profileSvgElements = [
-//       ...document.getElementsByClassName('user-photo'),
-//     ];
-
-//     const profileImageImgElements = [
-//       ...document.getElementsByClassName('user-photo-img'),
-//     ];
-
-//     if (profileImage) {
-//       profileImageImgElements.forEach(el => {
-//         el.src = profileImage;
-//         el.style.display = 'block';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//     } else {
-//       profileImageImgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'block';
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function signOutHandler() {
-//   try {
-//     await signOut();
-//     updateUsername(`Sign in`);
-//     updateProfileImage();
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function signInHandler() {
-//   try {
-//     await signIn();
-//     const user = await getUserData();
-//     if (user) {
-//       updateUsername(getName(user.displayName));
-//       updateProfileImage(user.photoUrl);
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function onInit() {
-//   const user = await getUserData();
-//   if (user) {
-//     updateUsername(getName(user.displayName));
-//     updateProfileImage(user.photoUrl);
-//   }
-//   headerSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuLogOutBtn.addEventListener('click', signOutHandler);
-// }
-// onInit();
-let localS = localStorage.getItem('theme');
-      if (localS === 'dark') {
-        document.querySelector("body").setAttribute('data-theme', 'dark');
-      }
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('is-hidden');
   darkLogoEl.classList.remove('is-hidden');
@@ -112,47 +38,53 @@ if (localStorage.getItem('theme') === 'dark') {
   darkBagIcon.classList.remove('visually-hidden');
 }
 
-if(document.querySelector(".body-shopping-list")){
-  document.querySelector(".header-nav-item-home").classList.remove("is-active");
-  document.querySelector(".header-nav-item-shopping-list").classList.add("is-active");
+if (document.querySelector('.body-shopping-list')) {
+  document.querySelector('.header-nav-item-home').classList.remove('is-active');
+  document
+    .querySelector('.header-nav-item-shopping-list')
+    .classList.add('is-active');
   lightBagIcon.classList.add('null');
   darkBagIcon.classList.add('null');
 
   isActiveIcon.classList.remove('visually-hidden');
-  document.querySelector(".mob-menu-nav-item-home").classList.remove("is-active");
-  mobShoppingListLink.classList.add("is-active");
-  document.querySelector("#mob-icon-light").classList.add('visually-hidden');
-document.querySelector("#is-active-mob-icon").classList.remove('visually-hidden');
+  document
+    .querySelector('.mob-menu-nav-item-home')
+    .classList.remove('is-active');
+  mobShoppingListLink.classList.add('is-active');
+  document.querySelector('#mob-icon-light').classList.add('visually-hidden');
+  document
+    .querySelector('#is-active-mob-icon')
+    .classList.remove('visually-hidden');
 }
 
-headerSignUpBtn.addEventListener('click', () => {
-  headerSignUpBtn.classList.add('is-hidden');
-  headerUserBtn.classList.remove('is-hidden');
-  document.querySelector('.sign-log').classList.remove('is-hidden');
-});
-seeLogOutBtn.addEventListener('click', () => {
-  document.querySelector('.sign-log').classList.remove('is-hidden');
-  headerLogOutBtn.classList.remove('is-hidden');
-});
+// headerSignUpBtn.addEventListener('click', () => {
+//   headerSignUpBtn.classList.add('is-hidden');
+//   headerUserBtn.classList.remove('is-hidden');
+//   document.querySelector('.sign-log').classList.remove('is-hidden');
+// });
+// seeLogOutBtn.addEventListener('click', () => {
+//   document.querySelector('.sign-log').classList.remove('is-hidden');
+//   headerLogOutBtn.classList.remove('is-hidden');
+// });
+// headerLogOutBtn.addEventListener('click', () => {
+//   headerLogOutBtn.classList.add('is-hidden');
+//   document.querySelector('.sign-log').classList.add('is-hidden');
+//   headerSignUpBtn.classList.remove('is-hidden');
+// });
 
-headerLogOutBtn.addEventListener('click', () => {
-  headerLogOutBtn.classList.add('is-hidden');
-  document.querySelector('.sign-log').classList.add('is-hidden');
-  headerSignUpBtn.classList.remove('is-hidden');
-});
-
-mobMenuSignUpBtn.addEventListener('click', () => {
-  mobMenuSignUpBtn.classList.add('is-hidden');
-  mobMenuUserOutBtn.classList.remove('is-hidden');
-  mobMenuLogOutBtn.classList.remove('is-hidden');
-});
+// mobMenuSignUpBtn.addEventListener('click', () => {
+//   mobMenuSignUpBtn.classList.add('is-hidden');
+//   mobMenuUserOutBtn.classList.remove('is-hidden');
+//   mobMenuLogOutBtn.classList.remove('is-hidden');
+// });
 mobMenuLogOutBtn.addEventListener('click', () => {
-  mobMenuLogOutBtn.classList.add('is-hidden');
+  signOutHandler();
+  mobsignOutHandler();
 });
-mobMenuLogOutBtn.addEventListener('click', () => {
-  mobMenuSignUpBtn.classList.remove('is-hidden');
-  mobMenuUserOutBtn.classList.add('is-hidden');
-});
+// mobMenuLogOutBtn.addEventListener('click', () => {
+//   mobMenuSignUpBtn.classList.remove('is-hidden');
+//   mobMenuUserOutBtn.classList.add('is-hidden');
+// });
 
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
@@ -169,7 +101,7 @@ menuCloseBtn.addEventListener('click', () => {
 });
 
 const switchTheme = () => {
-  const rootEl = document.querySelector("body");
+  const rootEl = document.querySelector('body');
   let dataTheme = rootEl.getAttribute('data-theme'),
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
