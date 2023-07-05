@@ -1,15 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
-    <script>
-      let localS = localStorage.getItem('theme');
-      if (localS === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      }
-    </script>
     <link
       rel="shortcut icon"
       href="./img/favicon/favicon.ico"
@@ -26,7 +20,13 @@
     <script type="module" src="./index.js"></script>
   </head>
 
-  <body>
+  <body data-theme="light">
+    <script>
+      let localS = localStorage.getItem('theme');
+      if (localS === 'dark') {
+        document.querySelector("body").setAttribute('data-theme', 'dark');
+      }
+    </script>
     <header>
       <include src="./partials/header.html"></include>
     </header>

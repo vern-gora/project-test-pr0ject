@@ -165,7 +165,7 @@ menuCloseBtn.addEventListener('click', () => {
 });
 
 const switchTheme = () => {
-  const rootEl = document.documentElement;
+  const rootEl = document.querySelector("body");
   let dataTheme = rootEl.getAttribute('data-theme'),
     newTheme;
   newTheme = dataTheme === 'light' ? 'dark' : 'light';
