@@ -1,11 +1,23 @@
 import { searchById } from './api';
-let shoppingStorage = [];
-function addToShoppingListEl() {
-  let value = localStorage.getItem('bookinfo');
-  console.log(value);
-  let parsedValue = JSON.parse(value).id;
+// let shoppingStorage = [];
+function addToShoppingListEl(e) {
+  const id = e.target.dataset.id;
+  const textSubmitEl = document.querySelector('.modal-submit-text');
+  textSubmitEl.classList.remove('is-hidden');
+  // let value = localStorage.getItem('bookinfo');
+  // console.log(value);
+  // let parsedValue = JSON.parse(value).id;
+  const dataFromLS = JSON.parse(localStorage.getItem('shoppingData')) || [];
+  if (dataFromLS.find(book => id === book._id)) {
+    const newData = dataFromLS.filter(book => book._id !== id);
+    localStorage.setItem('shoppingData', JSON.stringify(newData));
+    e.target.textContent = 'ADD TO SHOPPING LIST';
+    return;
+  } else {
+    e.target.textContent = 'REMOVE FROM SHOPPING LIST';
+  }
 
-  searchById(parsedValue)
+  searchById(id)
     .then(listData => {
       const {
         _id,
@@ -26,18 +38,17 @@ function addToShoppingListEl() {
         description,
         buy_links,
       };
+      const newData = JSON.stringify([...dataFromLS, shoppingObject]);
 
-      shoppingStorage.push(shoppingObject);
-      const shoppingStorageJSON = JSON.stringify(shoppingStorage);
-
-      localStorage.setItem('shoppingData', shoppingStorageJSON);
-      renderShoppingList(shoppingStorage);
-
-      console.log(shoppingStorage);
+      localStorage.setItem('shoppingData', newData);
     })
     .catch(error => {
       console.log(error);
     });
+
+  // shoppingStorage.push(shoppingObject);
+
+  // renderShoppingList(shoppingStorage);
 }
 
 function renderShoppingList(shoppingStorage) {
