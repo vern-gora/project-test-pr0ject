@@ -29,17 +29,20 @@ if (bookList) {
     const markup = array
       .map(
         ({ list_name, books }) =>
-          `<li class="home-bestseller-list">
+          `<div class="home-bestseller-list">
         <h2 class="home-category-heading">${list_name}</h2>
-        <ul class="home-category-block">
+        <div class="home-category-block">
           ${books
             .map(({ author, book_image, title, _id }) => {
               if (book_image) {
-                return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
-              <img src="${book_image}" alt="${title}" class="home-book-image">
+                return `<div class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+              <div class="home-book-image-container"><img src="${book_image}" alt="${title}" class="home-book-image"><div class="home-book-overlay">
+    <div class="home-book-content">Quick view
+    </div>
+  </div></div>
               <h2 class="home-book-title">${title}</h2>
               <h3 class="home-book-author">${author}</h3>
-              </li>`;
+              </div>`;
               }
               return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
           <img srcset="
@@ -61,8 +64,8 @@ if (bookList) {
 
             .join('')}
           <button class="see-more" data-category="${list_name}">See more</button>
-        </ul>
-      </li>`
+        </div>
+      </div>`
       )
       .join('');
     loader.style.display = 'none';
@@ -96,11 +99,11 @@ if (bookList) {
 
         .map(({ author, image, title, id }) => {
           if (image) {
-            return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+            return `<div class="home-card" data-id="${id}"  data-action="open-modal">
                 <img src="${image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
-              </li>`;
+              </div>`;
           }
 
           return `<li class="home-card" data-id="${id}"  data-action="open-modal">
