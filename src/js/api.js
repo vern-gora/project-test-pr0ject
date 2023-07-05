@@ -10,7 +10,7 @@ async function searchTopBooks() {
     return books;
   } catch (error) {
     console.log(error);
-    throw new Error('Failed to find books');
+    // throw new Error('Failed to find books');
   }
 }
 
@@ -36,7 +36,7 @@ async function searchCategory(selectedCategory) {
     return selectedCategoryEl;
   } catch (error) {
     console.log(error);
-    throw new Error('There is no such category');
+    // throw new Error('There is no such category');
   }
 }
 
@@ -50,7 +50,7 @@ async function searchById(id) {
     return booksId;
   } catch (error) {
     console.log(error);
-    throw new Error('There is no such id');
+    // throw new Error('There is no such id');
   }
 }
 export { searchTopBooks, searchAllCategory, searchCategory, searchById };
