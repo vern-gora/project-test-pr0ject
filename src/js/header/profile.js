@@ -1,10 +1,24 @@
 import { signIn, signOut, getUserData } from '../firebase/firebase-api';
 import { getName } from '../helpers/get-name';
 
+const profileButton = document.querySelector('.profile-button');
+const profileButtonText = profileButton.querySelector('.profile-button__text');
+const profileButtonImg = profileButton.querySelector('.profile-button__img');
+const profileButtonIcon = profileButton.querySelector('.profile-button__icon');
+const profileButtonIconArrowDown = profileButton.querySelector(
+  '.profile-button__icon-down'
+);
+const profileButtonIconArrowRight = profileButton.querySelector(
+  '.profile-button__icon-right'
+);
+
+const defaultButtonText = 'Sign up';
+const hideClass = 'is-hidden';
+const hideAuth = 'auth';
+
 function updateUsername(username) {
   try {
-    const userNameElements = [...document.getElementsByClassName('username')];
-    userNameElements.forEach(el => (el.innerHTML = username));
+    profileButtonText.innerHTML = username;
   } catch (error) {
     console.error(error);
   }
@@ -12,30 +26,13 @@ function updateUsername(username) {
 
 function updateProfileImage(profileImage) {
   try {
-    const profileSvgElements = [
-      ...document.getElementsByClassName('user-photo'),
-    ];
+    if (!profileImage) {
+      profileButtonImg.classList.add(hideClass);
 
-    const profileImageImgElements = [
-      ...document.getElementsByClassName('user-photo-img'),
-    ];
-
-    if (profileImage) {
-      profileImageImgElements.forEach(el => {
-        el.src = profileImage;
-        el.style.display = 'block';
-      });
-      profileSvgElements.forEach(el => {
-        el.style.display = 'none';
-      });
-    } else {
-      profileImageImgElements.forEach(el => {
-        el.style.display = 'none';
-      });
-      profileSvgElements.forEach(el => {
-        el.style.display = 'block';
-      });
+      return;
     }
+    profileButtonImg.src = profileImage;
+    profileButtonImg.classList.remove(hideClass);
   } catch (error) {
     console.error(error);
   }
@@ -44,8 +41,37 @@ function updateProfileImage(profileImage) {
 async function signOutHandler() {
   try {
     await signOut();
-    updateUsername(`Sign in`);
+    updateUsername(defaultButtonText);
     updateProfileImage();
+    afterSignOut();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function afterSignIn() {
+  try {
+    profileButton.removeEventListener('click', signInHandler);
+    profileButton.classList.add(hideAuth);
+    profileButtonText.classList.add(hideAuth);
+    profileButtonIcon.classList.add(hideAuth);
+
+    profileButtonIconArrowRight.classList.add(hideClass);
+    profileButtonIconArrowDown.classList.remove(hideClass);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function afterSignOut() {
+  try {
+    profileButton.addEventListener('click', signInHandler);
+    profileButton.classList.remove(hideAuth);
+    profileButtonText.classList.remove(hideAuth);
+    profileButtonIcon.classList.remove(hideAuth);
+
+    profileButtonIconArrowRight.classList.remove(hideClass);
+    profileButtonIconArrowDown.classList.add(hideClass);
   } catch (error) {
     console.error(error);
   }
@@ -58,6 +84,7 @@ async function signInHandler() {
     if (user) {
       updateUsername(getName(user.displayName));
       updateProfileImage(user.photoUrl);
+      afterSignIn();
     }
   } catch (error) {
     console.error(error);
@@ -66,12 +93,14 @@ async function signInHandler() {
 
 async function onInit() {
   const user = await getUserData();
+
   if (user) {
     updateUsername(getName(user.displayName));
     updateProfileImage(user.photoUrl);
+    afterSignIn();
   }
-  headerSignUpBtn.addEventListener('click', signInHandler);
-  mobMenuSignUpBtn.addEventListener('click', signInHandler);
-  mobMenuLogOutBtn.addEventListener('click', signOutHandler);
+
+  profileButton.addEventListener('click', signInHandler);
 }
+
 onInit();
