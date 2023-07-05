@@ -1,4 +1,15 @@
 import { searchById } from './api';
+
+import books from '../img/mob-img/shopping-list@1x.png';
+import books_2x from '../img/mob-img/shopping-list@2x.png';
+import amazon from '../img/services-png/image 1@1x.png';
+import amazon_2x from '../img/services-png/image 1@2x.png';
+import apple from '../img/services-png/image 2@1x.png';
+import apple_2x from '../img/services-png/image 2@2x.png';
+import bs from '../img/services-png/image 3@1x.png';
+import bs_2x from '../img/services-png/image 3@2x.png';
+import iconTrash from '../img/symbol-defs.svg#icon-trash';
+
 // let shoppingStorage = [];
 function addToShoppingListEl(e) {
   const id = e.target.dataset.id;
@@ -64,10 +75,10 @@ function renderShoppingList() {
           <div class="shopping-img-wrap">
             <img
               class="sl-img"
-              src="/src/img/mob-img/shopping-list@1x.png"
+              src="${books}"
               srcset="
-                /src/img/mob-img/shopping-list@1x.png 1x,
-                /src/img/mob-img/shopping-list@2x.png 2x
+                ${books} 1x,
+                ${books_2x} 2x
               "
               alt="books"
             />
@@ -86,7 +97,8 @@ ${array
       list_name,
       description,
       buy_links,
-    }) => `<div class="sl-book-card">
+    }) => 
+    `<div class="sl-book-card">
                 <div class="sl-book-image-wrap">
                     <img class="sl-book-image" src="${book_image}" alt="${title}">
                 </div>
@@ -105,14 +117,14 @@ ${array
                             ${author}
                         </div>
                         <div class="sl-book-buy-link">
-                            <img class="sl-link-img-amazon" src="/src/img/services-png/image 1@1x.png" alt="Amazon">
-                            <img class="sl-link-img-2" src="/src/img/services-png/image 2@1x.png" alt="book">
-                            <img class="sl-link-img-3" src="/src/img/services-png/image 3@1x.png" alt="book">
+                            <a href="${buy_links[0].url}"><img class="sl-link-img-amazon" src="${amazon}" srcset="${amazon} 1x, ${amazon_2x} 2x" alt="amazon"/></a>
+                            <a href="${buy_links[1].url}"><img class="sl-link-img-2" src="${apple}" srcset="${apple} 1x, ${apple_2x} 2x" alt="apple"/></a>
+                            <a href="${buy_links[4].url}"><img class="sl-link-img-3" src="${bs}" srcset="${bs} 1x, ${bs_2x} 2x" alt="book-shop"/></a>
                         </div>
                     </div>
                     <button class="sl-book-cart-button" data-id=${_id}>
-                        <svg width="28" height="28">
-                            <use class="sl-book-cart-button-icon" href="/src/img/symbol-defs.svg#icon-trash"></use>
+                        <svg class="sl-book-cart-button-icon" width="28" height="28">
+                            <use href="../img/symbol-defs.svg#icon-trash"></use>
                         </svg>
                     </button>
                 </div>
