@@ -1,7 +1,7 @@
 import { searchCategory } from './api.js';
 import { renderCategories } from './books.js';
 
-const apiUrl = 'https://books-backend.p.goit.global/books/category-list';
+// const apiUrl = 'https://books-backend.p.goit.global/books/category-list';
 const categoriesList = document.querySelector('.categories-list');
 const bookList = document.querySelector('.book-list');
 
@@ -42,7 +42,7 @@ function setActiveCategory(selectedCategoryItem) {
   selectedCategoryItem.classList.add('active');
 }
 
-fetch(apiUrl)
+fetch('https://books-backend.p.goit.global/books/category-list')
   .then(response => {
     if (response.ok) {
       return response.json();
