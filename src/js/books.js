@@ -1,9 +1,4 @@
-import {
-  searchTopBooks,
-  searchAllCategory,
-  searchById,
-  searchCategory,
-} from './api.js';
+import { searchTopBooks, searchById, searchCategory } from './api.js';
 
 const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
@@ -51,7 +46,7 @@ function renderBooks(array) {
       // e.preventDefault();
       const categoryButton = e.currentTarget;
       categorySelected = categoryButton.dataset.category;
-      console.log("yeye", categorySelected);
+      console.log('yeye', categorySelected);
       searchCategory(categorySelected).then(data =>
         renderCategories(data, bookList)
       );
@@ -61,7 +56,7 @@ function renderBooks(array) {
   return markup;
 }
 
-let categorySelected = "";
+let categorySelected = '';
 
 function renderCategories(array, container) {
   loader.style.display = 'block';
@@ -186,4 +181,4 @@ function addToStorage() {
   });
 }
 
-export{bookList, renderCategories};
+export { bookList, renderCategories };
