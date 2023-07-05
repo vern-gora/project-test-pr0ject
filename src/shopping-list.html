@@ -1,48 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping List</title>
     <script>
-        let localS = localStorage.getItem('theme');
-        if (localS === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+      let localS = localStorage.getItem('theme');
+      if (localS === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     </script>
-    <link rel="shortcut icon" href="./img/favicon/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
-        integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="shortcut icon"
+      href="./img/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./index.js"></script>
-</head>
+  </head>
 
-<body class="body-shopping-list">
+  <body class="body-shopping-list" data-theme="light">
     <header>
-        <include src="./partials/header.html"></include>
+      <include src="./partials/header.html"></include>
     </header>
     <main>
-        <div class="shopping-list-container">
-            <div class="support-sl visually-hidden">
-                <include src="./partials/support.html"></include>
-            </div>
-            <div class="shopping-list-wrap">
-                <h1 class="shopping-title">Shopping<span class="sl-title"> List</span></h1>
-                <div class="shopping-text-wrap">
-                    <p class="shopping-text">This page is empty, add some books and proceed to order.</p>
-                </div>
-                <div class="shopping-img-wrap">
-                    <img class="sl-img" src="/src/img/mob-img/shopping-list@1x.png"
-                        srcset="/src/img/mob-img/shopping-list@1x.png 1x, /src/img/mob-img/shopping-list@2x.png 2x"
-                        alt="books">
-                </div>
-            </div>
+      <div class="shopping-list-container">
+        <div class="support-sl visually-hidden">
+          <include src="./partials/support.html"></include>
         </div>
+        <div class="shopping-list-wrap">
+          <h1 class="shopping-title">
+            Shopping<span class="sl-title"> List</span>
+          </h1>
+          <div class="shopping-text-wrap">
+            <p class="shopping-text">
+              This page is empty, add some books and proceed to order.
+            </p>
+          </div>
+          <div class="shopping-img-wrap">
+            <img
+              class="sl-img"
+              src="/src/img/mob-img/shopping-list@1x.png"
+              srcset="
+                /src/img/mob-img/shopping-list@1x.png 1x,
+                /src/img/mob-img/shopping-list@2x.png 2x
+              "
+              alt="books"
+            />
+          </div>
+        </div>
+      </div>
 
-        <!-- //////////////BOOK CARD -->
-        <!-- <div class="book-card-container">
+      <!-- //////////////BOOK CARD -->
+      <!-- <div class="book-card-container">
             <div class="sl-book-card">
                 <div class="sl-book-image-wrap">
                     <img class="sl-book-image" src="/src/img/mob-img/book_shopping_list.png" alt="">
@@ -80,14 +96,12 @@
                 </div>
             </div>
         </div> -->
-        <!-- //////////////BOOK CARD -->
-
+      <!-- //////////////BOOK CARD -->
     </main>
 
     <footer>
-        <include src="./partials/footer.html"></include>
+      <include src="./partials/footer.html"></include>
     </footer>
-
-</body>
-
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
