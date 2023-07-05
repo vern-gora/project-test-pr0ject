@@ -3,7 +3,7 @@ import {
   searchAllCategory,
   searchById,
   searchCategory,
-} from './api.js';
+} from '../js/api.js';
 import { addToShoppingListEl } from './shopping-list.js';
 
 import amazon from '../img/services-png/image 1@1x.png';
@@ -16,6 +16,112 @@ const bookList = document.querySelector('.book-list');
 const loader = document.querySelector('.loader');
 
 if (bookList) {
+  renderAll(bookList);
+
+  const modalCloseBtn = document.querySelector('[data-modal-cls]');
+  const modalEl = document.querySelector('[data-modal-El]');
+  const imageEl = document.querySelector('.main-img');
+  const titleEl = document.querySelector('.modal-title');
+  const authorEl = document.querySelector('.modal-author');
+  const descriptionEl = document.querySelector('.modal-description');
+  const addToListBtn = document.querySelector('.modal-btn');
+
+  const allColectionsList = document.querySelector('.book-list');
+  const modalPopUpEl = document.querySelector('.modal-pop-up');
+  // modalOpenBtn.forEach(btn =>
+
+  allColectionsList.addEventListener('click', e => {
+    const book = e.target.closest('[data-action="open-modal"]');
+
+    // if (e.target.dataset.action === "open-modal") { }
+
+    // const savedBookId = localStorage.getItem('bookinfo');
+    // const parsedBookId = JSON.parse(savedBookId);
+    const bookId = book.dataset.id;
+    searchById(bookId).then(data => {
+      let include = false;
+      const dataFromLS = JSON.parse(localStorage.getItem('shoppingData')) || [];
+      if (dataFromLS.find(({ _id }) => bookId === _id)) {
+        include = true;
+      } else {
+        include = false;
+      }
+      const markup = `<div class="modal-content-block">
+  <img
+    class="main-img"
+    src='${data.book_image}'
+    alt="${data.title}"
+    width="287"
+    height="408"
+  />
+  <div class="modal-text-block">
+    <h2 class="modal-title">${data.title}</h2>
+    <p class="modal-author">${data.author}</p>
+    <p class="modal-description">
+      ${data.description}
+    </p>
+
+    <ul class="modal-list list">
+      <li class="modal-item">
+        <div class="modal-icon">
+          <a href="${data.amazon_product_url}">
+            <img
+              src="${amazon}"
+              alt="amazon"
+              width="62"
+              height="19"
+            />
+          </a>
+        </div>
+      </li>
+      <li class="modal-item">
+        <div class="modal-icon">
+          <img
+            src="./img/services-png/image 2@1x.png"
+            alt="book"
+            width="33"
+            height="32"
+          />
+        </div>
+      </li>
+
+      <li class="modal-item">
+        <div class="modal-icon">
+          <img
+            src="./img/services-png/image 3@1x.png"
+            alt="book-shop"
+            width="38"
+            height="36"
+          />
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<button type="submit" class="modal-btn" data-id='${bookId}'>${
+        include ? 'REMOVE FROM SHOPPING LIST' : 'ADD TO SHOPPING LIST'
+      }</button>
+<p class="modal-submit-text is-hidden">
+  Сongratulations! You have added the book to the shopping list. To
+  delete, press the button “Remove from the shopping list”.
+</p>`;
+      modalPopUpEl.innerHTML = markup;
+
+      const btn = modalPopUpEl.querySelector('.modal-btn');
+      btn.addEventListener('click', addToShoppingListEl);
+      modalEl.classList.remove('is-hidden');
+      document.body.classList.add('no-scroll');
+    });
+    modalCloseBtn.addEventListener('click', () => {
+      modalEl.classList.add('is-hidden');
+      document.body.classList.remove('no-scroll');
+      modalPopUpEl.innerHTML = '';
+    });
+  });
+}
+
+function renderAll() {
   searchTopBooks()
     .then(data => {
       renderBooks(data);
@@ -23,25 +129,29 @@ if (bookList) {
     .catch(error => {
       console.log(error);
     });
+}
 
-  function renderBooks(array) {
-    loader.style.display = 'block';
-    const markup = array
-      .map(
-        ({ list_name, books }) =>
-          `<div class="home-bestseller-list">
+function renderBooks(array) {
+  loader.style.display = 'block';
+  const markup = array
+    .map(
+      ({ list_name, books }) =>
+        `<div class="home-bestseller-list">
         <h2 class="home-category-heading">${list_name}</h2>
         <div class="home-category-block">
           ${books
             .map(({ author, book_image, title, _id }) => {
               if (book_image) {
-                return `<div class="home-book-card" data-id="${_id}" data-action="open-modal"> 
-              <div class="home-book-image-container"><img src="${book_image}" alt="${title}" class="home-book-image"><div class="home-book-overlay">
-    <div class="home-book-content">Quick view
-    </div>
-  </div></div>
-              <h2 class="home-book-title">${title}</h2>
-              <h3 class="home-book-author">${author}</h3>
+                return `
+              <div class="home-book-card" data-id="${_id}" data-action="open-modal"> 
+                <div class="home-book-image-container">
+                  <img src="${book_image}" alt="${title}" class="home-book-image">
+                      <div class="home-book-overlay">
+                        <div class="home-book-content">Quick view</div>
+                      </div>
+                </div>
+                <h2 class="home-book-title">${title}</h2>
+                <h3 class="home-book-author">${author}</h3>
               </div>`;
               }
               return `<li class="home-book-card" data-id="${_id}" data-action="open-modal"> 
@@ -66,47 +176,48 @@ if (bookList) {
           <button class="see-more" data-category="${list_name}">See more</button>
         </div>
       </div>`
-      )
-      .join('');
-    loader.style.display = 'none';
+    )
+    .join('');
+  loader.style.display = 'none';
 
-    bookList.insertAdjacentHTML('beforeend', markup);
-    // addToStorage();
+  // bookList.insertAdjacentHTML('beforeend', markup);
+  // addToStorage();
+  bookList.innerHTML = markup;
 
-    const buttons = document.querySelectorAll('.see-more');
+  const buttons = document.querySelectorAll('.see-more');
 
-    buttons.forEach(button => {
-      button.addEventListener('click', e => {
-        // e.preventDefault();
-        const categoryButton = e.currentTarget;
-        const categorySelected = categoryButton.dataset.category;
-        console.log(categorySelected);
-        searchCategory(categorySelected).then(data =>
-          renderCategories(data, bookList, categorySelected)
-        );
-      });
+  buttons.forEach(button => {
+    button.addEventListener('click', e => {
+      // e.preventDefault();
+      const categoryButton = e.currentTarget;
+      categorySelected = categoryButton.dataset.category;
+
+      searchCategory(categorySelected).then(data =>
+        renderCategories(data, bookList, categorySelected)
+      );
     });
+  });
 
-    return markup;
-  }
+  return markup;
+}
 
-  function renderCategories(array, container) {
-    loader.style.display = 'block';
-    console.log(array);
-    const markup =
-      `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
-      array
+let categorySelected = '';
 
-        .map(({ author, image, title, id }) => {
-          if (image) {
-            return `<div class="home-card" data-id="${id}"  data-action="open-modal">
+function renderCategories(array, container) {
+  loader.style.display = 'block';
+  const markup =
+    `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
+    array
+      .map(({ author, image, title, id }) => {
+        if (image) {
+          return `<div class="home-card" data-id="${id}"  data-action="open-modal">
                 <img src="${image}" alt="${title}" class="home-book-image">
                 <h2 class="home-book-title">${title}</h2>
                 <h3 class="home-book-author">${author}</h3>
               </div>`;
-          }
+        }
 
-          return `<li class="home-card" data-id="${id}"  data-action="open-modal">
+        return `<li class="home-card" data-id="${id}"  data-action="open-modal">
             <img  srcset="
             ${defImg116} 116w,
             ${defImg180} 180w,
@@ -124,260 +235,20 @@ if (bookList) {
             <h2 class="home-book-title">${title}</h2>
             <h3 class="home-book-author">${author}</h3>
             </li>`;
-        })
-        .join('');
-    +'</div>';
+      })
+      .join('');
+  +'</div>';
 
-    container.innerHTML = markup;
+  container.innerHTML = markup;
 
-    const heading = document.getElementById('category-heading');
-    const words = heading.textContent.split(' ');
-    const lastWord = words.pop();
-    const reconstructedHeading =
-      words.join(' ') + ' <span class="books-design">' + lastWord + '</span>';
-    heading.innerHTML = reconstructedHeading;
+  const heading = document.getElementById('category-heading');
+  const words = heading.textContent.split(' ');
+  const lastWord = words.pop();
+  const reconstructedHeading =
+    words.join(' ') + ' <span class="books-design">' + lastWord + '</span>';
+  heading.innerHTML = reconstructedHeading;
 
-    // addToStorage();
-  }
-
-  const modalCloseBtn = document.querySelector('[data-modal-cls]');
-  const modalEl = document.querySelector('[data-modal-El]');
-  const imageEl = document.querySelector('.main-img');
-  const titleEl = document.querySelector('.modal-title');
-  const authorEl = document.querySelector('.modal-author');
-  const descriptionEl = document.querySelector('.modal-description');
-  const addToListBtn = document.querySelector('.modal-btn');
-
-  const allColectionsList = document.querySelector('.book-list');
-  const modalPopUpEl = document.querySelector('.modal-pop-up');
-  // modalOpenBtn.forEach(btn =>
-
-  allColectionsList.addEventListener('click', e => {
-    const book = e.target.closest('[data-action="open-modal"]');
-    // if (e.target.dataset.action === "open-modal") { }
-
-    // const savedBookId = localStorage.getItem('bookinfo');
-    // const parsedBookId = JSON.parse(savedBookId);
-    const bookId = book.dataset.id;
-    searchById(bookId).then(data => {
-      let include = false;
-      const dataFromLS = JSON.parse(localStorage.getItem('shoppingData')) || [];
-      if (dataFromLS.find(({ _id }) => bookId === _id)) {
-        include = true;
-      } else {
-        include = false;
-      }
-      const markup = `<div class="modal-content-block">
-        <img
-          class="main-img"
-          src='${data.book_image}'
-          alt="${data.title}"
-          width="287"
-          height="408"
-        />
-        <div class="modal-text-block">
-          <h2 class="modal-title">${data.title}</h2>
-          <p class="modal-author">${data.author}</p>
-          <p class="modal-description">
-            ${data.description}
-          </p>
-
-          <ul class="modal-list list">
-            <li class="modal-item">
-              <div class="modal-icon">
-                <a href="${data.amazon_product_url}">
-                  <img
-                    src="${amazon}"
-                    alt="amazon"
-                    width="62"
-                    height="19"
-                  />
-                </a>
-              </div>
-            </li>
-            <li class="modal-item">
-              <div class="modal-icon">
-                <img
-                  src="./img/services-png/image 2@1x.png"
-                  alt="book"
-                  width="33"
-                  height="32"
-                />
-              </div>
-            </li>
-
-            <li class="modal-item">
-              <div class="modal-icon">
-                <img
-                  src="./img/services-png/image 3@1x.png"
-                  alt="book-shop"
-                  width="38"
-                  height="36"
-                />
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <button type="submit" class="modal-btn" data-id='${bookId}'>${
-        include ? 'REMOVE FROM SHOPPING LIST' : 'ADD TO SHOPPING LIST'
-      }</button>
-      <p class="modal-submit-text is-hidden">
-        Сongratulations! You have added the book to the shopping list. To
-        delete, press the button “Remove from the shopping list”.
-      </p>`;
-      modalPopUpEl.innerHTML = markup;
-
-      const btn = modalPopUpEl.querySelector('.modal-btn');
-      btn.addEventListener('click', addToShoppingListEl);
-      modalEl.classList.remove('is-hidden');
-      document.body.classList.add('no-scroll');
-    });
-    modalCloseBtn.addEventListener('click', () => {
-      modalEl.classList.add('is-hidden');
-      document.body.classList.remove('no-scroll');
-      modalPopUpEl.innerHTML = '';
-    });
-  });
-
-  // function addToStorage() {
-  //   const books = document.querySelectorAll('[data-action="open-modal"]');
-
-  //   books.forEach(book => {
-  //     book.addEventListener('click', e => {
-  //       const bookcard = e.currentTarget;
-  //       const id = bookcard.dataset.id;
-  //       const bookData = {
-  //         id,
-  //       };
-
-  //       modalEl.classList.remove('is-hidden');
-  //       if (e.target.tagName !== 'BUTTON') {
-  //         localStorage.setItem('bookinfo', JSON.stringify(bookData));
-  //         loader.style.display = 'none';
-  //       }
-  //     });
-  //   });
-  //   // ==========================================
-
-  //   // const modalOpenBtn = document.querySelectorAll('[data-action="open-modal"]');
-  //   const modalCloseBtn = document.querySelector('[data-modal-cls]');
-  //   const modalEl = document.querySelector('[data-modal-El]');
-  //   const imageEl = document.querySelector('.main-img');
-  //   const titleEl = document.querySelector('.modal-title');
-  //   const authorEl = document.querySelector('.modal-author');
-  //   const descriptionEl = document.querySelector('.modal-description');
-  //   const addToListBtn = document.querySelector('.modal-btn');
-  //   const textSubmitEl = document.querySelector('.modal-submit-text');
-  //   const allColectionsList = document.querySelector('.book-list');
-  //   const modalPopUpEl = document.querySelector('.modal-pop-up');
-  //   // modalOpenBtn.forEach(btn =>
-  //   console.log(allColectionsList);
-  //   allColectionsList.addEventListener('click', e => {
-  //     console.log(123);
-  //     const book = e.target.closest('[data-action="open-modal"]');
-  //     // if (e.target.dataset.action === "open-modal") { }
-  //     console.log(book);
-  //     // const savedBookId = localStorage.getItem('bookinfo');
-  //     // const parsedBookId = JSON.parse(savedBookId);
-  //     const bookId = book.dataset.id;
-  //     searchById(bookId).then(data => {
-  //       // imageEl.src = data.book_image;
-  //       // authorEl.textContent = data.author;
-  //       // titleEl.textContent = data.title;
-  //       // descriptionEl.textContent = data.description;
-  //       const markup = `<div class="modal-content-block">
-  //         <img
-  //           class="main-img"
-  //           src='${data.book_image}'
-  //           alt="${data.title}"
-  //           width="287"
-  //           height="408"
-  //         />
-  //         <div class="modal-text-block">
-  //           <h2 class="modal-title">${data.title}</h2>
-  //           <p class="modal-author">${data.author}</p>
-  //           <p class="modal-description">
-  //             ${data.description}
-  //           </p>
-
-  //           <ul class="modal-list list">
-  //             <li class="modal-item">
-  //               <div class="modal-icon">
-  //                 <a href="${data.amazon_product_url}">
-  //                   <img
-  //                     src="${amazon}"
-  //                     alt="amazon"
-  //                     width="62"
-  //                     height="19"
-  //                   />
-  //                 </a>
-  //               </div>
-  //             </li>
-  //             <li class="modal-item">
-  //               <div class="modal-icon">
-  //                 <img
-  //                   src="./img/services-png/image 2@1x.png"
-  //                   alt="book"
-  //                   width="33"
-  //                   height="32"
-  //                 />
-  //               </div>
-  //             </li>
-
-  //             <li class="modal-item">
-  //               <div class="modal-icon">
-  //                 <img
-  //                   src="./img/services-png/image 3@1x.png"
-  //                   alt="book-shop"
-  //                   width="38"
-  //                   height="36"
-  //                 />
-  //               </div>
-  //             </li>
-  //           </ul>
-  //         </div>
-  //       </div>
-
-  //       <button type="submit" class="modal-btn" data-id='${bookId}'>ADD TO SHOPPING LIST</button>
-  //       <p class="modal-submit-text is-hidden">
-  //         Сongratulations! You have added the book to the shopping list. To
-  //         delete, press the button “Remove from the shopping list”.
-  //       </p>`;
-  //       modalPopUpEl.innerHTML = markup;
-  //       const btn = modalPopUpEl.querySelector('.modal-btn');
-  //       btn.addEventListener('click', addToShoppingListEl);
-  //       textSubmitEl.classList.remove('is-hidden');
-  //     });
-  //     modalEl.classList.remove('is-hidden');
-  //     document.body.classList.add('no-scroll');
-  //   });
-
-  //   // );
-
-  //   // addToListBtn.addEventListener('click', () => {
-  //   //   addToShoppingListEl();
-  //   //   // const image = imageEl.src;
-  //   //   // const title = titleEl.textContent;
-  //   //   // const author = authorEl.textContent;
-  //   //   // const description = descriptionEl.textContent;
-
-  //   //   // const addToListData = {
-  //   //   //   image,
-  //   //   //   title,
-  //   //   //   author,
-  //   //   //   description,
-  //   //   // };
-
-  //   //   //localStorage.setItem('addtolistinfo', JSON.stringify(addToListData));
-  //   //   textSubmitEl.classList.remove('is-hidden');
-  //   // });
-
-  //   modalCloseBtn.addEventListener('click', () => {
-  //     console.log(123);
-  //     modalPopUpEl.innerHTML = '';
-  //     textSubmitEl.classList.add('is-hidden');
-  //   });
-  // }
+  // addToStorage();
 }
+
+export { renderCategories, renderBooks, renderAll };
