@@ -14,16 +14,16 @@ async function searchTopBooks() {
   }
 }
 
-async function searchAllCategory() {
-  try {
-    const response = await axios.get(categoriesUrl);
-    const categories = response.data;
-    return categories;
-  } catch (error) {
-    console.log(error);
-    throw new Error('There is no such category');
-  }
-}
+// async function searchAllCategory() {
+//   try {
+//     const response = await axios.get(categoriesUrl);
+//     const categories = response.data;
+//     return categories;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error('There is no such category');
+//   }
+// }
 
 async function searchCategory(selectedCategory) {
   try {
