@@ -51,22 +51,93 @@ function addToShoppingListEl(e) {
   // renderShoppingList(shoppingStorage);
 }
 
-function renderShoppingList(shoppingStorage) {
-  const cardContainer = document.querySelector('.book-card-container');
-  const cardEl = shoppingStorage
-    .map(
-      ({ author, book_image, title, _id, list_name, description, buy_links }) =>
-        `<li class="" data-id="${_id}">
-                <img src="${book_image}" alt="${title}" class="book-image">
-                <h2 class="">${title}</h2>
-                <h3 class="">${author}</h3>
-                <h3 class="">${list_name}</h3>
-                <p>${description}</p>
-                <a>${buy_links}</a>
-              </li>`
-    )
-    .join('');
-  cardContainer.insertAdjacentHTML('beforeend', cardEl);
+const shoppingListData = document.querySelector('.shopping-list-data');
+
+function renderShoppingList() {
+  const dataFromLS = JSON.parse(localStorage.getItem('shoppingData')) || [];
+  if (!dataFromLS.length) {
+    shoppingListData.innerHTML = `<div class="shopping-text-wrap">
+            <p class="shopping-text">
+              This page is empty, add some books and proceed to order.
+            </p>
+          </div>
+          <div class="shopping-img-wrap">
+            <img
+              class="sl-img"
+              src="/src/img/mob-img/shopping-list@1x.png"
+              srcset="
+                /src/img/mob-img/shopping-list@1x.png 1x,
+                /src/img/mob-img/shopping-list@2x.png 2x
+              "
+              alt="books"
+            />
+          </div>`;
+    return;
+  }
+  // ({ author, book_image, title, _id, list_name, description, buy_links })
+  const getMarkup = array => `<div class="book-card-container">
+${array
+  .map(
+    ({
+      author,
+      book_image,
+      title,
+      _id,
+      list_name,
+      description,
+      buy_links,
+    }) => `<div class="sl-book-card">
+                <div class="sl-book-image-wrap">
+                    <img class="sl-book-image" src="${book_image}" alt="${title}">
+                </div>
+                <div class="sl-book-details">
+                    <div class="sl-book-title">
+                        ${title}
+                    </div>
+                    <div class="sl-book-category">
+                        ${list_name}
+                    </div>
+                    <div class="sl-book-description">
+                        ${description}
+                    </div>
+                    <div class="sl-author-wrap">
+                        <div class="sl-book-author">
+                            ${author}
+                        </div>
+                        <div class="sl-book-buy-link">
+                            <img class="sl-link-img-amazon" src="/src/img/services-png/image 1@1x.png" alt="Amazon">
+                            <img class="sl-link-img-2" src="/src/img/services-png/image 2@1x.png" alt="book">
+                            <img class="sl-link-img-3" src="/src/img/services-png/image 3@1x.png" alt="book">
+                        </div>
+                    </div>
+                    <button class="sl-book-cart-button" data-id=${_id}>
+                        <svg width="28" height="28">
+                            <use class="sl-book-cart-button-icon" href="/src/img/symbol-defs.svg#icon-trash"></use>
+                        </svg>
+                    </button>
+                </div>
+            </div>`
+  )
+  .join('')}
+            
+        </div>`;
+  shoppingListData.innerHTML = getMarkup(dataFromLS);
+  shoppingListData.addEventListener('click', e => {
+    if (!e.target.closest('.sl-book-cart-button')) {
+      return;
+    }
+    const id = e.target.closest('.sl-book-cart-button').dataset.id;
+    const newData = dataFromLS.filter(book => book._id !== id);
+    localStorage.setItem('shoppingData', JSON.stringify(newData));
+    renderShoppingList();
+  });
 }
 
 export { renderShoppingList, addToShoppingListEl };
+const currentPageURL = window.location.href;
+if (currentPageURL === 'http://localhost:1234/shopping-list.html') {
+  renderShoppingList();
+}
+// renderShoppingList();
+// const newData = dataFromLS.filter(book => book._id !== id);
+// localStorage.setItem('shoppingData', JSON.stringify(newData));
