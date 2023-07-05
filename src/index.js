@@ -20,6 +20,7 @@ import './js/api.js';
 import './js/firebase/firebase-api.js';
 import './js/firebase/firebase-config.js';
 import { getUserData, signOut } from './js/firebase/firebase-api.js';
+import './js/header/profile.js';
 
 isUserSignIn();
 

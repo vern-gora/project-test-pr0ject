@@ -1,6 +1,3 @@
-//import { signIn, signOut, getUserData } from './firebase/firebase-api';
-//import { getName } from './helpers/get-name';
-
 const menuOpenBtn = document.querySelector('button[data-menu-open]');
 const menuCloseBtn = document.querySelector('button[data-menu-close]');
 const mobMenuEl = document.querySelector('.mob-menu');
@@ -18,89 +15,14 @@ const isActiveIcon = document.querySelector('#is-active-icon');
 const mobLightIcon = document.querySelector('#mob-icon-light');
 const isActiveMobIcon = document.querySelector('#is-active-mob-icon');
 
-const headerSignUpBtn = document.querySelector('.sign-up-btn');
-const headerLogOutBtn = document.querySelector('.header-log-out-btn');
+// const headerSignUpBtn = document.querySelector('.sign-up-btn');
+// const headerLogOutBtn = document.querySelector('.header-log-out-btn');
 const headerUserBtn = document.querySelector('.header-user-btn');
-const seeLogOutBtn = document.querySelector('.see-log-out');
+// const seeLogOutBtn = document.querySelector('.see-log-out');
 
-const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
-const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
-const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
-
-//function updateUsername(username) {
-//  try {
-//    const userNameElements = [...document.getElementsByClassName('username')];
-//    userNameElements.forEach(el => (el.innerHTML = username));
-//  } catch (error) {
-//    console.error(error);
-//  }
-//}
-
-//function updateProfileImage(profileImage) {
-//  try {
-//     const profileSvgElements = [
-//       ...document.getElementsByClassName('user-photo'),
-//     ];
-
-//     const profileImageImgElements = [
-//       ...document.getElementsByClassName('user-photo-img'),
-//     ];
-
-//     if (profileImage) {
-//       profileImageImgElements.forEach(el => {
-//         el.src = profileImage;
-//         el.style.display = 'block';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//     } else {
-//       profileImageImgElements.forEach(el => {
-//         el.style.display = 'none';
-//       });
-//       profileSvgElements.forEach(el => {
-//         el.style.display = 'block';
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function signOutHandler() {
-//   try {
-//     await signOut();
-//     updateUsername(`Sign in`);
-//     updateProfileImage();
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function signInHandler() {
-//   try {
-//     await signIn();
-//     const user = await getUserData();
-//     if (user) {
-//       updateUsername(getName(user.displayName));
-//       updateProfileImage(user.photoUrl);
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// async function onInit() {
-//   const user = await getUserData();
-//   if (user) {
-//     updateUsername(getName(user.displayName));
-//     updateProfileImage(user.photoUrl);
-//   }
-//   headerSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuSignUpBtn.addEventListener('click', signInHandler);
-//   mobMenuLogOutBtn.addEventListener('click', signOutHandler);
-// }
-// onInit();
+// const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
+// const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
+// const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
 
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('is-hidden');
@@ -122,33 +44,33 @@ if (mobShoppingListLink.classList.contains('is-active')) {
   mobLightIcon.classList.add('visually-hidden');
 }
 
-headerSignUpBtn.addEventListener('click', () => {
-  headerSignUpBtn.classList.add('is-hidden');
-  headerUserBtn.classList.remove('is-hidden');
-  document.querySelector('.sign-log').classList.remove('is-hidden');
-});
-seeLogOutBtn.addEventListener('click', () => {
-  document.querySelector('.sign-log').classList.remove('is-hidden');
-  headerLogOutBtn.classList.remove('is-hidden');
-});
-headerLogOutBtn.addEventListener('click', () => {
-  headerLogOutBtn.classList.add('is-hidden');
-  document.querySelector('.sign-log').classList.add('is-hidden');
-  headerSignUpBtn.classList.remove('is-hidden');
-});
+// headerSignUpBtn.addEventListener('click', () => {
+//   headerSignUpBtn.classList.add('is-hidden');
+//   headerUserBtn.classList.remove('is-hidden');
+//   document.querySelector('.sign-log').classList.remove('is-hidden');
+// });
+// seeLogOutBtn.addEventListener('click', () => {
+//   document.querySelector('.sign-log').classList.remove('is-hidden');
+//   headerLogOutBtn.classList.remove('is-hidden');
+// });
+// headerLogOutBtn.addEventListener('click', () => {
+//   headerLogOutBtn.classList.add('is-hidden');
+//   document.querySelector('.sign-log').classList.add('is-hidden');
+//   headerSignUpBtn.classList.remove('is-hidden');
+// });
 
-mobMenuSignUpBtn.addEventListener('click', () => {
-  mobMenuSignUpBtn.classList.add('is-hidden');
-  mobMenuUserOutBtn.classList.remove('is-hidden');
-  mobMenuLogOutBtn.classList.remove('is-hidden');
-});
-mobMenuLogOutBtn.addEventListener('click', () => {
-  mobMenuLogOutBtn.classList.add('is-hidden');
-});
-mobMenuLogOutBtn.addEventListener('click', () => {
-  mobMenuSignUpBtn.classList.remove('is-hidden');
-  mobMenuUserOutBtn.classList.add('is-hidden');
-});
+// mobMenuSignUpBtn.addEventListener('click', () => {
+//   mobMenuSignUpBtn.classList.add('is-hidden');
+//   mobMenuUserOutBtn.classList.remove('is-hidden');
+//   mobMenuLogOutBtn.classList.remove('is-hidden');
+// });
+// mobMenuLogOutBtn.addEventListener('click', () => {
+//   mobMenuLogOutBtn.classList.add('is-hidden');
+// });
+// mobMenuLogOutBtn.addEventListener('click', () => {
+//   mobMenuSignUpBtn.classList.remove('is-hidden');
+//   mobMenuUserOutBtn.classList.add('is-hidden');
+// });
 
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
