@@ -5,7 +5,7 @@ body {
 }
 
 .categories-container {
-  width: 335px;
+  width: 100%;
   height: 226px;
   display: flex;
   flex-direction: column;
@@ -101,7 +101,6 @@ body {
     font-size: 16px;
     margin-bottom: 24px;
   }
-
   .categories-el:hover,
   .categories-list li:hover,
   .categories-el.active {
