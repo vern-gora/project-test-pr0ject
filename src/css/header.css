@@ -109,7 +109,7 @@
 }
 .mob-menu {
   width: 100%;
-  height: 111%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -156,10 +156,10 @@
   width: 50px;
   height: 18px;
   font-size: 14px;
-  line-height: 18px;
+  line-height: calc(18/14);
   font-weight: 500;
   margin-left: 14px;
-  margin-right: 90px;
+  margin-right: 82px;
 }
 .mob-menu-sign-up-btn svg {
   width: 20px;
@@ -445,7 +445,7 @@
     top: 100%;
   }
   .sign-up-btn svg {
-    margin-left: 4px;
+    margin-right: 14px;
   }
 }
 @media screen and (min-width: 1440px) {

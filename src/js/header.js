@@ -8,12 +8,9 @@ const lightLogoEl = document.querySelector('#logo-light');
 const darkLogoEl = document.querySelector('#logo-dark');
 const lightBagIcon = document.querySelector('#icon-bag');
 const darkBagIcon = document.querySelector('#icon-bag-black');
-const shoppingListLink = document.querySelector(
-  '.header-nav-item-shopping-list'
-);
-const mobShoppingListLink = document.querySelector(
-  '.mob-menu-nav-item-shopping-list'
-);
+
+const shoppingListLink = document.querySelector('.header-nav-item-shopping-list');
+const mobShoppingListLink = document.querySelector( '.mob-menu-nav-item-shopping-list');
 const isActiveIcon = document.querySelector('#is-active-icon');
 const mobLightIcon = document.querySelector('#mob-icon-light');
 const isActiveMobIcon = document.querySelector('#is-active-mob-icon');
@@ -114,15 +111,18 @@ if (localStorage.getItem('theme') === 'dark') {
   lightBagIcon.classList.add('visually-hidden');
   darkBagIcon.classList.remove('visually-hidden');
 }
-if (shoppingListLink.classList.contains('is-active')) {
-  isActiveIcon.classList.remove('visually-hidden');
+
+if(document.querySelector(".body-shopping-list")){
+  document.querySelector(".header-nav-item-home").classList.remove("is-active");
+  document.querySelector(".header-nav-item-shopping-list").classList.add("is-active");
   lightBagIcon.classList.add('null');
   darkBagIcon.classList.add('null');
-}
 
-if (mobShoppingListLink.classList.contains('is-active')) {
-  isActiveMobIcon.classList.remove('visually-hidden');
-  mobLightIcon.classList.add('visually-hidden');
+  isActiveIcon.classList.remove('visually-hidden');
+  document.querySelector(".mob-menu-nav-item-home").classList.remove("is-active");
+  mobShoppingListLink.classList.add("is-active");
+  document.querySelector("#mob-icon-light").classList.add('visually-hidden');
+document.querySelector("#is-active-mob-icon").classList.remove('visually-hidden');
 }
 
 headerSignUpBtn.addEventListener('click', () => {
@@ -134,6 +134,7 @@ seeLogOutBtn.addEventListener('click', () => {
   document.querySelector('.sign-log').classList.remove('is-hidden');
   headerLogOutBtn.classList.remove('is-hidden');
 });
+
 headerLogOutBtn.addEventListener('click', () => {
   headerLogOutBtn.classList.add('is-hidden');
   document.querySelector('.sign-log').classList.add('is-hidden');
