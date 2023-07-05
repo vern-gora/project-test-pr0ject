@@ -30,7 +30,7 @@
   font-weight: 600;
   background: var(--icon-logo);
 }
-.logo a{
+.logo a {
   width: 109px;
   height: 28px;
 }
@@ -96,7 +96,15 @@
 .header-nav {
   display: none;
 }
-.mob-menu.visually-hidden{
+.username {
+  justify-content: center;
+  font-family: 'DMSans-700', sans-serif;
+  font-size: 22px;
+  line-height: 28.64px;
+  width: 120px;
+  height: 29px;
+}
+.mob-menu.visually-hidden {
   transform: translateY(100%);
 }
 .mob-menu {
@@ -114,7 +122,7 @@
   position: absolute;
   top: 0px;
   transform: translateY(0%);
-  transition: transform  250ms linear;
+  transition: transform 250ms linear;
 }
 .mob-menu-wrap {
   display: flex;
@@ -161,30 +169,30 @@
 .user-photo {
   stroke: #fff;
 }
-.mob-menu-user-btn{
-    width: 184px;
-    height: 45px;
-    padding: 0;
-    margin-left: 20px;
-    background-color: transparent;
-    border: none;
-    border-radius: 18px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #fff;
+.mob-menu-user-btn {
+  width: 184px;
+  height: 45px;
+  padding: 0;
+  margin-left: 20px;
+  background-color: transparent;
+  border: none;
+  border-radius: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #fff;
 }
-.mob-menu-user-btn .username{
+.mob-menu-user-btn .username {
   margin-right: 0px;
   font-size: 22px;
-line-height: 28px;
+  line-height: 28px;
 }
-.user-photo-bg{
+.user-photo-bg {
   width: 37px;
   height: 37px;
   background-color: #fff;
-  border-radius: 50% ;
+  border-radius: 50%;
   margin-left: 12px;
   display: flex;
   align-items: center;
@@ -282,11 +290,11 @@ line-height: 28px;
 .is-active a {
   color: #111111;
 }
-.null{
+.null {
   display: none;
 }
 @media screen and (min-width: 375px) {
-  .header-container{
+  .header-container {
     width: 375px;
   }
   .mob-menu-wrap {
@@ -364,7 +372,7 @@ line-height: 28px;
   .theme-switcher {
     margin-right: 24px;
   }
-  .header-user-profile{
+  .header-user-profile {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -374,7 +382,7 @@ line-height: 28px;
     margin-right: 24px;
     margin-left: 20px;
   }
-  .sign-log{
+  .sign-log {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -383,19 +391,19 @@ line-height: 28px;
     height: 48px;
   }
   .sign-up-btn {
-  width: 184px;
-  height: 48px;
-  padding: 0;
-  background-color: #4f2ee8;
-  border: 2px solid #111111;
-  border-radius: 18px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  color: #fff;
+    width: 184px;
+    height: 48px;
+    padding: 0;
+    background-color: #4f2ee8;
+    border: 2px solid #111111;
+    border-radius: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
   }
-  .header-user-btn{
+  .header-user-btn {
     width: 184px;
     height: 45px;
     padding: 0;
@@ -408,23 +416,23 @@ line-height: 28px;
     cursor: pointer;
     color: #fff;
   }
-  .header-user-btn .username{
+  .header-user-btn .username {
     width: 87px;
     height: 29px;
     margin-right: 4px;
     font-size: 22px;
     line-height: 29px;
   }
-  .see-log-out{
-  width: 23px;
-  height: 26px;
-  margin-right: 12px;
+  .see-log-out {
+    width: 23px;
+    height: 26px;
+    margin-right: 12px;
   }
-  .see-log-out svg{
+  .see-log-out svg {
     width: 23px;
     height: 26px;
   }
-  .header-log-out-btn{
+  .header-log-out-btn {
     width: 184px;
     height: 45px;
     padding: 0;
@@ -442,7 +450,6 @@ line-height: 28px;
   .sign-up-btn svg {
     margin-left: 4px;
   }
-  
 }
 @media screen and (min-width: 1440px) {
   .header-container {

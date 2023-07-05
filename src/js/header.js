@@ -122,36 +122,33 @@ if (mobShoppingListLink.classList.contains('is-active')) {
   mobLightIcon.classList.add('visually-hidden');
 }
 
-headerSignUpBtn.addEventListener("click", ()=>{
+headerSignUpBtn.addEventListener('click', () => {
   headerSignUpBtn.classList.add('is-hidden');
   headerUserBtn.classList.remove('is-hidden');
-  document.querySelector(".sign-log").classList.remove('is-hidden');
-})
-seeLogOutBtn.addEventListener("click", ()=>{
-  document.querySelector(".sign-log").classList.remove('is-hidden');
+  document.querySelector('.sign-log').classList.remove('is-hidden');
+});
+seeLogOutBtn.addEventListener('click', () => {
+  document.querySelector('.sign-log').classList.remove('is-hidden');
   headerLogOutBtn.classList.remove('is-hidden');
-})
-headerLogOutBtn.addEventListener("click", ()=>{
+});
+headerLogOutBtn.addEventListener('click', () => {
   headerLogOutBtn.classList.add('is-hidden');
-  document.querySelector(".sign-log").classList.add('is-hidden');
+  document.querySelector('.sign-log').classList.add('is-hidden');
   headerSignUpBtn.classList.remove('is-hidden');
-})
+});
 
-
-mobMenuSignUpBtn.addEventListener("click", ()=>{
+mobMenuSignUpBtn.addEventListener('click', () => {
   mobMenuSignUpBtn.classList.add('is-hidden');
   mobMenuUserOutBtn.classList.remove('is-hidden');
   mobMenuLogOutBtn.classList.remove('is-hidden');
-})
-mobMenuLogOutBtn.addEventListener("click", ()=>{
+});
+mobMenuLogOutBtn.addEventListener('click', () => {
   mobMenuLogOutBtn.classList.add('is-hidden');
-
-})
-mobMenuLogOutBtn.addEventListener("click", ()=>{
+});
+mobMenuLogOutBtn.addEventListener('click', () => {
   mobMenuSignUpBtn.classList.remove('is-hidden');
   mobMenuUserOutBtn.classList.add('is-hidden');
-})
-
+});
 
 menuOpenBtn.addEventListener('click', () => {
   mobMenuEl.classList.toggle('visually-hidden');
@@ -184,4 +181,17 @@ document
   .querySelector('.theme-switcher')
   .addEventListener('click', switchTheme);
 
+const homeShoppingListLink = document.querySelector('.header-nav-item-home');
 
+// Get the current page URL
+const currentPageURL = window.location.href;
+console.log(currentPageURL);
+
+// Check if the current page URL matches the shopping list page
+if (currentPageURL.includes('shopping-list.html')) {
+  shoppingListLink.classList.add('is-active');
+  homeShoppingListLink.classList.remove('is-active');
+} else {
+  homeShoppingListLink.classList.add('is-active');
+  shoppingListLink.classList.remove('is-active');
+}
