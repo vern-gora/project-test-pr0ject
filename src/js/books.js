@@ -42,16 +42,18 @@ if (bookList) {
 
     // const savedBookId = localStorage.getItem('bookinfo');
     // const parsedBookId = JSON.parse(savedBookId);
-    const bookId = book.dataset.id;
-    searchById(bookId).then(data => {
-      let include = false;
-      const dataFromLS = JSON.parse(localStorage.getItem('shoppingData')) || [];
-      if (dataFromLS.find(({ _id }) => bookId === _id)) {
-        include = true;
-      } else {
-        include = false;
-      }
-      const markup = `<div class="modal-content-block">
+    if (book) {
+      const bookId = book.dataset.id;
+      searchById(bookId).then(data => {
+        let include = false;
+        const dataFromLS =
+          JSON.parse(localStorage.getItem('shoppingData')) || [];
+        if (dataFromLS.find(({ _id }) => bookId === _id)) {
+          include = true;
+        } else {
+          include = false;
+        }
+        const markup = `<div class="modal-content-block">
   <img
     class="main-img"
     src='${data.book_image}'
@@ -109,19 +111,20 @@ if (bookList) {
 </div>
 
 <button type="submit" class="modal-btn" data-id='${bookId}'>${
-        include ? 'REMOVE FROM SHOPPING LIST' : 'ADD TO SHOPPING LIST'
-      }</button>
+          include ? 'REMOVE FROM SHOPPING LIST' : 'ADD TO SHOPPING LIST'
+        }</button>
 <p class="modal-submit-text is-hidden">
   Сongratulations! You have added the book to the shopping list. To
   delete, press the button “Remove from the shopping list”.
 </p>`;
-      modalPopUpEl.innerHTML = markup;
+        modalPopUpEl.innerHTML = markup;
 
-      const btn = modalPopUpEl.querySelector('.modal-btn');
-      btn.addEventListener('click', addToShoppingListEl);
-      modalEl.classList.remove('is-hidden');
-      document.body.classList.add('no-scroll');
-    });
+        const btn = modalPopUpEl.querySelector('.modal-btn');
+        btn.addEventListener('click', addToShoppingListEl);
+        modalEl.classList.remove('is-hidden');
+        document.body.classList.add('no-scroll');
+      });
+    }
     modalCloseBtn.addEventListener('click', () => {
       modalEl.classList.add('is-hidden');
       document.body.classList.remove('no-scroll');
@@ -222,9 +225,14 @@ function renderCategories(array, container, categorySelected) {
       .map(({ author, image, title, id }) => {
         if (image) {
           return `<div class="home-card" data-id="${id}"  data-action="open-modal">
-                <img src="${image}" alt="${title}" class="home-book-image">
-                <h2 class="home-book-title">${title}</h2>
-                <h3 class="home-book-author">${author}</h3>
+                    <div class="home-book-image-container">
+                      <img src="${image}" alt="${title}" class="home-book-image">
+                        <div class="home-book-overlay">
+                          <div class="home-book-content">Quick view</div>
+                        </div>
+                    </div>  
+                    <h2 class="home-book-title">${title}</h2>
+                    <h3 class="home-book-author">${author}</h3>
               </div>`;
         }
 
@@ -243,6 +251,9 @@ function renderCategories(array, container, categorySelected) {
             "
             src="${defImg335}"
             alt="${title}" class="home-book-image">
+            <div class="home-book-overlay">
+                        <div class="home-book-content">Quick view</div>
+                      </div>
             <h2 class="home-book-title">${title}</h2>
             <h3 class="home-book-author">${author}</h3>
             </li>`;

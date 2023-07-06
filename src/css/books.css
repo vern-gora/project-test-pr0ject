@@ -19,7 +19,8 @@
   align-items: center;
 }
 
-.home-book-card:hover .home-book-overlay {
+.home-book-card:hover .home-book-overlay,
+.home-card:hover .home-book-overlay {
   height: 70px;
 }
 
