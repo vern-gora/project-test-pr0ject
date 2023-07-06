@@ -15,12 +15,8 @@ function trackScroll() {
 }
 
 function goTop() {
-  var categoryElement = document.getElementById('home-bestsellers-heading');
-  var offsetTop = categoryElement.offsetTop;
-
-  if (window.pageYOffset > offsetTop) {
+  if (window.pageYOffset > 0) {
     window.scrollBy(0, -25);
     setTimeout(goTop, 0);
   }
 }
-
