@@ -66,7 +66,7 @@ if (bookList) {
     <ul class="modal-list list">
             <li class="modal-item">
               <div class="modal-icon black_v">
-                <a href="${data.amazon_product_url}">
+                <a href="${data.amazon_product_url}" target="_blank">
                   <img class="modal-icon-img"
                     src="${amazon}"
                     alt="amazon"
@@ -78,7 +78,7 @@ if (bookList) {
             </li>
             <li class="modal-item">
               <div class="modal-icon">
-                <a href="${data.buy_links[1].url}">
+                <a href="${data.buy_links[1].url}" target="_blank">
                   <img class="modal-icon-img"
                     src="${apple_books}"
                     alt="apple books"
@@ -91,7 +91,7 @@ if (bookList) {
 
             <li class="modal-item">
               <div class="modal-icon">
-                <a href="${data.buy_links[4].url}">
+                <a href="${data.buy_links[4].url}" target="_blank">
                   <img class="modal-icon-img"
                     src="${book_shop}"
                     alt="book shop"
