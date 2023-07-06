@@ -149,7 +149,7 @@
   font-size: 8px;
   line-height: 1.2;
   letter-spacing: -0.4px;
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--white);
 }
 
 .modal-img-serv {
