@@ -27,12 +27,19 @@ const headerUserBtn = document.querySelector('.header-user-btn');
 // const mobMenuSignUpBtn = document.querySelector('.mob-menu-sign-up-btn');
 const mobMenuLogOutBtn = document.querySelector('.mob-menu-log-out-btn');
 // const mobMenuUserOutBtn = document.querySelector('.mob-menu-user-btn');
-
+let localS = localStorage.getItem('theme');
+if (localS === 'dark') {
+  document.querySelector("body").setAttribute('data-theme', 'dark');
+  if(document.querySelector('.body-shopping-list')){;
+  document.querySelector(".body-shopping-list").setAttribute('data-theme', 'dark');
+  };
+}
 if (localStorage.getItem('theme') === 'dark') {
   lightLogoEl.classList.add('is-hidden');
   darkLogoEl.classList.remove('is-hidden');
   lightBagIcon.classList.remove('visually-hidden');
   darkBagIcon.classList.add('visually-hidden');
+
 } else {
   lightBagIcon.classList.add('visually-hidden');
   darkBagIcon.classList.remove('visually-hidden');
