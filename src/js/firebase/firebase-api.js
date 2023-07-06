@@ -53,7 +53,7 @@ async function getUserData() {
   try {
     const userId = localStorage.getItem('userId');
     if (!userId) {
-      throw new Error('User ID not found in localStorage');
+      return;
     }
 
     const user = localStorage.getItem('user');
