@@ -12,7 +12,7 @@
 }
 
 .modal-close {
-  stroke: rgba(17, 17, 17, 1);
+  stroke: var(--deep-black);
   position: absolute;
   display: flex;
   align-items: center;
@@ -25,6 +25,10 @@
   background-color: var(--white);
   border: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover {
+  stroke: rgba(79, 46, 232, 1);
 }
 
 .modal-list {
@@ -55,7 +59,7 @@
   padding: 38px 22px;
   border-width: 2px;
   border-style: solid;
-  border-color: rgb(0, 0, 0);
+  border-color: var(--deep-black);
   border-radius: 18px;
   margin: 0px;
   transform: translate(-50%, -50%) scale(1);
@@ -72,6 +76,7 @@
   font-size: 16px;
   line-height: 1.125;
   font-weight: bold;
+  color: var(--deep-black);
 }
 
 .modal-author {
@@ -79,7 +84,7 @@
   font-size: 12px;
   line-height: 1.16;
   font-style: italic;
-  color: #b4afaf;
+  color: #B4AFAF;
 }
 
 .modal-description {
@@ -87,15 +92,22 @@
   font-size: 14px;
   line-height: 1.25;
   letter-spacing: -0.56px;
+  color: var(--deep-black);
+  overflow-y: auto;
 }
+
+
 
 .modal-icon {
   filter: grayscale(1);
 }
 
+.black_v {
+  filter: var(--modal-icon-color);
+}
+
 .modal-btn {
   display: block;
-  /* border-color: var(--purple); */
   border-radius: 40px;
   border-width: 2px;
   margin-top: 40px;
@@ -106,10 +118,29 @@
   line-height: 1.25;
   letter-spacing: -0.14px;
   font-weight: bold;
+  /* "light" */
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-
   border: 2px solid #4f2ee8;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: var(--white);
+  /* "dark" */
+  color: var(--deep-black);
+}
+
+.modal-btn:hover {
+  border-radius: 40px;
+  background: #4F2EE8;
+  color: var(--white);
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.modal-btn:focus {
+  border-radius: 40px;
+  background: #4F2EE8;
+  box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
+  color: var(--white);
 }
 
 .modal-submit-text {
@@ -142,9 +173,9 @@
     height: 408px;
   }
 
-  .modal-btn {
+  /* .modal-btn {
     border-color: var(--purple);
-  }
+  } */
 
   .modal-submit-text {
     margin-left: 23px;

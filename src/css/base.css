@@ -62,6 +62,7 @@ body[data-theme="light"] {
   --theme-switcher-gradient: linear-gradient(#4f2ee8, #fff);
   --categories-text: rgba(17, 17, 17, 0.60);
   --book-card-filter: brightness(0) invert(0);
+  --modal-icon-color: grayscale(1);
 }
 
 body[data-theme="dark"] {
@@ -80,6 +81,7 @@ body[data-theme="dark"] {
   --theme-switcher-gradient: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
   --categories-text: rgba(255, 255, 255, 0.60);
   --book-card-filter: brightness(0) invert(1);
+  --modal-icon-color: brightness(0) invert(1) grayscale(1) brightness(1) contrast(100%);
 }
 
 :root {
