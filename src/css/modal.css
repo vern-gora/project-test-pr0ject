@@ -84,7 +84,7 @@
   font-size: 12px;
   line-height: 1.16;
   font-style: italic;
-  color: #B4AFAF;
+  color: #b4afaf;
 }
 
 .modal-description {
@@ -95,8 +95,6 @@
   color: var(--deep-black);
   overflow-y: auto;
 }
-
-
 
 .modal-icon {
   filter: grayscale(1);
@@ -130,18 +128,18 @@
 
 .modal-btn:hover {
   border-radius: 40px;
-  background: #4F2EE8;
+  background: #4f2ee8;
   color: var(--white);
   text-shadow: none;
   box-shadow: none;
 }
 
-.modal-btn:focus {
+/* .modal-btn:focus {
   border-radius: 40px;
   background: #4F2EE8;
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
   color: var(--white);
-}
+} */
 
 .modal-submit-text {
   /* margin-left: 23px;
@@ -151,7 +149,7 @@
   font-size: 8px;
   line-height: 1.2;
   letter-spacing: -0.4px;
-  color: rgba(17, 17, 17, 0.50);
+  color: rgba(17, 17, 17, 0.5);
 }
 
 .modal-img-serv {
