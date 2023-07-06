@@ -199,7 +199,7 @@ function renderBooks(array) {
     button.addEventListener('click', e => {
       // e.preventDefault();
       const categoryButton = e.currentTarget;
-      categorySelected = categoryButton.dataset.category;
+      const categorySelected = categoryButton.dataset.category;
 
       searchCategory(categorySelected).then(data =>
         renderCategories(data, bookList, categorySelected)
@@ -210,9 +210,7 @@ function renderBooks(array) {
   return markup;
 }
 
-let categorySelected = '';
-
-function renderCategories(array, container) {
+function renderCategories(array, container, categorySelected) {
   loader.style.display = 'block';
   const markup =
     `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
