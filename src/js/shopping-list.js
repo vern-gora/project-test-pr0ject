@@ -8,7 +8,7 @@ import apple from '../img/services-png/image 2@1x.png';
 import apple_2x from '../img/services-png/image 2@2x.png';
 import bs from '../img/services-png/image 3@1x.png';
 import bs_2x from '../img/services-png/image 3@2x.png';
-import iconTrash from '../img/symbol-defs.svg#icon-trash';
+import iconTrash from '../img/symbol-defs.svg';
 
 // let shoppingStorage = [];
 function addToShoppingListEl(e) {
@@ -89,16 +89,8 @@ function renderShoppingList() {
   const getMarkup = array => `<div class="book-card-container">
 ${array
   .map(
-    ({
-      author,
-      book_image,
-      title,
-      _id,
-      list_name,
-      description,
-      buy_links,
-    }) => 
-    `<div class="sl-book-card">
+    ({ author, book_image, title, _id, list_name, description, buy_links }) =>
+      `<div class="sl-book-card">
                 <div class="sl-book-image-wrap">
                     <img class="sl-book-image" src="${book_image}" alt="${title}">
                 </div>
@@ -124,7 +116,7 @@ ${array
                     </div>
                     <button class="sl-book-cart-button" data-id=${_id}>
                         <svg class="sl-book-cart-button-icon" width="28" height="28">
-                            <use href="../img/symbol-defs.svg#icon-trash"></use>
+                            <use href='${iconTrash}#icon-trash'></use>
                         </svg>
                     </button>
                 </div>
@@ -134,6 +126,7 @@ ${array
             
         </div>`;
   shoppingListData.innerHTML = getMarkup(dataFromLS);
+
   shoppingListData.addEventListener('click', e => {
     if (!e.target.closest('.sl-book-cart-button')) {
       return;
