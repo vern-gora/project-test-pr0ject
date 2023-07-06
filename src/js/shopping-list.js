@@ -111,9 +111,9 @@ ${array
                             ${author}
                         </div>
                         <div class="sl-book-buy-link">
-                            <a href="${buy_links[0].url}"><img target="_blank" class="sl-link-img-amazon" src="${amazon}" srcset="${amazon} 1x, ${amazon_2x} 2x" alt="amazon"/></a>
-                            <a href="${buy_links[1].url}"><img target="_blank" class="sl-link-img-2" src="${apple}" srcset="${apple} 1x, ${apple_2x} 2x" alt="apple"/></a>
-                            <a href="${buy_links[4].url}"><img target="_blank" class="sl-link-img-3" src="${bs}" srcset="${bs} 1x, ${bs_2x} 2x" alt="book-shop"/></a>
+                            <a href="${buy_links[0].url}" target="_blank"><img class="sl-link-img-amazon" src="${amazon}" srcset="${amazon} 1x, ${amazon_2x} 2x" alt="amazon"/></a>
+                            <a href="${buy_links[1].url}" target="_blank"><img class="sl-link-img-2" src="${apple}" srcset="${apple} 1x, ${apple_2x} 2x" alt="apple"/></a>
+                            <a href="${buy_links[4].url}" target="_blank"><img class="sl-link-img-3" src="${bs}" srcset="${bs} 1x, ${bs_2x} 2x" alt="book-shop"/></a>
                         </div>
                     </div>
                     <button class="sl-book-cart-button" data-id=${_id}>
