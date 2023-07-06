@@ -25,6 +25,9 @@ fetch(apiUrl)
       const categories = data.map(item => item.list_name);
 
       const allCategoriesItem = document.querySelector('.categories-title');
+      setActiveCategory(allCategoriesItem);
+      renderAll();
+
       allCategoriesItem.addEventListener('click', () => {
         setActiveCategory(allCategoriesItem);
         renderAll();
