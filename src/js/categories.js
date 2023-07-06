@@ -41,7 +41,7 @@ fetch(apiUrl)
           setActiveCategory(clickedCategoryItem);
           const searchedCategory = clickedCategoryItem.textContent;
           searchCategory(searchedCategory).then(data =>
-            renderCategories(data, bookList)
+            renderCategories(data, bookList, searchedCategory)
           );
         });
       });

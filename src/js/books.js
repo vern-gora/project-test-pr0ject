@@ -191,7 +191,11 @@ function renderBooks(array) {
 
   // bookList.insertAdjacentHTML('beforeend', markup);
   // addToStorage();
-  bookList.innerHTML = markup;
+
+  const markupNew = `<h2 class="home-bestsellers-heading" id="home-bestsellers-heading">
+  Best Sellers<span class="books-design"> Books</span>
+  </h2>${markup}`;
+  bookList.innerHTML = markupNew;
 
   const buttons = document.querySelectorAll('.see-more');
 
@@ -199,7 +203,7 @@ function renderBooks(array) {
     button.addEventListener('click', e => {
       // e.preventDefault();
       const categoryButton = e.currentTarget;
-      categorySelected = categoryButton.dataset.category;
+      const categorySelected = categoryButton.dataset.category;
 
       searchCategory(categorySelected).then(data =>
         renderCategories(data, bookList, categorySelected)
@@ -210,9 +214,7 @@ function renderBooks(array) {
   return markup;
 }
 
-let categorySelected = '';
-
-function renderCategories(array, container) {
+function renderCategories(array, container, categorySelected) {
   loader.style.display = 'block';
   const markup =
     `<h2 class="category-name-heading" id="category-heading">${categorySelected}</h2><div class="test">` +
