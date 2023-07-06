@@ -1,5 +1,5 @@
 .site-footer {
-  background-color: var(--footer-bg-color);
+  background-image: var(--footer-bg-color);
   padding: 40px 0;
   text-align: center;
   color: var(--footer-text-color);
@@ -80,11 +80,16 @@
   font-family: DMSans-500;
 }
 :root {
-  --footer-bg-color: #271c49;
-  --footer-text-color: #6d6970;
-  --footer-link-color: #6d6970;
-  --footer-link-hover-color: #fff;
-  --footer-h6-color: #b9b91d;
+  --footer-bg-color:radial-gradient(
+    189.32% 190.93% at 59.76% -23.42%,
+    #4f2ee8 32.03%,
+    #fff 100%
+  );
+  --footer-text-color: #fff;
+  --footer-link-color: #fff;
+  --footer-link-hover-color: #a493da;
+  --footer-h6-color: #eac645;
 }
+
 
 
