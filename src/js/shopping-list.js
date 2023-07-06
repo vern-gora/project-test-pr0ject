@@ -139,8 +139,12 @@ ${array
 }
 
 export { renderShoppingList, addToShoppingListEl };
+
 const currentPageURL = window.location.href;
-if (currentPageURL === 'http://localhost:1234/shopping-list.html') {
+if (
+  currentPageURL ===
+  'https://vern-gora.github.io/project-test-pr0ject/shopping-list.html'
+) {
   renderShoppingList();
 }
 // renderShoppingList();
