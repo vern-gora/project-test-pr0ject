@@ -191,7 +191,11 @@ function renderBooks(array) {
 
   // bookList.insertAdjacentHTML('beforeend', markup);
   // addToStorage();
-  bookList.innerHTML = markup;
+
+  const markupNew = `<h2 class="home-bestsellers-heading" id="home-bestsellers-heading">
+  Best Sellers<span class="books-design"> Books</span>
+  </h2>${markup}`;
+  bookList.innerHTML = markupNew;
 
   const buttons = document.querySelectorAll('.see-more');
 
