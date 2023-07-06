@@ -7,8 +7,11 @@ import {
 import { addToShoppingListEl } from './shopping-list.js';
 
 import amazon from '../img/services-png/image 1@1x.png';
-import apple_books from '../img/services-png/image 2@1x.png';
-import book_shop from '../img/services-png/image 3@1x.png';
+import amazon_2x from '../img/services-png/image 1@2x.png';
+import apple from '../img/services-png/image 2@1x.png';
+import apple_2x from '../img/services-png/image 2@2x.png';
+import bs from '../img/services-png/image 3@1x.png';
+import bs_2x from '../img/services-png/image 3@2x.png';
 import defImg116 from '../img/default-img/def-img-116.jpg';
 import defImg180 from '../img/default-img/def-img-180.jpg';
 import defImg218 from '../img/default-img/def-img-218.jpg';
@@ -68,7 +71,7 @@ if (bookList) {
               <div class="modal-icon black_v">
                 <a href="${data.amazon_product_url}" target="_blank">
                   <img class="modal-icon-img"
-                    src="${amazon}"
+                    src="${amazon}" srcset="${amazon} 1x, ${amazon_2x} 2x"
                     alt="amazon"
                     width="62"
                     height="19"
@@ -80,7 +83,7 @@ if (bookList) {
               <div class="modal-icon">
                 <a href="${data.buy_links[1].url}" target="_blank">
                   <img class="modal-icon-img"
-                    src="${apple_books}"
+                    src="${apple}" srcset="${apple} 1x, ${apple_2x} 2x"
                     alt="apple books"
                     width="33"
                     height="32"
@@ -93,7 +96,7 @@ if (bookList) {
               <div class="modal-icon">
                 <a href="${data.buy_links[4].url}" target="_blank">
                   <img class="modal-icon-img"
-                    src="${book_shop}"
+                    src="${bs}" srcset="${bs} 1x, ${bs_2x} 2x"
                     alt="book shop"
                     width="38"
                     height="36"
