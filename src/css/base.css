@@ -43,6 +43,7 @@
   --switch-circle-pos: 2px;
   --theme-switcher-gradient: linear-gradient(#4f2ee8, #fff);
   --text-categories: #11111199;
+  
 }
 
 body[data-theme="light"] {
@@ -60,6 +61,7 @@ body[data-theme="light"] {
   --switch-circle-pos: 2px;
   --theme-switcher-gradient: linear-gradient(#4f2ee8, #fff);
   --categories-text: rgba(17, 17, 17, 0.60);
+  --book-card-filter: brightness(0) invert(0);
 }
 
 body[data-theme="dark"] {
@@ -77,6 +79,7 @@ body[data-theme="dark"] {
   --switch-circle-pos: 17px;
   --theme-switcher-gradient: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
   --categories-text: rgba(255, 255, 255, 0.60);
+  --book-card-filter: brightness(0) invert(1);
 }
 
 :root {
