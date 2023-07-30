@@ -131,6 +131,22 @@ if (bookList) {
       modalPopUpEl.innerHTML = '';
     });
   });
+
+  document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+      modalEl.classList.add('is-hidden');
+      document.body.classList.remove('no-scroll');
+      modalPopUpEl.innerHTML = '';
+}
+  });
+
+  modalEl.addEventListener('click', (event) => {
+    if (event.target === modalEl) {
+      modalEl.classList.add('is-hidden');
+      document.body.classList.remove('no-scroll');
+      modalPopUpEl.innerHTML = '';
+    }
+});
 }
 
 function renderAll() {
